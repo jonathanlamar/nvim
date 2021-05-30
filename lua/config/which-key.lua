@@ -51,7 +51,7 @@ local opts = {
 -- vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
 
 local mappings = {
-    ["/"] = {"<cmd>Commentary<CR>"                 , "comment"},
+    ["c"] = {"<cmd>Commentary<CR>"                 , "comment"},
     ["e"] = {"<cmd>NERDTreeToggle<CR>"             , "explorer"},
     ["f"] = {"<cmd>Telescope find_files<CR>"       , "search file"},
     ["T"] = {"<cmd>Telescope live_grep<CR>"        , "search text"},
@@ -61,13 +61,12 @@ local mappings = {
 
     g = {
         name = "+git",
-        a = {"<cmd>Git add .<CR>"                                 , "add all"},
-        A = {"<cmd>Git add %<CR>"                                 , "add current"},
+        A = {"<cmd>Git add .<CR>"                                 , "add all"},
+        a = {"<cmd>Git add %<CR>"                                 , "add current"},
         b = {"<cmd>Telescope git_branches<cr>"                    , "checkout branch"},
         B = {"<cmd>lua require\"gitsigns\".blame_line(true)<CR>"  , "blame line"},
         c = {"<cmd>Git commit<CR>"                                , "commit"},
         d = {"<cmd>Gdiffsplit<CR>"                                , "diff split"},
-        -- h = {"<cmd>GitGutterLineHighlightsToggle<CR>"             , "highlight hunks"},
         H = {"<cmd>lua require\"gitsigns\".preview_hunk()<CR>"    , "preview hunk"},
         j = {"<cmd>luarequire\"gitsigns\".next_hunk()<CR>"        , "next hunk"},
         k = {"<cmd>lua require\"gitsigns\".prev_hunk()<CR>"       , "prev hunk"},
@@ -79,7 +78,6 @@ local mappings = {
         R = {"<cmd>lua require\"gitsigns\".reset_buffer()<CR>"    , "reset buffer"},
         s = {"<cmd>lua require\"gitsigns\".stage_hunk()<CR>"      , "stage hunk"},
         S = {"<cmd>Gstatus<CR>"                                   , "git status"},
-        -- t = {"<cmd>GitGutterSignsToggle<CR>"                      , "toggle signs"},
         u = {"<cmd>lua require\"gitsigns\".undo_stage_hunk()<CR>" , "undo stage hunk"},
         v = {"<cmd>GV<CR>"                                        , "view commits"},
         V = {"<cmd>GV!<CR>"                                       , "view buffer commits"},
