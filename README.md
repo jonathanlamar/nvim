@@ -6,13 +6,16 @@ my dotfiles repo.  I learned a lot from watching
 more recently, I have started to move over to lua for most of my config,
 following the advice of [alpha2phi](https://alpha2phi.medium.com/).
 
+This config is designed primarily for _coding_.  As such, it has a lot of LSP
+and syntax plugins.  I have it configured for python, scala, and javascript.
+
 ## Installation
 
 1. Back up your neovim config.
 2. Clone this repo directly in `~/.config/nvim`.
 3. Make sure the dependencies are installed.
 4. In the nvim directory, create a python3 virtual environment called `venv` and
-    run `pip3 install -r requirements.txt`
+    run `pip install -r requirements.txt`
 5. Start neovim and run `:PackerInstall`
 
 ## Dependencies
