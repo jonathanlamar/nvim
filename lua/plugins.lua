@@ -93,6 +93,10 @@ return require('packer').startup(function()
   -- colorschemes, but does with gruvbox
   use { 'vim-python/python-syntax' }
 
+  -- Better syntax highlighting for markdown with support for mathjax
+  use { 'godlygeek/tabular' }
+  use { 'plasticboy/vim-markdown' }
+
   -- list of objects and members on side bar.
   use { 'majutsushi/tagbar' }
 
