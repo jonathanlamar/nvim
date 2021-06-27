@@ -1,6 +1,8 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
+vim.cmd 'let g:python3_host_prog = \'$HOME/.config/nvim/venv/bin/python3\''
+
 -- Sensible defaults
 require('settings')
 
