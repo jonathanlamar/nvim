@@ -11,12 +11,12 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
 
 ## Installation
 
-1. Back up your neovim config.
-2. Clone this repo directly in `~/.config/nvim`.
+1. Clone wherever you want.
+2. Back up your neovim config.
 3. Make sure the dependencies are installed.
-4. In the nvim directory, create a python3 virtual environment called `venv` and
-    run `pip install -r requirements.txt`
-5. Start neovim and run `:PackerInstall`
+4. Run `./install.sh`.  The files in this repo will be symlinked to your
+   `~/.config/nvim` folder.
+5. Start neovim and run `:PackerInstall`.
 
 ## Dependencies
 
@@ -26,3 +26,4 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
 * node.js
 * pyright
 * scala-metals
+* black python linter
