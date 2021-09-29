@@ -15,8 +15,8 @@ return require('packer').startup(function()
   use { 'tpope/vim-speeddating' }
 
   -- NERDTree for file navigation
-  use { 'preservim/nerdtree' }
-  use { 'Xuyuanp/nerdtree-git-plugin' }
+  -- use { 'preservim/nerdtree' }
+  -- use { 'Xuyuanp/nerdtree-git-plugin' }
 
   -- Airline for nifty info in the status and tablines
   use { 'vim-airline/vim-airline' }
@@ -59,11 +59,18 @@ return require('packer').startup(function()
 
   -- IDE features.  Although nvim has its own LSP module, it is hard to
   -- configure directly
-  use { 'neovim/nvim-lspconfig' }
-  use { 'hrsh7th/nvim-compe' }
-  use { 'glepnir/lspsaga.nvim' }
-  use { 'onsails/lspkind-nvim' }
-  use { "ray-x/lsp_signature.nvim" }
+  -- use { 'neovim/nvim-lspconfig' }
+  -- use { 'hrsh7th/nvim-compe' }
+  -- use { 'glepnir/lspsaga.nvim' }
+  -- use { 'onsails/lspkind-nvim' }
+  -- use { "ray-x/lsp_signature.nvim" }
+  use {
+    'neoclide/coc.nvim',
+    branch = "release",
+    config = function()
+      vim.cmd("source $HOME/.config/nvim/plugins/settings/coc-nvim.vim")
+    end
+  }
 
   -- nvim LSP for scala
   -- TODO: Not sure if needed anymore

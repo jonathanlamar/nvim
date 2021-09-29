@@ -1,7 +1,8 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
-vim.cmd 'let g:python3_host_prog = \'$HOME/.config/nvim/venv/bin/python3\''
+vim.cmd 'let g:python3_host_prog = \'$HOME/opt/miniconda3/envs/neovim/bin/python\''
+vim.cmd 'let g:tagbar_ctags_bin = \'$CTAGS\''
 
 -- Sensible defaults
 require('settings')
@@ -19,9 +20,6 @@ require('plugins')
 
 -- Key mappings
 require('keymappings')
-
--- Setup Lua language server using submodule
-require('lang')
 
 -- Another option is to groups configuration in one folder
 require('config')

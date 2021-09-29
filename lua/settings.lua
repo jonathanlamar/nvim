@@ -6,6 +6,7 @@ local indent = 4
 -- General look and feel
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
+cmd 'let mapleader = " "'
 utils.opt('o', 'clipboard','unnamed,unnamedplus')
 utils.opt('o', 'cmdheight', 2)
 utils.opt('o', 'encoding', 'utf-8')
@@ -18,6 +19,7 @@ utils.opt('o', 'writebackup', false)
 utils.opt('o', 'swapfile', false)
 utils.opt('o', 'showcmd', true)
 utils.opt('o', 'updatetime', 100)
+utils.opt('o', 'timeoutlen', 100)
 utils.opt('o', 'wildmenu', true)
 utils.opt('o', 'signcolumn', 'yes')
 utils.opt('o', 'fillchars', 'vert:│')

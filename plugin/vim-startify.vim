@@ -36,7 +36,7 @@ let g:startify_session_persistence = 1
 
 let g:startify_bookmarks = [
             \{ 'a'     : '~/.config/alacritty/alacritty.yml' },
-            \{ 'v'     : '~/.config/nvim/init.vim' },
+            \{ 'v'     : '~/.config/nvim/init.lua' },
             \{ 'doc'   : '~/Documents' },
             \{ 'dow'   : '~/Downloads' },
             \{ 'des'   : '~/Desktop' },
