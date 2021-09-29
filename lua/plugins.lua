@@ -68,7 +68,7 @@ return require('packer').startup(function()
     'neoclide/coc.nvim',
     branch = "release",
     config = function()
-      vim.cmd("source $HOME/.config/nvim/plugins/settings/coc-nvim.vim")
+      vim.cmd("source $HOME/.config/nvim/plugin/coc-nvim.vim")
     end
   }
 

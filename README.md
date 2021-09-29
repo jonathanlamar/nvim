@@ -16,12 +16,16 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
 3. Make sure the dependencies are installed.
 4. Run `./install.sh`.  The files in this repo will be symlinked to your
    `~/.config/nvim` folder.
+		* NOTE: This does not work unless run as user.  I need to figure out a
+			workaround for that.
 5. Start neovim and run `:PackerInstall`.
 
 ## Dependencies
 
 * neovim >= 0.5
+* packer
 * python3
+* conda
 * lua
 * node.js
 * pyright

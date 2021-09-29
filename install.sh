@@ -24,11 +24,16 @@ echo ${SYMLINKS[@]}
 #==============
 # Install virtual environment
 #==============
-cd $NVIMDIR
-virtualenv --system-site-packages venv
-source venv/bin/activate
+conda create -n neovim python=3.9
+conda activate neovim
 pip install -r requirements.txt
-deactivate
+conda deactivate
+
+#==============
+# Install Packer
+#==============
+git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 
 #==============
 # And we are done
