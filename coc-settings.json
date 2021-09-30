@@ -13,8 +13,9 @@
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pytypeEnabled": true,
   "python.venvPath": "$MINICONDA/envs",
-  "python.analysis.typeCheckingMode": "basic",
 
   // explorer
   "explorer.width": 30,

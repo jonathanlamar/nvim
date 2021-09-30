@@ -19,6 +19,9 @@ utils.map('n',  '<C-Down>',  '<Nop>')
 utils.map('n',  '<C-Left>',  '<Nop>')
 utils.map('n',  '<C-Right>', '<Nop>')
 
+utils.map('n',  '<S-h>',  '<cmd>bprev<cr>')
+utils.map('n',  '<S-l>', '<cmd>bnext<cr>')
+
 -- Insert mode nav keys
 utils.map('i',  '<C-k>', '<Up>')
 utils.map('i',  '<C-j>', '<Down>')

@@ -58,7 +58,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " Global extensions
 let g:coc_global_extensions = [
   \ 'coc-explorer',
-  \ 'coc-java',
   \ 'coc-json',
   \ 'coc-markdownlint',
   \ 'coc-metals',
