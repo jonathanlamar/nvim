@@ -9,8 +9,12 @@
   ],
 
   // python config
+  "python.formatting.provider": "black",
   "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": true,
+  "python.venvPath": "$MINICONDA/envs",
+  "python.analysis.typeCheckingMode": "basic",
 
   // explorer
   "explorer.width": 30,
