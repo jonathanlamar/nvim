@@ -15,7 +15,8 @@
   "python.linting.pylintEnabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.pytypeEnabled": true,
-  "python.venvPath": "$MINICONDA/envs",
+  "python.venvPath": "/Users/jon/opt/miniconda3/envs",
+  "python.formatting.blackPath": "/Users/jon/opt/miniconda3/envs/neovim/bin/black",
 
   // explorer
   "explorer.width": 30,
