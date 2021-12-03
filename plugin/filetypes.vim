@@ -8,4 +8,5 @@ source $HOME/.config/nvim/plugin/filetypes/python.vim
 source $HOME/.config/nvim/plugin/filetypes/scala.vim
 source $HOME/.config/nvim/plugin/filetypes/sql.vim
 source $HOME/.config/nvim/plugin/filetypes/vim.vim
+source $HOME/.config/nvim/plugin/filetypes/yaml.vim
 
