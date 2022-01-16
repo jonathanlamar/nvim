@@ -18,7 +18,9 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
    `~/.config/nvim` folder.
 		* NOTE: This does not work unless run as user.  I need to figure out a
 			workaround for that.
-5. Start neovim and run `:PackerInstall`.
+5. Place any settings specific to this amchine in a `lua/this_computer.lua` (create a blank file if
+   no settings are required).
+6. Start neovim and run `:PackerInstall`.
 
 ## Dependencies
 

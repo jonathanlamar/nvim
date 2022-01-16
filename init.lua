@@ -1,9 +1,6 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
-vim.cmd 'let g:python3_host_prog = \'/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/python\''
-vim.cmd 'let g:tagbar_ctags_bin = \'$CTAGS\''
-
 -- Sensible defaults
 require('settings')
 
@@ -23,3 +20,6 @@ require('keymappings')
 
 -- Another option is to groups configuration in one folder
 require('config')
+
+-- Settings specific to this computer.
+require('this_computer')
