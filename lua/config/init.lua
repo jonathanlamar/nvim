@@ -1,3 +1,6 @@
+require('config.barbar')
 require('config.colorscheme')
 require('config.gitsigns')
+require('config.nvim-autopairs')
+require('config.treesitter')
 require('config.which-key')

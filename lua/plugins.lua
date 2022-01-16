@@ -8,7 +8,6 @@ return require('packer').startup(function()
   -- General Functionality
 
   -- Repleat-plugin-with-.:
-  -- TODO: Come up with better mappings for this
   use { 'tpope/vim-repeat' }
 
   -- Increment dates and times with C-A and C-X
@@ -53,7 +52,18 @@ return require('packer').startup(function()
   use { 'tpope/vim-surround' }
 
   -- TODO: Not too happy with this one.  At least turn off for some filetypes.
-  use { 'jiangmiao/auto-pairs' }
+  -- use { 'jiangmiao/auto-pairs' }
+  use { 'windwp/nvim-autopairs' }
+
+  use {
+      'romgrk/barbar.nvim',
+      requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
 
 
 

@@ -1,7 +1,7 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
-vim.cmd 'let g:python3_host_prog = \'$MINICONDA/envs/neovim/bin/python\''
+vim.cmd 'let g:python3_host_prog = \'/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/python\''
 vim.cmd 'let g:tagbar_ctags_bin = \'$CTAGS\''
 
 -- Sensible defaults
