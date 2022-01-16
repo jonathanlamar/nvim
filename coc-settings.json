@@ -15,8 +15,6 @@
   "python.linting.pylintEnabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.pytypeEnabled": true,
-  "python.venvPath": "/opt/homebrew/Caskroom/miniforge/base/envs",
-  "python.formatting.blackPath": "/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/black",
 
   // explorer
   "explorer.width": 30,
