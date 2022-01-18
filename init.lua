@@ -1,6 +1,10 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
+-- Settings specific to this computer.
+vim.cmd("source $HOME/.config/nvim/plugin/this_computer.vim")
+require('this_computer')
+
 -- Sensible defaults
 require('settings')
 
@@ -20,6 +24,3 @@ require('keymappings')
 
 -- Another option is to groups configuration in one folder
 require('config')
-
--- Settings specific to this computer.
-require('this_computer')
