@@ -33,3 +33,4 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
 * pyright
 * scala-metals
 * black python linter
+* ripgrep
