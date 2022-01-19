@@ -3,3 +3,4 @@ venv/
 plugin/packer_compiled.vim
 plugin/packer_compiled.lua
 lua/this_computer.lua
+plugin/this_computer.vim
