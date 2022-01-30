@@ -30,14 +30,12 @@ return require('packer').startup(function()
   -- Neat icons
   use { 'ryanoasis/vim-devicons' }
 
-  -- Distraction-free markdown writing
-  use { 'junegunn/goyo.vim' }
-
   -- tmux integration
   use { 'christoomey/vim-tmux-navigator' }
 
   -- Color scheme
-  use { 'sainnhe/gruvbox-material' }
+  -- use { 'sainnhe/gruvbox-material' }
+  use { 'navarasu/onedark.nvim' }
 
   -- Fuzzy finder
   use {

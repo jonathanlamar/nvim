@@ -139,12 +139,12 @@ local mappings = {
     t = {
         name = "+toggle",
         c = {"<cmd>TagbarToggle<cr>"           , "tagbar"},
-        g = {"<cmd>call GoyoNoLines()<CR>"     , "goyo"},
         n = {"<cmd>set nonumber!<CR>"          , "line-numbers"},
         r = {"<cmd>set norelativenumber!<CR>"  , "relative line nums"},
-        s = {"<cmd>let @/ = \"\"<CR>"            , "remove search highlight"},
+        s = {"<cmd>let @/ = \"\"<CR>"          , "remove search highlight"},
         t = {"<cmd>call TermToggle(0.3)<CR>"   , "terminal"},
-        w = {"<cmd>set nowrap!<CR>"            , "wrap text"}
+        w = {"<cmd>set nowrap!<CR>"            , "wrap text"},
+        z = {"<cmd>ZenMode<CR>"                , "zen mode"}
     }
 }
 
