@@ -1,10 +1,6 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
--- Settings specific to this computer.
-vim.cmd("source $HOME/.config/nvim/plugin/this_computer.vim")
-require('this_computer')
-
 -- Sensible defaults
 require('settings')
 
@@ -15,6 +11,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
+
+-- Settings specific to this computer.
+-- TODO: This can interfere with fresh install of packer.
+-- Comment these lines out if PackerInstall etc. are not available after cloning.
+vim.cmd("source $HOME/.config/nvim/plugin/this_computer.vim")
+require('this_computer')
 
 -- Install plugins
 require('plugins')

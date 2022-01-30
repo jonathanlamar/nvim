@@ -69,11 +69,6 @@ return require('packer').startup(function()
 
   -- IDE features.  Although nvim has its own LSP module, it is hard to
   -- configure directly
-  -- use { 'neovim/nvim-lspconfig' }
-  -- use { 'hrsh7th/nvim-compe' }
-  -- use { 'glepnir/lspsaga.nvim' }
-  -- use { 'onsails/lspkind-nvim' }
-  -- use { "ray-x/lsp_signature.nvim" }
   use {
     'neoclide/coc.nvim',
     branch = "release",
@@ -81,6 +76,7 @@ return require('packer').startup(function()
       vim.cmd("source $HOME/.config/nvim/plugin/coc-nvim.vim")
     end
   }
+  use { 'kosayoda/nvim-lightbulb' }
 
   -- nvim LSP for scala
   -- TODO: Not sure if needed anymore
