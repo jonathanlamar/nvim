@@ -88,6 +88,7 @@ local mappings = {
 
     l = {
         name = "+lsp",
+        a = {'<cmd>CocAction<cr>'                   , 'action'},
         C = {'<cmd>CocConfig<cr>'                   , 'config'},
         c = {'<cmd>CocList commands<cr>'            , 'commands'},
         d = {'<cmd>Pydocstring<cr>'                 , 'docstring'},

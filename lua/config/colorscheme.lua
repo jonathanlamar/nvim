@@ -5,9 +5,9 @@ utils.opt('o', 'termguicolors', true)
 -- Set contrast.
 -- This configuration option should be placed before `colorscheme gruvbox-material`.
 -- Available values: 'hard', 'medium'(default), 'soft'
--- cmd 'let g:gruvbox_material_background = \'soft\''
+cmd 'let g:gruvbox_material_background = \'hard\''
 -- Can also do this
-cmd 'let g:gruvbox_material_transparent_background = 1'
+cmd 'let g:gruvbox_material_transparent_background = 0'
 
 -- This should go at the bottom
 cmd 'colorscheme gruvbox-material'

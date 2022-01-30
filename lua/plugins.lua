@@ -51,10 +51,6 @@ return require('packer').startup(function()
   -- Surround-movement-with-X:
   use { 'tpope/vim-surround' }
 
-  -- TODO: Not too happy with this one.  At least turn off for some filetypes.
-  -- use { 'jiangmiao/auto-pairs' }
-  use { 'windwp/nvim-autopairs' }
-
   use {
       'romgrk/barbar.nvim',
       requires = {'kyazdani42/nvim-web-devicons'}
@@ -63,6 +59,11 @@ return require('packer').startup(function()
   use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
+  }
+
+  use {
+      "folke/zen-mode.nvim",
+      requires = {'folke/twilight.nvim'}
   }
 
 
@@ -76,16 +77,9 @@ return require('packer').startup(function()
       vim.cmd("source $HOME/.config/nvim/plugin/coc-nvim.vim")
     end
   }
-  use { 'kosayoda/nvim-lightbulb' }
-
-  -- nvim LSP for scala
-  -- TODO: Not sure if needed anymore
-  -- use { 'scalameta/nvim-metals' }
-
-  -- Code formatting
-  use { 'sbdchd/neoformat' }
 
   -- Snippets
+  -- TODO: Configure
   use { 'hrsh7th/vim-vsnip' }
   use { 'cstrap/python-snippets' }
   use { 'ylcnfrht/vscode-python-snippet-pack' }
@@ -102,25 +96,17 @@ return require('packer').startup(function()
   -- Better syntax highlighting for java
   use { 'uiiaoo/java-syntax.vim' }
 
-  -- Nice python syntax highlighting.  Doesn't seem to work with all
-  -- colorschemes, but does with gruvbox
-  use { 'vim-python/python-syntax' }
-
   -- Better syntax highlighting for markdown with support for mathjax
   use { 'godlygeek/tabular' }
   use { 'plasticboy/vim-markdown' }
+
+  use { 'windwp/nvim-autopairs' }
 
   -- list of objects and members on side bar.
   use { 'majutsushi/tagbar' }
 
   -- Generate python docstrings
   use { 'heavenshell/vim-pydocstring', run = 'make install' }
-
-  -- Lua support for LSP
-  -- TODO: Is there something that doesn't require installing niche software?
-  -- use { 'tjdevries/nlua.nvim' }
-
-
 
   -- Git integration
   -- See hunks in gutter
