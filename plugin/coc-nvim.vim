@@ -61,6 +61,7 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-json',
   \ 'coc-markdownlint',
+  \ 'coc-marketplace',
   \ 'coc-metals',
   \ 'coc-prettier',
   \ 'coc-pyright',

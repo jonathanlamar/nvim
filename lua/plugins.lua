@@ -13,13 +13,6 @@ return require('packer').startup(function()
   -- Increment dates and times with C-A and C-X
   use { 'tpope/vim-speeddating' }
 
-  -- NERDTree for file navigation
-  -- use { 'preservim/nerdtree' }
-  -- use { 'Xuyuanp/nerdtree-git-plugin' }
-
-  -- Airline for nifty info in the status and tablines
-  -- use { 'vim-airline/vim-airline' }
-  -- use { 'vim-airline/vim-airline-themes' }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -86,10 +79,6 @@ return require('packer').startup(function()
   use { 'cstrap/python-snippets' }
   use { 'ylcnfrht/vscode-python-snippet-pack' }
 
-  -- Vim dispatch for builds.  Not needed right now.
-  -- TODO: Set this up for scala.
-  -- use { 'tpope/vim-dispatch' }
-
   -- Syntax highlighting for many languages
   use { 'sheerun/vim-polyglot' }
 
@@ -112,7 +101,6 @@ return require('packer').startup(function()
 
   -- Git integration
   -- See hunks in gutter
-  -- use { 'airblade/vim-gitgutter' }
   use { 'lewis6991/gitsigns.nvim' }
 
   -- See commit history in nice UI
