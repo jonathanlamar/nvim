@@ -18,8 +18,12 @@ return require('packer').startup(function()
   -- use { 'Xuyuanp/nerdtree-git-plugin' }
 
   -- Airline for nifty info in the status and tablines
-  use { 'vim-airline/vim-airline' }
-  use { 'vim-airline/vim-airline-themes' }
+  -- use { 'vim-airline/vim-airline' }
+  -- use { 'vim-airline/vim-airline-themes' }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   -- Don't forget mappings
   use { 'folke/which-key.nvim' }
