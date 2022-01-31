@@ -48,7 +48,7 @@ vim.g.bufferline = {
   maximum_padding = 1,
 
   -- Sets the maximum buffer name length.
-  maximum_length = 30,
+  maximum_length = 100,
 
   -- If set, the letters for each buffer in buffer-pick mode will be
   -- assigned based on their name. Otherwise or in case all letters are
