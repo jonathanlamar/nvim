@@ -15,6 +15,7 @@
   "python.linting.pylintEnabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.pytypeEnabled": true,
+  "python.analysis.autoImportCompletions": true,
 
   // explorer
   "explorer.width": 40,
