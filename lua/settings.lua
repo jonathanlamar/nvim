@@ -47,9 +47,7 @@ utils.opt('o', 'wildmode', 'list:longest')
 -- Folds
 utils.opt('o', 'foldenable', true)
 utils.opt('o', 'foldlevelstart', 100)
-utils.opt('o', 'foldnestmax', 1000)
-utils.opt('o', 'foldmethod', 'expr')
-utils.opt('o', 'foldexpr', 'nvim_treesitter#foldexpr()')
+utils.opt('o', 'foldnestmax', 5)
 
 -- Move cursorline to active window
 cmd 'autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline'

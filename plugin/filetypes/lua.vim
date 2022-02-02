@@ -4,6 +4,7 @@ augroup lua
   autocmd FileType lua set softtabstop=2
   autocmd FileType lua set shiftwidth=2
   autocmd FileType lua set softtabstop=2
+  autocmd Filetype lua set foldmethod=indent
   autocmd BufWritePre *.lua %s/\s\+$//e " Remove all trailing whitespace
 augroup end
 

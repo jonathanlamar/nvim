@@ -8,7 +8,7 @@ augroup javascript
   autocmd FileType javascript set expandtab
   autocmd FileType javascript set autoindent
   autocmd FileType javascript set colorcolumn=80
-  " autocmd filetype javascript set foldmethod=indent
+  autocmd Filetype javascript set foldmethod=indent
   autocmd BufWritePre *.js,*.ts %s/\s\+$//e " Remove all trailing whitespace
 augroup end
 

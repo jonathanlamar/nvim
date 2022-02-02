@@ -4,6 +4,7 @@ augroup sql
   autocmd FileType sql set softtabstop=2
   autocmd FileType sql set shiftwidth=2
   autocmd FileType sql set softtabstop=2
+  autocmd FileType sql set foldmethod=indent
   autocmd BufWritePre *.sql %s/\s\+$//e
 augroup end
 

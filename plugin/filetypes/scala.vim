@@ -5,7 +5,7 @@ augroup scala
   autocmd FileType scala set softtabstop=2
   autocmd FileType scala set shiftwidth=2
   autocmd FileType scala set softtabstop=2
-  " autocmd FileType scala set foldmethod=syntax " This will do for now
+  autocmd FileType scala set foldmethod=syntax " This will do for now
   autocmd FileType scala set colorcolumn=100
   autocmd BufWritePre *.scala,*.sbt %s/\s\+$//e
   autocmd BufWritePre *.scala,*.sbt :SortScalaImports

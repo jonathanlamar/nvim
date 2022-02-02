@@ -7,5 +7,6 @@ augroup markdown
   autocmd BufWritePre *.md %s/\s\+$//e
   autocmd FileType markdown set textwidth=100
   autocmd FileType markdown set colorcolumn=100
+  autocmd FileType markdown set foldmethod=indent
 augroup end
 

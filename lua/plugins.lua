@@ -46,20 +46,26 @@ return require('packer').startup(function()
   -- Surround-movement-with-X:
   use { 'tpope/vim-surround' }
 
+  -- Buffer line
   use {
       'romgrk/barbar.nvim',
       requires = {'kyazdani42/nvim-web-devicons'}
   }
 
+  -- This is useful or something.  IDK.
   use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
   }
 
+  -- ADHD mode
   use {
       "folke/zen-mode.nvim",
       requires = {'folke/twilight.nvim'}
   }
+
+  -- Nicer looking folds
+  use { 'anuvyklack/pretty-fold.nvim' }
 
 
 
