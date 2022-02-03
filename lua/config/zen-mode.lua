@@ -25,7 +25,7 @@ require("zen-mode").setup {
     options = {
       enabled = true,
       ruler = false, -- disables the ruler text in the cmd line area
-      showcmd = false, -- disables the command in the last line of the screen
+      showcmd = true, -- disables the command in the last line of the screen
     },
     twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
     gitsigns = { enabled = false }, -- disables git signs
@@ -41,8 +41,10 @@ require("zen-mode").setup {
   },
   -- callback where you can add custom code when the Zen window opens
   on_open = function(win)
+    vim.cmd("CocDisable")
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
+    vim.cmd("CocEnable")
   end,
 }
