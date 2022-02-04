@@ -83,7 +83,6 @@ nvim_tree.setup({
 				{ key = "v", cb = tree_cb("vsplit") },
                 { key = "<BS>", cb = tree_cb("dir_up")},
                 { key = ".", cb = tree_cb("toggle_dotfiles") },
-                { key = "I", cb = tree_cb("toggle_hidden") }, -- this is default
 			},
 		},
 		number = false,
