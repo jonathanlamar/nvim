@@ -100,7 +100,7 @@ local mappings = {
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		-- docstring?
 		d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
-		D = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics" },
+		D = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -109,23 +109,20 @@ local mappings = {
 			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
 			D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
 			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-			-- references
 			n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-			-- next error
 			p = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
-			-- prev error
+			r = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
 			-- type definition
 		},
 		h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover text" },
 		-- This may be the same as hover text
 		H = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-		w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
+		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
 	},
 
 	p = {

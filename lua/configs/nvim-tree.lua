@@ -60,8 +60,8 @@ nvim_tree.setup({
 		},
 	},
 	update_focused_file = {
-		enable = true,
-		update_cwd = true,
+		enable = false,
+		update_cwd = false,
 		ignore_list = {},
 	},
 	git = {
@@ -79,8 +79,11 @@ nvim_tree.setup({
 			custom_only = false,
 			list = {
 				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
+				{ key = "h", cb = tree_cb("split") },
 				{ key = "v", cb = tree_cb("vsplit") },
+                { key = "<BS>", cb = tree_cb("dir_up")},
+                { key = ".", cb = tree_cb("toggle_dotfiles") },
+                { key = "I", cb = tree_cb("toggle_hidden") }, -- this is default
 			},
 		},
 		number = false,
