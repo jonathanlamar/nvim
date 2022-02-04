@@ -1,9 +1,9 @@
-require("settings")
-require("keymappings")
-
 require("plugins")
 require("configs")
 require("colorscheme")
+
+require("settings")
+require("keymappings")
 
 require("lsp")
 require("autocommands")

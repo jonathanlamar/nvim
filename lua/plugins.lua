@@ -10,7 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		"--depth",
 		"1",
 		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		install_path .. "/packer.nvim",
 	})
 	print("Installing packer close and reopen Neovim...")
 	vim.cmd([[packadd packer.nvim]])
@@ -39,9 +39,9 @@ packer.init({
 	},
 })
 
-return require("packer").startup(function()
+return packer.startup(function()
 	-- Packer can manage itself as an optional plugin
-	use({ "wbthomason/packer.nvim", opt = true })
+	use({ "wbthomason/packer.nvim" })
 
 	-- General Functionality
 	-- Repleat-plugin-with-.:
