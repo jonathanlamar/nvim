@@ -155,7 +155,8 @@ local mappings = {
 		n = { "<cmd>set nonumber!<CR>", "line-numbers" },
 		r = { "<cmd>set norelativenumber!<CR>", "relative line nums" },
 		s = { '<cmd>let @/ = ""<CR>', "remove search highlight" },
-		-- t = { "<cmd>ToggleTerm<CR>", "terminal" }, -- Better to use a control-mapping here
+		t = { "<cmd>ToggleTerm direction=vertical<CR>", "terminal" },
+		T = { "<cmd>ToggleTerm direction=horizontal<CR>", "terminal" },
 		w = { "<cmd>set nowrap!<CR>", "wrap text" },
 		z = { "<cmd>ZenMode<CR>", "zen mode" },
 	},

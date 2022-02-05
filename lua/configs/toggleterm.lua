@@ -3,8 +3,16 @@ if not status_ok then
 	return
 end
 
+local window_size = function(term)
+	if term.direction == "horizontal" then
+		return 15
+	elseif term.direction == "vertical" then
+		return math.floor(vim.o.columns * 0.4)
+	end
+end
+
 toggleterm.setup({
-	size = 20,
+	size = window_size,
 	-- open_mapping = [[<C-\>]], -- IDKm but this doesn't work for me
 	open_mapping = [[<C-t>]],
 	hide_numbers = true,
@@ -14,12 +22,14 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "horizontal",
+	direction = "float",
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
 		border = "curved",
-		winblend = 0,
+		width = math.floor(vim.o.columns*0.5),
+		--height = vim.o.rows*0.5,
+		winblend = 15,
 		highlights = {
 			border = "Normal",
 			background = "Normal",

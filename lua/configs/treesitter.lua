@@ -39,7 +39,7 @@ require("nvim-treesitter.configs").setup({
 		additional_vim_regex_highlighting = true,
 	},
 	-- indent is terrible
-	indent = { enable = false, disable = { "python" } },
+	indent = { enable = true, disable = { } },
 	rainbow = {
 		enable = true,
 		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

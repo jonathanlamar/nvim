@@ -33,7 +33,6 @@ augroup javascript
   autocmd!
   autocmd BufRead,BufNewFile  *.ts set filetype=javascript
   autocmd BufRead,BufNewFile  *.jsx set filetype=javascript
-  autocmd FileType javascript set autoindent
   autocmd FileType javascript set colorcolumn=100
   autocmd Filetype javascript set foldmethod=indent
   autocmd BufWritePre *.js,*.ts %s/\s\+$//e " Remove all trailing whitespace
@@ -47,10 +46,6 @@ augroup end
 
 augroup markdown
   autocmd!
-  autocmd FileType markdown set tabstop=4
-  autocmd FileType markdown set softtabstop=4
-  autocmd FileType markdown set shiftwidth=4
-  autocmd FileType markdown set softtabstop=4
   autocmd BufWritePre *.md %s/\s\+$//e
   autocmd FileType markdown set textwidth=100
   autocmd FileType markdown set colorcolumn=100
@@ -59,14 +54,8 @@ augroup end
 
 augroup python
   autocmd!
-  autocmd FileType python set shiftwidth=4
-  autocmd FileType python set softtabstop=4
-  autocmd FileType python set tabstop=4
-  autocmd FileType python set expandtab
-  autocmd FileType python set autoindent
   autocmd FileType python set colorcolumn=100
   autocmd FileType python set textwidth=100
-  autocmd FileType python set formatoptions-=t
   autocmd BufRead,BufNewFile  *.ipynb set syntax=python " TODO Set filetype=python for these files
   autocmd Filetype python set foldmethod=indent
   autocmd BufWritePre *.py %s/\s\+$//e " Remove all trailing whitespace
@@ -78,7 +67,6 @@ augroup scala
   autocmd FileType scala set foldmethod=syntax " This will do for now
   autocmd FileType scala set colorcolumn=100
   autocmd BufWritePre *.scala,*.sbt %s/\s\+$//e
-  autocmd BufWritePre *.scala,*.sbt :SortScalaImports
 augroup end
 
 augroup sql
