@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 30,
+	size = 20,
 	-- open_mapping = [[<C-\>]], -- IDKm but this doesn't work for me
 	open_mapping = [[<C-t>]],
 	hide_numbers = true,

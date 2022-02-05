@@ -111,7 +111,6 @@ local mappings = {
 			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
 			n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 			p = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-			r = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
 			-- type definition
 		},
 		h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover text" },
@@ -120,6 +119,7 @@ local mappings = {
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        R = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
 		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
@@ -155,7 +155,7 @@ local mappings = {
 		n = { "<cmd>set nonumber!<CR>", "line-numbers" },
 		r = { "<cmd>set norelativenumber!<CR>", "relative line nums" },
 		s = { '<cmd>let @/ = ""<CR>', "remove search highlight" },
-		t = { "<cmd>call TermToggle(0.3)<CR>", "terminal" },
+		-- t = { "<cmd>ToggleTerm<CR>", "terminal" }, -- Better to use a control-mapping here
 		w = { "<cmd>set nowrap!<CR>", "wrap text" },
 		z = { "<cmd>ZenMode<CR>", "zen mode" },
 	},
