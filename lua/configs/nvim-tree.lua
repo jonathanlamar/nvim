@@ -33,6 +33,10 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+-- These settings are still being migrated to the setup function.
+-- For now, they must be called in vimscript
+vim.cmd("let g:nvim_tree_group_empty = 1")
+
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -42,6 +46,9 @@ nvim_tree.setup({
 		"dashboard",
 		"alpha",
 	},
+    filters = {
+        dotfiles = true
+    },
 	auto_close = true,
 	open_on_tab = false,
 	hijack_cursor = false,
