@@ -36,7 +36,9 @@ keymap("n", "<C-Right>", "<Nop>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-M-l>", ":BufflerLineMoveNext<cr>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-M-h>", ":BufflerLineMovePrev<cr>", opts)
 
 -- Insert mode nav keys
 keymap("i", "<C-k>", "<Up>", opts)
