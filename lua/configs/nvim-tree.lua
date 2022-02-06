@@ -46,9 +46,9 @@ nvim_tree.setup({
 		"dashboard",
 		"alpha",
 	},
-    filters = {
-        dotfiles = true
-    },
+	filters = {
+		dotfiles = true,
+	},
 	auto_close = true,
 	open_on_tab = false,
 	hijack_cursor = false,
@@ -88,8 +88,8 @@ nvim_tree.setup({
 				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
 				{ key = "h", cb = tree_cb("split") },
 				{ key = "v", cb = tree_cb("vsplit") },
-                { key = "<BS>", cb = tree_cb("dir_up")},
-                { key = ".", cb = tree_cb("toggle_dotfiles") },
+				{ key = "<BS>", cb = tree_cb("dir_up") },
+				{ key = ".", cb = tree_cb("toggle_dotfiles") },
 			},
 		},
 		number = false,

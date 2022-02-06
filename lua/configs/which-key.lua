@@ -54,7 +54,7 @@ function _G.close_all_other_buffers()
 end
 
 local mappings = {
-    -- This doesn't work for some reason
+	-- This doesn't work for some reason
 	-- ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<CR>", "Start screen" },
 	["b"] = {
@@ -119,7 +119,7 @@ local mappings = {
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        R = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
+		R = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
 		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },

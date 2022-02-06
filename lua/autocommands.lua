@@ -7,7 +7,7 @@ function _G.set_terminal_keymaps()
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd [[
+vim.cmd([[
   "" Highlight on yank
 autocmd TextYankPost * lua vim.highlight.on_yank {on_visual = false}
 
@@ -86,4 +86,4 @@ augroup yaml
   autocmd!
   autocmd Filetype yaml set foldmethod=indent
 augroup end
-]]
+]])

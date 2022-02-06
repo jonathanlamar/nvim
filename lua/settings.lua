@@ -30,7 +30,7 @@ local options = {
 	softtabstop = 4,
 	tabstop = 4,
 	expandtab = true,
-	smartindent = true,
+	-- smartindent = true, -- not sure about this and treesitter
 
 	-- Searching
 	ignorecase = true,
@@ -39,8 +39,10 @@ local options = {
 
 	-- Folds
 	foldenable = true,
-	foldlevelstart = 100,
-	foldnestmax = 5,
+	-- foldlevelstart = 100,
+	-- foldnestmax = 5,
+	foldmethod = "expr",
+	foldexpr = "nvim_treesitter#foldexpr()",
 }
 
 for k, v in pairs(options) do
