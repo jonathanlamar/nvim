@@ -90,6 +90,8 @@ nvim_tree.setup({
 				{ key = "v", cb = tree_cb("vsplit") },
 				{ key = "<BS>", cb = tree_cb("dir_up") },
 				{ key = ".", cb = tree_cb("toggle_dotfiles") },
+				-- { key = "<C-t>", cb = vim.cmd("ToggleTerm") }, -- this does not work
+				{ key = "<C-t>", cb = "" }, -- this does not work
 			},
 		},
 		number = false,

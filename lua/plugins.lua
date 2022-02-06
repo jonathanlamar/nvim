@@ -41,9 +41,9 @@ packer.init({
 
 return packer.startup(function()
 	-- Packer can manage itself as an optional plugin
-	use({ "wbthomason/packer.nvim" })
+	use("wbthomason/packer.nvim")
 
-	use({ "tpope/vim-repeat" }) -- General Functionality Repleat-plugin-with-.:
+	use("tpope/vim-repeat") -- General Functionality Repleat-plugin-with-.:
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -52,17 +52,17 @@ return packer.startup(function()
 		"kyazdani42/nvim-tree.lua",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	}) -- File explorer
-	use({ "folke/which-key.nvim" }) -- Don't forget mappings
-	use({ "goolord/alpha-nvim" }) -- Start Screen
-	use({ "antoinemadec/FixCursorHold.nvim" })
-	use({ "christoomey/vim-tmux-navigator" }) -- tmux integration
-	use({ "navarasu/onedark.nvim" }) -- Color scheme
+	use("folke/which-key.nvim") -- Don't forget mappings
+	use("goolord/alpha-nvim") -- Start Screen
+	use("antoinemadec/FixCursorHold.nvim")
+	use("christoomey/vim-tmux-navigator") -- tmux integration
+	use("navarasu/onedark.nvim") -- Color scheme
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
 	}) -- Fuzzy finder
 	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use({ "tpope/vim-surround" }) -- Surround-movement-with-X:
+	use("tpope/vim-surround") -- Surround-movement-with-X:
 
 	use("akinsho/bufferline.nvim") -- Buffer line
 	use("moll/vim-bbye")
@@ -76,8 +76,8 @@ return packer.startup(function()
 		"folke/zen-mode.nvim",
 		requires = { "folke/twilight.nvim" },
 	}) -- ADHD mode
-	use({ "anuvyklack/pretty-fold.nvim" }) -- Nicer looking folds
-	use({ "akinsho/toggleterm.nvim" })
+	use("anuvyklack/pretty-fold.nvim") -- Nicer looking folds
+	use("akinsho/toggleterm.nvim")
 
 	-- CODING
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -92,15 +92,15 @@ return packer.startup(function()
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	use({ "windwp/nvim-autopairs" })
-	use({ "folke/trouble.nvim" })
-	use({ "majutsushi/tagbar" }) -- list of objects and members on side bar.
+	use("windwp/nvim-autopairs")
+	use("folke/trouble.nvim")
+	use("majutsushi/tagbar") -- list of objects and members on side bar.
 
 	-- Git integration
-	use({ "lewis6991/gitsigns.nvim" }) -- See hunks in gutter
-	use({ "junegunn/gv.vim" }) -- See commit history in nice UI
-	use({ "tpope/vim-fugitive" }) -- Integration for git in vim.
-	use({ "tpope/vim-rhubarb" }) -- This enables GBrowse and some other github-specific functionality for fugitive.
+	use("lewis6991/gitsigns.nvim") -- See hunks in gutter
+	use("junegunn/gv.vim") -- See commit history in nice UI
+	use("tpope/vim-fugitive") -- Integration for git in vim.
+	use("tpope/vim-rhubarb") -- This enables GBrowse and some other github-specific functionality for fugitive.
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
