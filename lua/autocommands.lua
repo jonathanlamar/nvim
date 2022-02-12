@@ -33,12 +33,12 @@ augroup javascript
   autocmd BufRead,BufNewFile  *.ts set filetype=javascript
   autocmd BufRead,BufNewFile  *.jsx set filetype=javascript
   autocmd FileType javascript set colorcolumn=100
-  autocmd BufWritePre *.js,*.ts %s/\s\+$//e " Remove all trailing whitespace
+  autocmd BufWritePre *.js,*.ts %s/\s\+$//e
 augroup end
 
 augroup lua
   autocmd!
-  autocmd BufWritePre *.lua %s/\s\+$//e " Remove all trailing whitespace
+  autocmd BufWritePre *.lua %s/\s\+$//e
 augroup end
 
 augroup markdown
@@ -51,9 +51,10 @@ augroup end
 augroup python
   autocmd!
   autocmd FileType python set colorcolumn=100
-  autocmd FileType python set textwidth=100
-  autocmd BufRead,BufNewFile  *.ipynb set syntax=python " TODO Set filetype=python for these files
-  autocmd BufWritePre *.py %s/\s\+$//e " Remove all trailing whitespace
+  autocmd BufRead,BufNewFile  *.ipynb set syntax=python
+  autocmd BufWritePre *.py %s/\s\+$//e
+  autocmd FileType python set foldmethod=indent
+  autocmd FileType python set foldexpr=''
 augroup end
 
 augroup scala
@@ -71,7 +72,7 @@ augroup end
 
 augroup vim
   autocmd!
-  autocmd BufWritePre *.vim %s/\s\+$//e " Remove all trailing whitespace
+  autocmd BufWritePre *.vim %s/\s\+$//e
 augroup end
 
 augroup yaml
