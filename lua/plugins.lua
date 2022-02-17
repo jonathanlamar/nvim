@@ -56,7 +56,16 @@ return packer.startup(function()
 	use("goolord/alpha-nvim") -- Start Screen
 	use("antoinemadec/FixCursorHold.nvim")
 	use("christoomey/vim-tmux-navigator") -- tmux integration
-	use("navarasu/onedark.nvim") -- Color scheme
+	-- COLOR SCHEMES
+	use("navarasu/onedark.nvim")
+	use({
+	    'rose-pine/neovim',
+	    as = 'rose-pine',
+	    tag = 'v1.*',
+	})
+    use('marko-cerovac/material.nvim')
+    use('EdenEast/nightfox.nvim')
+    use('folke/tokyonight.nvim')
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
