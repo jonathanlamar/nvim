@@ -28,18 +28,18 @@ require("onedark").setup({
 	colors = {}, -- Override default colors
 	highlights = {
 		VertSplit = { fg = "$fg" },
-        NormalNC = { fg = "$fg", bg = nc_background },
-        NonTextNC = { fg = "NONE", bg = nc_background },
-        EndOfBuffer = { bg = "NONE" },
-        SignColumn = { bg = "NONE" },
-        LspReferenceRead = { fmt = "none", bg = lsp_ref_bg },
-        LspReferenceWrite = { fmt = "none", bg = lsp_ref_bg },
-        LspReferenceText = { fmt = "none", bg = lsp_ref_bg },
-        NvimTreeVertSplit = { fg = "$fg" },
-        NvimTreeNormal = { bg = "NONE" },
-        NvimTreeEndOfBuffer = { bg = "NONE" },
-        NvimTreeNormalNC = { fg = "NONE", bg = nc_background },
-        NvimTreeEndOfBufferNC = { fg = "NONE", bg = nc_background },
+		NormalNC = { fg = "$fg", bg = nc_background },
+		NonTextNC = { fg = "NONE", bg = nc_background },
+		EndOfBuffer = { bg = "NONE" },
+		SignColumn = { bg = "NONE" },
+		LspReferenceRead = { fmt = "none", bg = lsp_ref_bg },
+		LspReferenceWrite = { fmt = "none", bg = lsp_ref_bg },
+		LspReferenceText = { fmt = "none", bg = lsp_ref_bg },
+		NvimTreeVertSplit = { fg = "$fg" },
+		NvimTreeNormal = { bg = "NONE" },
+		NvimTreeEndOfBuffer = { bg = "NONE" },
+		NvimTreeNormalNC = { fg = "NONE", bg = nc_background },
+		NvimTreeEndOfBufferNC = { fg = "NONE", bg = nc_background },
 	}, -- Override highlight groups
 
 	-- Plugins Config --

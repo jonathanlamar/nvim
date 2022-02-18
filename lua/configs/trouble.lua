@@ -13,7 +13,7 @@ trouble.setup({
 	fold_closed = "", -- icon used for closed folds
 	group = true, -- group results by file
 	padding = true, -- add an extra new line on top of the list
-    -- FIXME: These keybindings do not seem to work at all.
+	-- FIXME: These keybindings do not seem to work at all.
 	action_keys = { -- key mappings for actions in the trouble list
 		-- map to {} to remove a mapping, for example:
 		-- close = {},
