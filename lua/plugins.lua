@@ -61,7 +61,6 @@ return packer.startup(function()
 	use({
 	    'rose-pine/neovim',
 	    as = 'rose-pine',
-	    tag = 'v1.*',
 	})
     use('marko-cerovac/material.nvim')
     use('EdenEast/nightfox.nvim')
