@@ -42,7 +42,7 @@ lualine.setup({
 			},
 			{
 				"diagnostics",
-				sources = { "nvim_diagnostic" }, -- Or nvim_lsp?
+				sources = { "coc" },
 				sections = { "error", "warn" },
 				symbols = { error = " ", warn = " " },
 				update_in_insert = false,

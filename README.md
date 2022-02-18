@@ -27,6 +27,11 @@ M.packer_path = packer_path
 
 -- Your computer-specific settings (binary paths, etc.) go here
 vim.cmd("let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/python'")
+vim.cmd("let g:tagbar_ctags_bin = '$CTAGS'")
+-- Even coc-settings.json stuff can go here:
+vim.cmd("call coc#config('python.venvPath', '/opt/homebrew/Caskroom/miniforge/base/envs')")
+vim.cmd("call coc#config('python.formatting.blackPath', '/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/black')")
+vim.cmd("call coc#config('python.sortImports.path', '/usr/local/bin/isort')")
 
 return M
 ```

@@ -94,36 +94,33 @@ local mappings = {
 		w = { "<cmd>GBrowse<CR>", "view in browser" },
 	},
 
-	-- TODO: Research more functionality
-	l = {
-		name = "+LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		-- docstring?
-		d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
-		D = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		g = {
-			name = "+Goto",
-			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
-			D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
-			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-			n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-			p = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-			-- type definition
-		},
-		h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover text" },
-		-- This may be the same as hover text
-		H = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		R = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
-	},
+    l = {
+        name = "+lsp",
+        a = {'<cmd>CocAction<cr>'                   , 'action'},
+        C = {'<cmd>CocConfig<cr>'                   , 'config'},
+        c = {'<cmd>CocList commands<cr>'            , 'commands'},
+        d = {'<cmd>CocList diagnostics<cr>'         , 'diagnostics'},
+        f = {'<Plug>(coc-format)'                   , 'format'},
+        g = {
+            name = '+goto',
+            d = {'<Plug>(coc-definition)'           , 'definition'},
+            D = {'<Plug>(coc-declaration)'          , 'declaration'},
+            i = {'<Plug>(coc-implementation)'       , 'implementation'},
+            n = {'<Plug>(coc-diagnostic-next)'      , 'next diagnostic'},
+            N = {'<Plug>(coc-diagnostic-next-error)', 'next error'},
+            p = {'<Plug>(coc-diagnostic-prev)'      , 'prev diagnostic'},
+            P = {'<Plug>(coc-diagnostic-prev-error)', 'prev error'},
+            t = {'<Plug>(coc-type-definition)'      , 'type definition'},
+        },
+        h = {'<cmd>call Coc_show_documentation()<cr>'      , 'hover'},
+        H = {'<Plug>(coc-float-hide)'                      , 'hide'},
+        i = {'<cmd>CocCommand python.sortImports<cr>'      , 'organize imports'},
+        k = {'<Plug>(coc-refactor)'                        , 'refactor'},
+        O = {'<cmd>CocList outline<cr>'                    , 'outline'},
+        r = {'<Plug>(coc-rename)'                          , 'rename'},
+        R = {'<Plug>(coc-references)'                      , 'references'},
+        U = {'<cmd>CocUpdate<cr>'                          , 'update CoC'},
+    },
 
 	p = {
 		name = "+Packer",
