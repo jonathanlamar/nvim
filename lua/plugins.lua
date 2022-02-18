@@ -58,11 +58,7 @@ return packer.startup(function()
 	use("christoomey/vim-tmux-navigator") -- tmux integration
 	-- COLOR SCHEMES
 	use("navarasu/onedark.nvim")
-	use({
-	    'rose-pine/neovim',
-	    as = 'rose-pine',
-	    tag = 'v1.*',
-	})
+	use({ 'rose-pine/neovim', as = 'rose-pine' })
     use('marko-cerovac/material.nvim')
     use('EdenEast/nightfox.nvim')
     use('folke/tokyonight.nvim')

@@ -1,3 +1,5 @@
+local nc_background = "#2c2d31"
+
 require("onedark").setup({
 	-- Main options --
 	style = "warmer", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
@@ -23,16 +25,18 @@ require("onedark").setup({
 	colors = {}, -- Override default colors
 	highlights = {
 		VertSplit = { fg = "$fg" },
-        NormalNC = { fg = "$fg", bg = "#2c2d31" },
-        NonTextNC = { fg = "NONE", bg = "#2c2d31" },
+        NormalNC = { fg = "$fg", bg = nc_background },
+        NonTextNC = { fg = "NONE", bg = nc_background },
         EndOfBuffer = { bg = "NONE" },
         SignColumn = { bg = "NONE" },
-        LspReferenceRead = { fmt = "none", bg = "#2c2d31" },
-        LspReferenceWrite = { fmt = "none", bg = "#2c2d31" },
-        LspReferenceText = { fmt = "none", bg = "#2c2d31" },
+        LspReferenceRead = { fmt = "none", bg = nc_background },
+        LspReferenceWrite = { fmt = "none", bg = nc_background },
+        LspReferenceText = { fmt = "none", bg = nc_background },
         NvimTreeVertSplit = { fg = "$fg" },
         NvimTreeNormal = { bg = "NONE" },
         NvimTreeEndOfBuffer = { bg = "NONE" },
+        NvimTreeNormalNC = { bg = "NONE", bg = nc_background },
+        NvimTreeEndOfBufferNC = { bg = "NONE", bg = nc_background },
 	}, -- Override highlight groups
 
 	-- Plugins Config --

@@ -1,10 +1,10 @@
 local M = {}
 
 -- Set up color scheme options
+require("colorschemes.material")
+require("colorschemes.nightfox")
 require("colorschemes.onedark")
-require("colorschemes.onedark")
-require("colorschemes.onedark")
-require("colorschemes.onedark")
+require("colorschemes.rose-pine")
 
 M.set_colorscheme = function(colorscheme)
     if colorscheme == "rose" then
