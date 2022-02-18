@@ -1,4 +1,7 @@
-local nc_background = "#2c2d31"
+local palette = require("onedark.palette")
+local style = "warmer"
+local nc_background = palette[style].bg1
+local lsp_ref_bg = palette[style].bg2
 
 require("onedark").setup({
 	-- Main options --
@@ -29,14 +32,14 @@ require("onedark").setup({
         NonTextNC = { fg = "NONE", bg = nc_background },
         EndOfBuffer = { bg = "NONE" },
         SignColumn = { bg = "NONE" },
-        LspReferenceRead = { fmt = "none", bg = nc_background },
-        LspReferenceWrite = { fmt = "none", bg = nc_background },
-        LspReferenceText = { fmt = "none", bg = nc_background },
+        LspReferenceRead = { fmt = "none", bg = lsp_ref_bg },
+        LspReferenceWrite = { fmt = "none", bg = lsp_ref_bg },
+        LspReferenceText = { fmt = "none", bg = lsp_ref_bg },
         NvimTreeVertSplit = { fg = "$fg" },
         NvimTreeNormal = { bg = "NONE" },
         NvimTreeEndOfBuffer = { bg = "NONE" },
-        NvimTreeNormalNC = { bg = "NONE", bg = nc_background },
-        NvimTreeEndOfBufferNC = { bg = "NONE", bg = nc_background },
+        NvimTreeNormalNC = { fg = "NONE", bg = nc_background },
+        NvimTreeEndOfBufferNC = { fg = "NONE", bg = nc_background },
 	}, -- Override highlight groups
 
 	-- Plugins Config --
