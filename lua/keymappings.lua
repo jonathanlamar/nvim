@@ -1,41 +1,62 @@
-local utils = require('utils')
-utils.map('i',  '<Up>',    '<Nop>')
-utils.map('i',  '<Down>',  '<Nop>')
-utils.map('i',  '<Left>',  '<Nop>')
-utils.map('i',  '<Right>', '<Nop>')
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
 
-utils.map('i',  '<C-Up>',    '<Nop>')
-utils.map('i',  '<C-Down>',  '<Nop>')
-utils.map('i',  '<C-Left>',  '<Nop>')
-utils.map('i',  '<C-Right>', '<Nop>')
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-utils.map('n',  '<Up>',    '<Nop>')
-utils.map('n',  '<Down>',  '<Nop>')
-utils.map('n',  '<Left>',  '<Nop>')
-utils.map('n',  '<Right>', '<Nop>')
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
-utils.map('n',  '<C-Up>',    '<Nop>')
-utils.map('n',  '<C-Down>',  '<Nop>')
-utils.map('n',  '<C-Left>',  '<Nop>')
-utils.map('n',  '<C-Right>', '<Nop>')
+keymap("i", "<Up>", "<Nop>", opts)
+keymap("i", "<Down>", "<Nop>", opts)
+keymap("i", "<Left>", "<Nop>", opts)
+keymap("i", "<Right>", "<Nop>", opts)
 
-utils.map('n',  '<S-h>',  '<cmd>BufferPrevious<cr>')
-utils.map('n',  '<S-l>', '<cmd>BufferNext<cr>')
+keymap("i", "<C-Up>", "<Nop>", opts)
+keymap("i", "<C-Down>", "<Nop>", opts)
+keymap("i", "<C-Left>", "<Nop>", opts)
+keymap("i", "<C-Right>", "<Nop>", opts)
+
+keymap("n", "<Up>", "<Nop>", opts)
+keymap("n", "<Down>", "<Nop>", opts)
+keymap("n", "<Left>", "<Nop>", opts)
+keymap("n", "<Right>", "<Nop>", opts)
+
+keymap("n", "<C-Up>", "<Nop>", opts)
+keymap("n", "<C-Down>", "<Nop>", opts)
+keymap("n", "<C-Left>", "<Nop>", opts)
+keymap("n", "<C-Right>", "<Nop>", opts)
+
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-Right>", ":BufferLineMoveNext<cr>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-Left>", ":BufferLineMovePrev<cr>", opts)
 
 -- Insert mode nav keys
-utils.map('i',  '<C-k>', '<Up>')
-utils.map('i',  '<C-j>', '<Down>')
-utils.map('i',  '<C-h>', '<Left>')
-utils.map('i',  '<C-l>', '<Right>')
+keymap("i", "<C-k>", "<Up>", opts)
+keymap("i", "<C-j>", "<Down>", opts)
+keymap("i", "<C-h>", "<Left>", opts)
+keymap("i", "<C-l>", "<Right>", opts)
 
 -- When using macros, I always accidentally hit shift-Q and go to Ex mode.
-utils.map('n',  'Q', '<Nop>')
+keymap("n", "Q", "<Nop>", opts)
 
 -- Add blank line below cursor
-utils.map('n',  '<M-o>', 'o<Esc>')
+keymap("n", "<M-o>", "o<Esc>", opts)
+
+-- Hold on to what you are pasting in visual mode
+keymap("v", "p", '"_dP', opts)
 
 -- Window resize a la i3
-utils.map('n',  '<M-j>', ':resize -1<CR>')
-utils.map('n',  '<M-k>', ':resize +1<CR>')
-utils.map('n',  '<M-h>', ':vertical resize -1<CR>')
-utils.map('n',  '<M-l>', ':vertical resize +1<CR>')
+keymap("n", "<M-j>", ":resize -1<CR>", opts)
+keymap("n", "<M-k>", ":resize +1<CR>", opts)
+keymap("n", "<M-h>", ":vertical resize -1<CR>", opts)
+keymap("n", "<M-l>", ":vertical resize +1<CR>", opts)

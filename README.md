@@ -16,21 +16,28 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
 3. Make sure the dependencies are installed.
 4. Run `./install.sh`.  The files in this repo will be symlinked to your
    `~/.config/nvim` folder.
-		* NOTE: This does not work unless run as user.  I need to figure out a
-			workaround for that.
-5. Place any settings specific to this amchine in a `lua/this_computer.lua` or
-   `plugin/this_computer.vim` (create blank files if no settings are required).
-6. Start neovim and run `:PackerInstall`.
+    * NOTE: This does not work unless run as user.  I need to figure out a workaround for that.
+5. Paste the following in `lua/this_computer.lua`.  Change as needed.
+```lua
+local fn = vim.fn
+local M = {}
+
+local packer_path = fn.stdpath("data") .. "/site/pack/packer/start"
+M.packer_path = packer_path
+
+-- Your computer-specific settings (binary paths, etc.) go here
+vim.cmd("let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/python'")
+
+return M
+```
+6. Start neovim.  Let Packer do its thing, then close and start neovim again.  Then let treesitter
+   do its thing.
 
 ## Dependencies
 
 * neovim >= 0.5
-* packer
-* python3
 * conda
+* exuberant ctags
 * lua
-* node.js
-* pyright
-* scala-metals
-* black python linter
+* python3
 * ripgrep

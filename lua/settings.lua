@@ -1,54 +1,54 @@
-local utils = require('utils')
+local options = {
+	-- General look and feel
+	clipboard = { "unnamed", "unnamedplus" },
+	cmdheight = 2,
+	encoding = "utf-8",
+	fileencoding = "utf-8",
+	lazyredraw = true,
+	scrolloff = 3,
+	mouse = "a",
+	backup = false,
+	writebackup = false,
+	swapfile = false,
+	showcmd = true,
+	showmode = false,
+	updatetime = 100,
+	timeoutlen = 100,
+	wildmenu = true,
+	signcolumn = "yes",
+	fillchars = "vert:│",
+	hidden = true,
+	wrap = false,
+	number = true,
+	splitbelow = true,
+	splitright = true,
+	viewoptions = "cursor,folds",
+	termguicolors = true,
 
-local cmd = vim.cmd
-local indent = 4
+	-- Tabs
+	shiftwidth = 4,
+	softtabstop = 4,
+	tabstop = 4,
+	expandtab = true,
+	-- smartindent = true, -- not sure about this and treesitter
 
--- General look and feel
-cmd 'syntax enable'
-cmd 'filetype plugin indent on'
-cmd 'let mapleader = " "'
-utils.opt('o', 'clipboard','unnamed,unnamedplus')
-utils.opt('o', 'cmdheight', 2)
-utils.opt('o', 'encoding', 'utf-8')
-utils.opt('o', 'fileencoding', 'utf-8')
-utils.opt('o', 'lazyredraw', true)
-utils.opt('o', 'scrolloff', 3)
-utils.opt('o', 'mouse', 'a')
-utils.opt('o', 'backup', false)
-utils.opt('o', 'writebackup', false)
-utils.opt('o', 'swapfile', false)
-utils.opt('o', 'showcmd', true)
-utils.opt('o', 'updatetime', 100)
-utils.opt('o', 'timeoutlen', 100)
-utils.opt('o', 'wildmenu', true)
-utils.opt('o', 'signcolumn', 'yes')
-utils.opt('o', 'fillchars', 'vert:│')
-utils.opt('o', 'hidden', true)
-utils.opt('w', 'wrap', false)
-utils.opt('w', 'number', true)
-utils.opt('o', 'splitbelow', true)
-utils.opt('o', 'splitright', true)
-utils.opt('o', 'viewoptions', 'cursor,folds')
--- Highlight on yank
-vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+	-- Searching
+	ignorecase = true,
+	smartcase = true,
+	wildmode = "list:longest",
 
--- Tabs
-utils.opt('b', 'shiftwidth', indent)
-utils.opt('b', 'softtabstop', indent)
-utils.opt('b', 'tabstop', indent)
-utils.opt('b', 'expandtab', true)
-utils.opt('b', 'smartindent', true)
+	-- Folds
+	foldenable = true,
+	foldlevelstart = 100,
+	foldnestmax = 5,
+	foldmethod = "expr",
+	foldexpr = "nvim_treesitter#foldexpr()",
+}
 
--- Searching
-utils.opt('o', 'ignorecase', true)
-utils.opt('o', 'smartcase', true)
-utils.opt('o', 'wildmode', 'list:longest')
+for k, v in pairs(options) do
+	vim.opt[k] = v
+end
 
--- Folds
-utils.opt('o', 'foldenable', true)
-utils.opt('o', 'foldlevelstart', 100)
-utils.opt('o', 'foldnestmax', 5)
-
--- Move cursorline to active window
-cmd 'autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline'
-cmd 'autocmd WinLeave * setlocal nocursorline'
+-- Other global settings
+vim.cmd("syntax enable")
+vim.cmd("filetype plugin indent on")
