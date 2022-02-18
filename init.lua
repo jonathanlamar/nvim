@@ -1,6 +1,6 @@
 require("plugins")
 require("configs")
-require("colorscheme")
+require("colorschemes")
 
 require("settings")
 require("keymappings")
