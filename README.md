@@ -36,7 +36,7 @@ vim.cmd("call coc#config('python.sortImports.path', '/usr/local/bin/isort')")
 return M
 ```
 6. Start neovim.  Let Packer do its thing, then close and start neovim again.  Then let treesitter
-   do its thing.
+   and coc do their thing.
 
 ## Dependencies
 
