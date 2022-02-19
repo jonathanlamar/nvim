@@ -18,5 +18,39 @@
         "-"
     ],
     "Lua.telemetry.enable": true,
-    "sumneko-lua.enableNvimLuaDev": true
+    "sumneko-lua.enableNvimLuaDev": true,
+    // explorer
+    "explorer.width": 40,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.previewAction.onHover": false,
+    "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+    "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+    "explorer.keyMappings.global": {
+        "<cr>": [
+            "expandable?",
+            [
+                "expanded?",
+                "collapse",
+                "expand"
+            ],
+            "open"
+        ],
+        "<esc>": "esc",
+        "e": "open",
+        "v": "open:vsplit",
+        "h": "open:split",
+        "t": "open:tab",
+        ".": "toggleHidden",
+        "R": "refresh",
+        "?": "help",
+        "c": "copyFile",
+        "x": "cutFile",
+        "p": "pasteFile",
+        "d": "delete",
+        "D": "deleteForever",
+        "a": "addFile",
+        "A": "addDirectory",
+        "r": "rename",
+        "gp": "preview:labeling"
+    },
 }
