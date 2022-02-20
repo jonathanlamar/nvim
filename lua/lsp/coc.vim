@@ -65,6 +65,8 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-pyright',
   \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-prettier'
   \ ]
 
 " coc-explorer
