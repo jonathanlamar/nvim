@@ -55,10 +55,12 @@ return packer.startup(function()
     -- COLOR SCHEMES
     -- use("navarasu/onedark.nvim")
     use("~/repos/onedark.nvim")
-    use({ "rose-pine/neovim", as = "rose-pine" })
     use("marko-cerovac/material.nvim")
     use("EdenEast/nightfox.nvim")
     use("folke/tokyonight.nvim")
+    use("savq/melange")
+    use("sainnhe/gruvbox-material")
+    use("catppuccin/nvim")
     use({
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
