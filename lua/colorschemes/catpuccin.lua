@@ -15,5 +15,5 @@ require("catppuccin").setup({
         which_key = true,
         bufferline = true,
         ts_rainbow = false,
-    }
+    },
 })

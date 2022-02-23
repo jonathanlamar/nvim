@@ -5,6 +5,7 @@ require("colorschemes.material")
 require("colorschemes.nightfox")
 require("colorschemes.onedark")
 require("colorschemes.catpuccin")
+require("colorschemes.kanagawa")
 
 -- I hate this, but some colorschemes require procedural commands for configuration.
 -- This function handles those so I don't lose them when switching colorschemes.
@@ -33,10 +34,18 @@ M.set_colorscheme = function(colorscheme)
             colorscheme gruvbox-material
         ]])
     elseif colorscheme == "catppuccin" then
-        vim.cmd[[colorscheme catppuccin]]
+        vim.cmd([[colorscheme catppuccin]])
+    elseif colorscheme == "tokyodark" then
+        vim.g.tokyodark_transparent_background = false
+        vim.g.tokyodark_enable_italic_comment = true
+        vim.g.tokyodark_enable_italic = true
+        vim.g.tokyodark_color_gamma = "1.2"
+        vim.cmd("colorscheme tokyodark")
+    elseif colorscheme == "kanagawa" then
+        vim.cmd("colorscheme kanagawa")
     end
 end
 
-M.set_colorscheme("material")
+M.set_colorscheme("kanagawa")
 
 return M

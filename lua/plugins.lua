@@ -61,6 +61,8 @@ return packer.startup(function()
     use("savq/melange")
     use("sainnhe/gruvbox-material")
     use("catppuccin/nvim")
+    use("tiagovla/tokyodark.nvim")
+    use("rebelot/kanagawa.nvim")
     use({
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },

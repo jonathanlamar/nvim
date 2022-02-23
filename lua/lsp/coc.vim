@@ -59,14 +59,14 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-java',
   \ 'coc-json',
-  \ 'coc-sumneko-lua',
   \ 'coc-markdownlint',
   \ 'coc-marketplace',
   \ 'coc-pairs',
+  \ 'coc-prettier',
   \ 'coc-pyright',
   \ 'coc-snippets',
+  \ 'coc-sumneko-lua',
   \ 'coc-tsserver',
-  \ 'coc-prettier'
   \ ]
 
 " coc-explorer
