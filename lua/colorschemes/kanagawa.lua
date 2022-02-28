@@ -1,3 +1,5 @@
+local colors = require("kanagawa.colors").setup()
+
 require("kanagawa").setup({
     undercurl = true, -- enable undercurls
     commentStyle = "italic",
@@ -11,7 +13,26 @@ require("kanagawa").setup({
     transparent = false, -- do not set background color
     dimInactive = true, -- dim inactive window `:h hl-NormalNC`
     colors = {},
-    overrides = {},
+    overrides = {
+        CocErrorSign = { fg = colors.samuraiRed },
+        CocWarningSign = { fg = colors.roninYellow },
+        CocInfoSign = { fg = colors.crystalBlue },
+        CocHintSign = { fg = colors.springGreen },
+        CocErrorVirtualText = { link = "CocErrorSign" },
+        CocWarningVirtualText = { link = "CocWarningSign" },
+        CocInfoVirtualText = { link = "CocInfoSign" },
+        CocHintVirtualText = { link = "CocHintSign" },
+
+        -- CocErrorHighlight
+        -- CocWarningHighlight
+        -- CocInfoHighlight
+        -- CocHintHighlight
+        -- CocDeprecatedHighlight
+        -- CocErrorLine
+        -- CocWarningLine
+        -- CocInfoLine
+        -- CocHintLine
+    },
 })
 
 -- Example:
