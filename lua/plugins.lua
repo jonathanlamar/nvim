@@ -53,8 +53,7 @@ return packer.startup(function()
     use("antoinemadec/FixCursorHold.nvim")
     use("christoomey/vim-tmux-navigator") -- tmux integration
     -- COLOR SCHEMES
-    -- use("navarasu/onedark.nvim")
-    use("~/repos/onedark.nvim")
+    use("navarasu/onedark.nvim")
     use("marko-cerovac/material.nvim")
     use("EdenEast/nightfox.nvim")
     use("folke/tokyonight.nvim")

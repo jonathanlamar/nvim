@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["java", "json", "python", "scala"],
+  "coc.preferences.formatOnSaveFiletypes": [],
   // python config
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
