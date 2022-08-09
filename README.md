@@ -40,7 +40,7 @@ return M
 
 ## Dependencies
 
-* neovim >= 0.5
+* neovim >= 0.7.2
 * conda
 * exuberant ctags
 * lua

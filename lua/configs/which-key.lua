@@ -112,7 +112,7 @@ local mappings = {
             P = { "<Plug>(coc-diagnostic-prev-error)", "prev error" },
             t = { "<Plug>(coc-type-definition)", "type definition" },
         },
-        h = { "<cmd>call Coc_show_documentation()<cr>", "hover" },
+        h = { "<cmd>call ShowDocumentation()<cr>", "hover" },
         H = { "<Plug>(coc-float-hide)", "hide" },
         i = { "<cmd>CocCommand python.sortImports<cr>", "organize imports" },
         k = { "<Plug>(coc-refactor)", "refactor" },

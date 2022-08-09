@@ -81,7 +81,20 @@ return packer.startup(function()
         "folke/zen-mode.nvim",
         requires = { "folke/twilight.nvim" },
     }) -- ADHD mode
-    use("anuvyklack/pretty-fold.nvim") -- Nicer looking folds
+    use({
+        "anuvyklack/pretty-fold.nvim",
+        config = function()
+            require('pretty-fold').setup()
+        end
+    }) -- Nicer looking folds
+    use({
+        use { 'anuvyklack/fold-preview.nvim',
+           requires = 'anuvyklack/keymap-amend.nvim',
+           config = function()
+              require('fold-preview').setup()
+           end
+        }
+    })
     use("akinsho/toggleterm.nvim")
 
     -- CODING

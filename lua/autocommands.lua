@@ -30,7 +30,7 @@ augroup end
 
 augroup javascript
   autocmd!
-  autocmd BufRead,BufNewFile  *.ts set filetype=javascript
+  autocmd BufRead,BufNewFile  *.ts set filetype=typescript
   autocmd BufRead,BufNewFile  *.jsx set filetype=javascript
   autocmd FileType javascript set colorcolumn=100
   autocmd BufWritePre *.js,*.ts %s/\s\+$//e
