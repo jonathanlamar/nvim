@@ -69,7 +69,6 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-java',
   \ 'coc-json',
-  \ 'coc-markdownlint',
   \ 'coc-marketplace',
   \ 'coc-pairs',
   \ 'coc-prettier',
