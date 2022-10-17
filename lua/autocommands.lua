@@ -33,6 +33,12 @@ augroup javascript
   autocmd BufRead,BufNewFile  *.ts set filetype=typescript
   autocmd BufRead,BufNewFile  *.jsx set filetype=javascript
   autocmd FileType javascript set colorcolumn=100
+  autocmd FileType javascript set shiftwidth=2
+  autocmd FileType javascript set tabstop=2
+  autocmd FileType javascript set softtabstop=2
+  autocmd FileType typescript set shiftwidth=2
+  autocmd FileType typescript set tabstop=2
+  autocmd FileType typescript set softtabstop=2
   autocmd BufWritePre *.js,*.ts %s/\s\+$//e
 augroup end
 
