@@ -114,7 +114,7 @@ local mappings = {
         },
         h = { "<cmd>call ShowDocumentation()<cr>", "hover" },
         H = { "<Plug>(coc-float-hide)", "hide" },
-        i = { "<cmd>CocCommand python.sortImports<cr>", "organize imports" },
+        i = { "<cmd>CocCommand pyright.organizeimports<cr>", "organize imports" },
         k = { "<Plug>(coc-refactor)", "refactor" },
         O = { "<cmd>CocList outline<cr>", "outline" },
         r = { "<Plug>(coc-rename)", "rename" },
