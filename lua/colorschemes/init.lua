@@ -2,9 +2,9 @@ local M = {}
 
 -- Set up color scheme options
 require("colorschemes.material")
-require("colorschemes.nightfox")
+--require("colorschemes.nightfox")
 require("colorschemes.onedark")
-require("colorschemes.catpuccin")
+--require("colorschemes.catpuccin")
 require("colorschemes.kanagawa")
 
 -- I hate this, but some colorschemes require procedural commands for configuration.
