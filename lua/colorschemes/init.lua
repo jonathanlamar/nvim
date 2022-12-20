@@ -1,8 +1,8 @@
 local M = {}
 
 -- Set up color scheme options
-require("colorschemes.material")
---require("colorschemes.nightfox")
+--require("colorschemes.material")
+require("colorschemes.nightfox")
 require("colorschemes.onedark")
 --require("colorschemes.catpuccin")
 require("colorschemes.kanagawa")
