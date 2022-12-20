@@ -9,6 +9,7 @@
   "python.sortImports.args": ["--stdout", "--profile", "black", "-"],
   "Lua.telemetry.enable": true,
   "sumneko-lua.enableNvimLuaDev": true,
+  "inlayHint.enable": false,
   // explorer
   "explorer.width": 40,
   "explorer.icon.enableNerdfont": true,
