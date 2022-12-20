@@ -1,6 +1,6 @@
 -- Condition to hide a section for narrow windows.
 local not_too_wide = function()
-    return vim.fn.winwidth(0) > 80
+    return vim.o.columns > 80
 end
 
 -- cool function for progress

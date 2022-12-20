@@ -43,6 +43,9 @@ local options = {
     foldnestmax = 5,
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
+
+    -- Global statusline
+    laststatus = 3,
 }
 
 for k, v in pairs(options) do
