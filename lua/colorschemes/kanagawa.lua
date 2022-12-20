@@ -22,6 +22,7 @@ require("kanagawa").setup({
         CocWarningVirtualText = { link = "CocWarningSign" },
         CocInfoVirtualText = { link = "CocInfoSign" },
         CocHintVirtualText = { link = "CocHintSign" },
+        WinSeparator = { fg = colors.oldWhite },
 
         -- CocErrorHighlight
         -- CocWarningHighlight
