@@ -54,12 +54,9 @@ return packer.startup(function()
     use("christoomey/vim-tmux-navigator") -- tmux integration
     -- COLOR SCHEMES
     use("navarasu/onedark.nvim")
-    use("marko-cerovac/material.nvim")
-    use("EdenEast/nightfox.nvim")
-    use("folke/tokyonight.nvim")
     use("savq/melange")
     use("sainnhe/gruvbox-material")
-    use("catppuccin/nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
     use("tiagovla/tokyodark.nvim")
     use("rebelot/kanagawa.nvim")
     use({
@@ -89,10 +86,10 @@ return packer.startup(function()
     }) -- Nicer looking folds
     use({
         use { 'anuvyklack/fold-preview.nvim',
-           requires = 'anuvyklack/keymap-amend.nvim',
-           config = function()
-              require('fold-preview').setup()
-           end
+            requires = 'anuvyklack/keymap-amend.nvim',
+            config = function()
+                require('fold-preview').setup()
+            end
         }
     })
     use("akinsho/toggleterm.nvim")
