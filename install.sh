@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Where is this script located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -14,20 +14,15 @@ sudo rm -rf $NVIMDIR > /dev/null 2>&1
 #==============
 # Create symlinks in the home folder
 #==============
-SYMLINKS=()
-ln -sf $SCRIPT_DIR/ $NVIMDIR
-SYMLINKS+=('.config/nvim')
-
+ln -sf $SCRIPT_DIR $NVIMDIR 
 echo "Created the following symlinks in $HOME:"
-echo ${SYMLINKS[@]}
+echo "$NVIMDIR -> $SCRIPT_DIR"
 
 #==============
 # Install virtual environment
 #==============
-conda create -n neovim python=3.9
-conda activate neovim
-pip install -r requirements.txt
-conda deactivate
+yes | conda create -n neovim python=3.9
+conda run -n neovim bash -c "pip install -r requirements.txt"
 
 #==============
 # And we are done

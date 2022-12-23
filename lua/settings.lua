@@ -1,3 +1,5 @@
+local env = require("this_computer")
+
 local options = {
     -- General look and feel
     clipboard = { "unnamed", "unnamedplus" },
@@ -53,5 +55,6 @@ for k, v in pairs(options) do
 end
 
 -- Other global settings
+vim.g.python3_host_prog = env.python_env_path .. 'neovim/bin/python'
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")

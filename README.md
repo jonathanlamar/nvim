@@ -19,19 +19,11 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
     * NOTE: This does not work unless run as user.  I need to figure out a workaround for that.
 5. Paste the following in `lua/this_computer.lua`.  Change as needed.
 ```lua
-local fn = vim.fn
-local M = {}
-
-local packer_path = fn.stdpath("data") .. "/site/pack/packer/start"
-M.packer_path = packer_path
-
--- Your computer-specific settings (binary paths, etc.) go here
-vim.cmd("let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/python'")
-vim.cmd("let g:tagbar_ctags_bin = '$CTAGS'")
--- Even coc-settings.json stuff can go here:
-vim.cmd("call coc#config('python.venvPath', '/opt/homebrew/Caskroom/miniforge/base/envs')")
-vim.cmd("call coc#config('python.formatting.blackPath', '/opt/homebrew/Caskroom/miniforge/base/envs/neovim/bin/black')")
-vim.cmd("call coc#config('python.sortImports.path', '/usr/local/bin/isort')")
+local M = {
+    python_env_path = "/path/to/conda/envs",
+    python_black_path = "/path/to/black",
+    python_isort_path = "/path/to/isort",
+}
 
 return M
 ```
@@ -40,9 +32,10 @@ return M
 
 ## Dependencies
 
-* neovim >= 0.7.2
+This list may not be exhaustive
+
+* neovim >= 0.8.1
 * conda
 * exuberant ctags
 * lua
-* python3
-* ripgrep
+* ripgrep - I'm still not sure about this.
