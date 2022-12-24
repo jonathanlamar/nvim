@@ -1,9 +1,11 @@
 local fn = vim.fn
 
 -- Automatically install packer
+local is_bootstrap = false
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start"
 if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system({
+    is_bootstrap = true
+    fn.system({
         "git",
         "clone",
         "--depth",
@@ -30,7 +32,7 @@ packer.init({
     },
 })
 
-return packer.startup(function()
+packer.startup(function()
     -- Packer can manage itself as an optional plugin
     use("wbthomason/packer.nvim")
 
@@ -63,24 +65,15 @@ return packer.startup(function()
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     })
-    use("p00f/nvim-ts-rainbow")
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use({
         "folke/zen-mode.nvim",
         requires = { "folke/twilight.nvim" },
     }) -- ADHD mode
-    use({
-        "anuvyklack/pretty-fold.nvim",
-        config = function()
-            require('pretty-fold').setup()
-        end
-    }) -- Nicer looking folds
+    use("anuvyklack/pretty-fold.nvim") -- Nicer looking folds
     use({
         use { 'anuvyklack/fold-preview.nvim',
             requires = 'anuvyklack/keymap-amend.nvim',
-            config = function()
-                require('fold-preview').setup()
-            end
         }
     })
     use("akinsho/toggleterm.nvim")
@@ -94,10 +87,16 @@ return packer.startup(function()
     use("junegunn/gv.vim") -- See commit history in nice UI
     use("tpope/vim-fugitive") -- Integration for git in vim.
     use("tpope/vim-rhubarb") -- This enables GBrowse and some other github-specific functionality for fugitive.
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if PACKER_BOOTSTRAP then
-        require("packer").sync()
-    end
 end)
+
+if is_bootstrap then
+    print '=================================='
+    print '    Plugins are being installed'
+    print '    Wait until Packer completes,'
+    print '       then restart nvim'
+    print '=================================='
+    packer.sync()
+    packer.compile()
+end
+
+return is_bootstrap

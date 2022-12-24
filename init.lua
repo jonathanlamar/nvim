@@ -1,4 +1,8 @@
-require("plugins")
+local is_bootstrap = require("plugins")
+if is_bootstrap then
+    return
+end
+
 require("configs")
 require("colorschemes")
 

@@ -1,8 +1,3 @@
-local status_ok, toggleterm = pcall(require, "toggleterm")
-if not status_ok then
-    return
-end
-
 local window_size = function(term)
     if term.direction == "horizontal" then
         return 15
@@ -11,7 +6,7 @@ local window_size = function(term)
     end
 end
 
-toggleterm.setup({
+require("toggleterm").setup({
     size = window_size,
     -- open_mapping = [[<C-\>]], -- IDKm but this doesn't work for me
     open_mapping = [[<C-t>]],

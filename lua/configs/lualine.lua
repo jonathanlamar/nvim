@@ -13,12 +13,7 @@ local progress = function()
     return chars[index]
 end
 
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
-    return
-end
-
-lualine.setup({
+require("lualine").setup({
     options = {
         icons_enabled = true,
         theme = "auto",

@@ -1,5 +1,3 @@
-local M = {}
-
 -- Set up color scheme options
 require("colorschemes.onedark")
 --require("colorschemes.catpuccin")
@@ -7,7 +5,7 @@ require("colorschemes.kanagawa")
 
 -- I hate this, but some colorschemes require procedural commands for configuration.
 -- This function handles those so I don't lose them when switching colorschemes.
-M.set_colorscheme = function(colorscheme)
+set_colorscheme = function(colorscheme)
     if colorscheme == "onedark" then
         require("onedark").load()
     elseif colorscheme == "melange" then
@@ -36,6 +34,12 @@ M.set_colorscheme = function(colorscheme)
     end
 end
 
-M.set_colorscheme("kanagawa")
-
-return M
+local status_ok, _ = pcall(set_colorscheme, "kanagawa")
+if not status_ok then
+    print '=================================='
+    print '    Unable to load colorscheme'
+    print '    Resolve packer issues, then'
+    print '           restart nvim'
+    print '=================================='
+    return
+end
