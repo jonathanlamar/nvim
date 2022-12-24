@@ -1,11 +1,11 @@
 -- Set up color scheme options
-require("colorschemes.onedark")
---require("colorschemes.catpuccin")
+require("colorschemes.catpuccin")
 require("colorschemes.kanagawa")
+require("colorschemes.onedark")
 
 -- I hate this, but some colorschemes require procedural commands for configuration.
 -- This function handles those so I don't lose them when switching colorschemes.
-set_colorscheme = function(colorscheme)
+local set_colorscheme = function(colorscheme)
     if colorscheme == "onedark" then
         require("onedark").load()
     elseif colorscheme == "melange" then
