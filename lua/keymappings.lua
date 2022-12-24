@@ -40,12 +40,6 @@ keymap("n", "<S-Right>", ":BufferLineMoveNext<cr>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-Left>", ":BufferLineMovePrev<cr>", opts)
 
--- Insert mode nav keys
-keymap("i", "<C-k>", "<Up>", opts)
-keymap("i", "<C-j>", "<Down>", opts)
-keymap("i", "<C-h>", "<Left>", opts)
-keymap("i", "<C-l>", "<Right>", opts)
-
 -- When using macros, I always accidentally hit shift-Q and go to Ex mode.
 keymap("n", "Q", "<Nop>", opts)
 
