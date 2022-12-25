@@ -141,17 +141,17 @@ null_ls.setup({
         --null_ls.builtins.diagnostics.flake8,
         -- flake8 but with pyproject.toml support
         null_ls.builtins.diagnostics.pyproject_flake8.with({
-            command = env.python_pflake8_path,
+            command = env.python_env_path .. "/neovim/bin/pflake8",
         }),
         -- Static type checker.  May be redundant with flake8
         --[[ null_ls.builtins.diagnostics.pydocstyle.with({ ]]
         --[[     command = env.python_pydocstyle_path, ]]
         --[[ }), ]]
         null_ls.builtins.formatting.isort.with({
-            command = env.python_isort_path,
+            command = env.python_env_path .. "/neovim/bin/isort",
         }),
         null_ls.builtins.formatting.black.with({
-            command = env.python_black_path,
+            command = env.python_env_path .. "/neovim/bin/black",
         }),
     },
 })

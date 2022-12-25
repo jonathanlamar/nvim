@@ -18,17 +18,11 @@ I have it configured for python, scala, and javascript.
 2. Back up your neovim config.
 3. Make sure the dependencies are installed (see below).
 4. Run `./install.sh`.  The files in this repo will be symlinked to your `~/.config/nvim` folder.
-5. Paste the following in `lua/this_computer.lua`.  Change to match the actual paths to your conda
-   environments directories and various binaries.
-   * Sorry.  It's a TODO of mine to infer the binary locations from the conda path.
+5. Paste the following in `lua/this_computer.lua`.  Change to match the actual path to your conda
+   environments.
 ```lua
 local M = {
-    python_black_path = "/path/to/black",
     python_env_path = "/path/to/conda/envs",
-    python_isort_path = "/path/to/isort",
-    python_mypy_path = "/path/to/mypy",
-    python_pflake8_path = "/path/to/flake8",
-    python_pydocstyle_path = "/path/to/pydocstyle",
 }
 
 return M
