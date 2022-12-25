@@ -8,4 +8,4 @@ black
 doq
 isort
 pydocstyle
-pyproject-flake8
+flake8

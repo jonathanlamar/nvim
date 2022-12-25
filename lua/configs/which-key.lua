@@ -103,8 +103,12 @@ local mappings = {
             I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
         },
         -- docstring?
-        d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
-        D = { "<cmd>lua require('telescope.builtin').document_diagnostics()<cr>", "Document Diagnostics" },
+        d = {
+            name = "+Diagnostics",
+            l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
+            d = { "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>", "Document Diagnostics" },
+            D = { "<cmd>lua require('telescope.builtin').diagnostics()<cr>", "Workspace Diagnostics" },
+        },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
         g = {
             name = "+Goto",

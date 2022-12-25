@@ -21,11 +21,12 @@ I have it configured for python, scala, and javascript.
 2. Back up your neovim config.
 3. Make sure the dependencies are installed (see below).
 4. Run `./install.sh`.  The files in this repo will be symlinked to your `~/.config/nvim` folder.
-5. Paste the following in `lua/this_computer.lua`.  Change to match the actual path to your conda
-   environments.
+5. Paste the following in `lua/this_computer.lua`.  Change to match the actual path to the neovim
+   conda environment that was created during the install script.
+   * Yeah, I know.  It's a minor TODO to infer this automatically.
 ```lua
 local M = {
-    python_env_path = "/path/to/conda/envs",
+    python_env_path = "/path/to/conda/envs/neovim",
 }
 
 return M
