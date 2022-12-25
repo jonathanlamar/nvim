@@ -14,15 +14,20 @@ sudo rm -rf $NVIMDIR > /dev/null 2>&1
 #==============
 # Create symlinks in the home folder
 #==============
-ln -sf $SCRIPT_DIR $NVIMDIR 
+ln -sf $SCRIPT_DIR $NVIMDIR
 echo "Created the following symlinks in $HOME:"
 echo "$NVIMDIR -> $SCRIPT_DIR"
 
 #==============
 # Install virtual environment
 #==============
-yes | conda create -n neovim python=3.9
+yes | conda create -n neovim python=3.10
 conda run -n neovim bash -c "pip install -r requirements.txt"
+
+#==============
+# Install npm dependencies
+npm install -g prettier
+#==============
 
 #==============
 # And we are done

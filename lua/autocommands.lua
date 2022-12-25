@@ -7,10 +7,31 @@ function _G.set_terminal_keymaps()
     vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd([[
-  "" Highlight on yank
-autocmd TextYankPost * lua vim.highlight.on_yank {on_visual = false}
+vim.api.nvim_create_autocmd("BufEnter", {
+    nested = true,
+    callback = function()
+        if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+            vim.cmd "quit"
+        end
+    end
+})
 
+-- Don't autocomment new lines
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "set fo-=c fo-=r fo-=o" })
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = "*",
+})
+
+-- TODO: Convert these to lua
+vim.cmd([[
 "" Move cursorline to active window
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
@@ -33,12 +54,6 @@ augroup javascript
   autocmd BufRead,BufNewFile  *.ts set filetype=typescript
   autocmd BufRead,BufNewFile  *.jsx set filetype=javascript
   autocmd FileType javascript set colorcolumn=100
-  autocmd FileType javascript set shiftwidth=2
-  autocmd FileType javascript set tabstop=2
-  autocmd FileType javascript set softtabstop=2
-  autocmd FileType typescript set shiftwidth=2
-  autocmd FileType typescript set tabstop=2
-  autocmd FileType typescript set softtabstop=2
   autocmd BufWritePre *.js,*.ts %s/\s\+$//e
 augroup end
 
@@ -75,13 +90,8 @@ augroup sql
   autocmd BufWritePre *.sql %s/\s\+$//e
 augroup end
 
-
 augroup vim
   autocmd!
   autocmd BufWritePre *.vim %s/\s\+$//e
-augroup end
-
-augroup yaml
-  autocmd!
 augroup end
 ]])

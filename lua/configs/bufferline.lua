@@ -54,7 +54,7 @@ require("bufferline").setup({
                 return true
             end
         end,
-        offsets = { { filetype = "NvimTree", text = "", text_align = "left", padding = 1 } },
+        offsets = {},
         color_icons = true, -- whether or not to add the filetype icon highlights
         show_buffer_icons = true, -- disable filetype icons for buffers
         show_buffer_close_icons = true,

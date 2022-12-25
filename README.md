@@ -17,7 +17,8 @@ and syntax plugins.  I have it configured for python, scala, and javascript.
 4. Run `./install.sh`.  The files in this repo will be symlinked to your
    `~/.config/nvim` folder.
     * NOTE: This does not work unless run as user.  I need to figure out a workaround for that.
-5. Paste the following in `lua/this_computer.lua`.  Change as needed.
+5. Paste the following in `lua/this_computer.lua`.  Change to match the actual
+   paths to your conda environments and black/isort binaries.
 ```lua
 local M = {
     python_env_path = "/path/to/conda/envs",
@@ -28,7 +29,7 @@ local M = {
 return M
 ```
 6. Start neovim.  Let Packer do its thing, then close and start neovim again.  Then let treesitter
-   and coc do their thing.
+   do its thing.
 
 ## Dependencies
 

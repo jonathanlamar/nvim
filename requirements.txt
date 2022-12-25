@@ -7,3 +7,5 @@ websocket-client
 black
 doq
 isort
+pydocstyle
+pyproject-flake8

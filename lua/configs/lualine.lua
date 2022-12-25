@@ -1,3 +1,5 @@
+local navic = require("nvim-navic")
+
 -- Condition to hide a section for narrow windows.
 local not_too_wide = function()
     return vim.o.columns > 80
@@ -19,7 +21,7 @@ require("lualine").setup({
         theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard", "coc-explorer", "Outline" },
+        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
         always_divide_middle = true,
     },
     sections = {
@@ -37,14 +39,17 @@ require("lualine").setup({
             },
             {
                 "diagnostics",
-                sources = { "coc" },
+                sources = { "nvim_diagnostic" },
                 sections = { "error", "warn" },
                 symbols = { error = " ", warn = " " },
                 update_in_insert = false,
                 cond = not_too_wide,
             },
         },
-        lualine_c = { { "filename", cond = not_too_wide } },
+        lualine_c = {
+            { "filename", cond = not_too_wide },
+            { navic.get_location, cond = navic.is_available },
+        },
         lualine_x = {
             { "encoding", cond = not_too_wide },
             { "filetype", cond = not_too_wide },

@@ -36,15 +36,64 @@ packer.startup(function()
     -- Packer can manage itself as an optional plugin
     use("wbthomason/packer.nvim")
 
-    use("tpope/vim-repeat") -- General Functionality Repleat-plugin-with-.:
+    -- UI ELEMENTS
+    -- Nice status line
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
-    use("folke/which-key.nvim") -- Don't forget mappings
-    use("goolord/alpha-nvim") -- Start Screen
-    use("antoinemadec/FixCursorHold.nvim")
-    use("christoomey/vim-tmux-navigator") -- tmux integration
+    -- Don't forget mappings
+    use("folke/which-key.nvim")
+    -- Start Screen
+    use("goolord/alpha-nvim")
+    -- tmux integration
+    use("christoomey/vim-tmux-navigator")
+    -- Buffer line
+    use("akinsho/bufferline.nvim")
+    -- close buffers without messing up layout
+    use("moll/vim-bbye")
+    -- ADHD mode
+    use({
+        "folke/zen-mode.nvim",
+        requires = { "folke/twilight.nvim" },
+    })
+    -- Nicer looking folds
+    use("anuvyklack/pretty-fold.nvim")
+    use({
+        use { "anuvyklack/fold-preview.nvim",
+            requires = "anuvyklack/keymap-amend.nvim",
+        }
+    })
+    -- File explorer
+    use({
+        "kyazdani42/nvim-tree.lua",
+        requires = { "nvim-tree/nvim-web-devicons" },
+    })
+    -- Add indentation guides even on blank lines
+    use("lukas-reineke/indent-blankline.nvim")
+
+    -- GENERAL HACKING
+    -- Terminal popup
+    use("akinsho/toggleterm.nvim")
+    -- Shows classpath near bufferline
+    use({
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+    })
+    -- Fuzzy finder
+    use({
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    })
+    -- Use native binary for fzf.  This removes external dependency
+    -- FIXME This does not install correctly
+    --use({
+    --    "nvim-telescope/telescope-fzf-native.nvim",
+    --    run = "make",
+    --    cond = vim.fn.executable "make" == 1
+    --})
+
     -- COLOR SCHEMES
     use("navarasu/onedark.nvim")
     use("savq/melange")
@@ -52,35 +101,76 @@ packer.startup(function()
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("tiagovla/tokyodark.nvim")
     use("rebelot/kanagawa.nvim")
-    use({
-        "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    }) -- Fuzzy finder
-    use("numToStr/Comment.nvim") -- Easily comment stuff
-    use("tpope/vim-surround") -- Surround-movement-with-X:
 
-    use("akinsho/bufferline.nvim") -- Buffer line
-    use("moll/vim-bbye")
+    -- GENERAL EASE OF USE
+    -- General Functionality Repleat-plugin-with-.:
+    use("tpope/vim-repeat")
+    -- Easily comment stuff
+    use("numToStr/Comment.nvim")
+    -- Surround-movement-with-X:
+    use("tpope/vim-surround")
+    -- Detect tabstop and shiftwidth automatically
+    use("tpope/vim-sleuth")
+
+    -- TREESITTER
     use({
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+        run = function()
+            pcall(require("nvim-treesitter.install").update { with_sync = true })
+        end,
     })
     use("JoosepAlviste/nvim-ts-context-commentstring")
+    -- Additional text objects via treesitter
     use({
-        "folke/zen-mode.nvim",
-        requires = { "folke/twilight.nvim" },
-    }) -- ADHD mode
-    use("anuvyklack/pretty-fold.nvim") -- Nicer looking folds
-    use({
-        use { 'anuvyklack/fold-preview.nvim',
-            requires = 'anuvyklack/keymap-amend.nvim',
-        }
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
     })
-    use("akinsho/toggleterm.nvim")
 
     -- CODING
-    use("majutsushi/tagbar") -- list of objects and members on side bar.
-    use({ "neoclide/coc.nvim", branch = "release" })
+    -- LSP Configuration & Plugins
+    use({
+        "neovim/nvim-lspconfig",
+        requires = {
+            -- Automatically install LSPs to stdpath for neovim
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+
+            -- Useful status updates for LSP
+            "j-hui/fidget.nvim",
+
+            -- Additional lua configuration, makes nvim stuff amazing
+            "folke/neodev.nvim",
+        },
+    })
+    -- Extra functionality for languages
+    use({
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        }
+    })
+    -- Autocompletion
+    use({
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+            "ray-x/cmp-treesitter",
+            "saadparwaiz1/cmp_luasnip",
+            "L3MON4D3/LuaSnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "saadparwaiz1/cmp_luasnip"
+        },
+    })
+    -- Autopairs
+    use({
+        "windwp/nvim-autopairs",
+        -- event = "InsertEnter",
+    })
 
     -- Git integration
     use("lewis6991/gitsigns.nvim") -- See hunks in gutter
@@ -90,11 +180,11 @@ packer.startup(function()
 end)
 
 if is_bootstrap then
-    print '=================================='
-    print '    Plugins are being installed'
-    print '    Wait until Packer completes,'
-    print '       then restart nvim'
-    print '=================================='
+    print "=================================="
+    print "    Plugins are being installed"
+    print "    Wait until Packer completes,"
+    print "       then restart nvim"
+    print "=================================="
     packer.sync()
     packer.compile()
 end
