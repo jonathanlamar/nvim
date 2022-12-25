@@ -1,12 +1,3 @@
-function _G.set_terminal_keymaps()
-    local opts = { noremap = true }
-    vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
-end
-
 local utils = require("nvim-tree.utils")
 vim.api.nvim_create_autocmd("BufEnter", {
     nested = true,
@@ -31,67 +22,136 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
 })
 
--- TODO: Convert these to lua
-vim.cmd([[
-"" Move cursorline to active window
-autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-autocmd! TermOpen term://* lua set_terminal_keymaps()
+-- Move cursorline to active window
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+    pattern = "*",
+    command = "setlocal cursorline",
+})
+vim.api.nvim_create_autocmd("WinLeave", {
+    pattern = "*",
+    command = "setlocal nocursorline",
+})
 
-augroup bash
-    autocmd!
-    autocmd BufWritePre *.sh %s/\s\+$//e
-augroup end
+local set_terminal_keymaps = function()
+    local opts = { noremap = true }
+    vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+end
+vim.api.nvim_create_autocmd("TermOpen", { pattern = "term://*", callback = set_terminal_keymaps })
 
-augroup java
-    autocmd!
-    autocmd FileType java set colorcolumn=100
-    autocmd BufWritePre *.java %s/\s\+$//e
-augroup end
+vim.api.nvim_create_augroup("bash", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "bash",
+    pattern = "*.sh",
+    command = "%s/\\s\\+$//e",
+})
 
-augroup javascript
-    autocmd!
-    autocmd BufRead,BufNewFile  *.ts set filetype=typescript
-    autocmd BufRead,BufNewFile  *.jsx set filetype=javascript
-    autocmd FileType javascript set colorcolumn=100
-    autocmd BufWritePre *.js,*.ts %s/\s\+$//e
-augroup end
+vim.api.nvim_create_augroup("java", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    group = "java",
+    pattern = "java",
+    callback = function()
+        vim.opt["colorcolumn"] = "100"
+    end,
+})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "java",
+    pattern = "*.java",
+    command = "%s/\\s\\+$//e",
+})
 
-augroup lua
-    autocmd!
-    autocmd BufWritePre *.lua %s/\s\+$//e
-augroup end
+vim.api.nvim_create_augroup("javascript", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "javascript",
+    pattern = "*.js,*.tx",
+    command = "%s/\\s\\+$//e",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "javascript",
+    pattern = "javascript,typescript",
+    callback = function()
+        vim.opt["colorcolumn"] = "100"
+    end,
+})
+vim.api.nvim_create_augroup("lua", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "lua",
+    pattern = "*.lua",
+    command = "%s/\\s\\+$//e",
+})
 
-augroup markdown
-    autocmd!
-    autocmd BufWritePre *.md %s/\s\+$//e
-    autocmd FileType markdown set textwidth=100
-    autocmd FileType markdown set colorcolumn=100
-augroup end
+vim.api.nvim_create_augroup("markdown", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "markdown",
+    pattern = "*.md",
+    command = "%s/\\s\\+$//e",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "markdown",
+    pattern = "markdown",
+    callback = function()
+        print("Setting colorcolumn")
+        vim.opt["colorcolumn"] = "100"
+    end,
+})
 
-augroup python
-    autocmd!
-    autocmd FileType python set colorcolumn=100
-    autocmd BufRead,BufNewFile  *.ipynb set syntax=python
-    autocmd BufWritePre *.py %s/\s\+$//e
-    autocmd FileType python set foldmethod=indent
-    autocmd FileType python set foldexpr=''
-augroup end
+vim.api.nvim_create_augroup("python", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = "python",
+    pattern = "*.ipynb",
+    callback = function()
+        vim.opt["filetype"] = "python"
+    end,
+})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "python",
+    pattern = "*.py",
+    command = "%s/\\s\\+$//e",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "python",
+    pattern = "python",
+    callback = function()
+        vim.opt["colorcolumn"] = "100"
+        vim.opt["foldmethod"] = "indent"
+        vim.opt["foldexpr"] = ""
+    end,
+})
 
-augroup scala
-    autocmd!
-    autocmd BufRead,BufNewFile *.sbt set filetype=scala
-    autocmd FileType scala set colorcolumn=100
-    autocmd BufWritePre *.scala,*.sbt %s/\s\+$//e
-augroup end
+vim.api.nvim_create_augroup("scala", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = "scala",
+    pattern = "*.sbt",
+    callback = function()
+        vim.opt["filetype"] = "scala"
+    end,
+})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "scala",
+    pattern = "*.scala,*.sbt",
+    command = "%s/\\s\\+$//e",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "scala",
+    pattern = "scala",
+    callback = function()
+        vim.opt["colorcolumn"] = "100"
+    end,
+})
 
-augroup sql
-    autocmd!
-    autocmd BufWritePre *.sql %s/\s\+$//e
-augroup end
+vim.api.nvim_create_augroup("sql", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "sql",
+    pattern = "*.sql",
+    command = "%s/\\s\\+$//e",
+})
 
-augroup vim
-    autocmd!
-    autocmd BufWritePre *.vim %s/\s\+$//e
-augroup end
-]])
+vim.api.nvim_create_augroup("vim", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "vim",
+    pattern = "*.vim",
+    command = "%s/\\s\\+$//e",
+})
