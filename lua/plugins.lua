@@ -60,9 +60,7 @@ packer.startup(function()
     -- Nicer looking folds
     use("anuvyklack/pretty-fold.nvim")
     use({
-        use { "anuvyklack/fold-preview.nvim",
-            requires = "anuvyklack/keymap-amend.nvim",
-        }
+        use({ "anuvyklack/fold-preview.nvim", requires = "anuvyklack/keymap-amend.nvim" }),
     })
     -- File explorer
     use({
@@ -116,7 +114,7 @@ packer.startup(function()
     use({
         "nvim-treesitter/nvim-treesitter",
         run = function()
-            pcall(require("nvim-treesitter.install").update { with_sync = true })
+            pcall(require("nvim-treesitter.install").update({ with_sync = true }))
         end,
     })
     use("JoosepAlviste/nvim-ts-context-commentstring")
@@ -147,7 +145,7 @@ packer.startup(function()
         "jose-elias-alvarez/null-ls.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
-        }
+        },
     })
     -- Autocompletion
     use({
@@ -163,7 +161,7 @@ packer.startup(function()
             "saadparwaiz1/cmp_luasnip",
             "L3MON4D3/LuaSnip",
             "hrsh7th/cmp-nvim-lsp",
-            "saadparwaiz1/cmp_luasnip"
+            "saadparwaiz1/cmp_luasnip",
         },
     })
     -- Autopairs
@@ -180,11 +178,11 @@ packer.startup(function()
 end)
 
 if is_bootstrap then
-    print "=================================="
-    print "    Plugins are being installed"
-    print "    Wait until Packer completes,"
-    print "       then restart nvim"
-    print "=================================="
+    print("==================================")
+    print("    Plugins are being installed")
+    print("    Wait until Packer completes,")
+    print("       then restart nvim")
+    print("==================================")
     packer.sync()
     packer.compile()
 end

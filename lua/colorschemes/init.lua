@@ -22,7 +22,7 @@ local set_colorscheme = function(colorscheme)
             colorscheme gruvbox-material
         ]])
     elseif colorscheme == "catppuccin" then
-        vim.cmd([[colorscheme catppuccin]])
+        vim.cmd("colorscheme catppuccin")
     elseif colorscheme == "tokyodark" then
         vim.g.tokyodark_transparent_background = false
         vim.g.tokyodark_enable_italic_comment = true
@@ -36,10 +36,10 @@ end
 
 local status_ok, _ = pcall(set_colorscheme, "kanagawa")
 if not status_ok then
-    print '=================================='
-    print '    Unable to load colorscheme'
-    print '    Resolve packer issues, then'
-    print '           restart nvim'
-    print '=================================='
+    print("==================================")
+    print("    Unable to load colorscheme")
+    print("    Resolve packer issues, then")
+    print("           restart nvim")
+    print("==================================")
     return
 end

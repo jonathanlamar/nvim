@@ -4,11 +4,11 @@
 local navic = require("nvim-navic")
 
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = false,
+    virtual_text = false,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = false,
 })
 
 --  This function gets run when an LSP connects to a particular buffer.

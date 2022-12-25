@@ -9,20 +9,20 @@ require("bufferline").setup({
         -- NOTE: this plugin is designed with this icon in mind,
         -- and so changing this is NOT recommended, this is intended
         -- as an escape hatch for people who cannot bear it for whatever reason
-        indicator = { style = 'icon', icon = '▎' },
-        buffer_close_icon = '',
-        modified_icon = '●',
-        close_icon = '',
-        left_trunc_marker = '',
-        right_trunc_marker = '',
+        indicator = { style = "icon", icon = "▎" },
+        buffer_close_icon = "",
+        modified_icon = "●",
+        close_icon = "",
+        left_trunc_marker = "",
+        right_trunc_marker = "",
         --- name_formatter can be used to change the buffer's label in the bufferline.
         --- Please note some names can/will break the
         --- bufferline so use this at your discretion knowing that it has
         --- some limitations that will *NOT* be fixed.
         name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
             -- remove extension from markdown files for example
-            if buf.name:match('%.md') then
-                return vim.fn.fnamemodify(buf.name, ':t:r')
+            if buf.name:match("%.md") then
+                return vim.fn.fnamemodify(buf.name, ":t:r")
             end
         end,
         max_name_length = 100,
@@ -71,5 +71,5 @@ require("bufferline").setup({
         --   -- add custom logic
         --   return buffer_a.modified > buffer_b.modified
         -- end
-    }
+    },
 })

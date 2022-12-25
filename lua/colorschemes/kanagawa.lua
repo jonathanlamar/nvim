@@ -14,25 +14,15 @@ require("kanagawa").setup({
     dimInactive = true, -- dim inactive window `:h hl-NormalNC`
     colors = {},
     overrides = {
-        CocErrorSign = { fg = colors.samuraiRed },
-        CocWarningSign = { fg = colors.roninYellow },
-        CocInfoSign = { fg = colors.crystalBlue },
-        CocHintSign = { fg = colors.springGreen },
-        CocErrorVirtualText = { link = "CocErrorSign" },
-        CocWarningVirtualText = { link = "CocWarningSign" },
-        CocInfoVirtualText = { link = "CocInfoSign" },
-        CocHintVirtualText = { link = "CocHintSign" },
+        --[[ CocErrorSign = { fg = colors.samuraiRed }, ]]
+        --[[ CocWarningSign = { fg = colors.roninYellow }, ]]
+        --[[ CocInfoSign = { fg = colors.crystalBlue }, ]]
+        --[[ CocHintSign = { fg = colors.springGreen }, ]]
+        --[[ CocErrorVirtualText = { link = "CocErrorSign" }, ]]
+        --[[ CocWarningVirtualText = { link = "CocWarningSign" }, ]]
+        --[[ CocInfoVirtualText = { link = "CocInfoSign" }, ]]
+        --[[ CocHintVirtualText = { link = "CocHintSign" }, ]]
         WinSeparator = { fg = colors.oldWhite },
-
-        -- CocErrorHighlight
-        -- CocWarningHighlight
-        -- CocInfoHighlight
-        -- CocHintHighlight
-        -- CocDeprecatedHighlight
-        -- CocErrorLine
-        -- CocWarningLine
-        -- CocInfoLine
-        -- CocHintLine
     },
 })
 
