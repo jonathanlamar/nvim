@@ -169,6 +169,8 @@ packer.startup(function()
         "windwp/nvim-autopairs",
         -- event = "InsertEnter",
     })
+    -- For multi-project java workspaces at work
+    use("mfussenegger/nvim-jdtls")
 
     -- Git integration
     use("lewis6991/gitsigns.nvim") -- See hunks in gutter
