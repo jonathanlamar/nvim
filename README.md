@@ -44,4 +44,5 @@ This list may not be exhaustive
 * conda
 * exuberant ctags
 * lua
+* stylua
 * ripgrep - I'm still not sure about this.  It might not be required for anything.
