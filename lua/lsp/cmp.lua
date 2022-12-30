@@ -1,6 +1,22 @@
 -- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+-- Set up github issues source
+require("lsp.cmp_gh_source")
+
+-- Don't show the dumb matching stuff.
+vim.opt.shortmess:append("c")
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+lspkind.init({
+    symbol_map = {
+        Copilot = "",
+    },
+})
 
 cmp.setup({
     snippet = {
@@ -35,13 +51,70 @@ cmp.setup({
             end
         end, { "i", "s" }),
     }),
+
+    -- TODO:
+    -- Text suggestions only in comments
+    -- Dictionary/spelling in text and markdown
     sources = {
-        { name = "nvim_lsp" },
-        { name = "treesitter" },
-        { name = "buffer" },
-        { name = "luasnip" },
         { name = "nvim_lua" },
-        { name = "path" },
         { name = "nvim_lsp_signature_help" },
+        { name = "nvim_lsp", keyword_length = 4 },
+        { name = "luasnip" },
+        { name = "copilot" },
     },
+    {
+        { name = "path" },
+        { name = "buffer", keyword_length = 5 },
+    },
+    {
+        { name = "gh_issues" },
+    },
+
+    formatting = {
+        -- Youtube: How to set up nice formatting for your sources.
+        format = lspkind.cmp_format({
+            with_text = true,
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                luasnip = "[snip]",
+                --[[ gh_issues = "[issues]", ]]
+            },
+        }),
+    },
+
+    sorting = {
+        comparators = {
+            cmp.config.compare.locality,
+            cmp.config.compare.offset,
+            cmp.config.compare.score,
+            require("cmp-under-comparator").under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+            cmp.config.compare.exact,
+        },
+    },
+
+    enabled = function()
+        -- disable completion in comments
+        local context = require("cmp.config.context")
+        -- keep command mode completion enabled when cursor is in a comment
+        if vim.api.nvim_get_mode().mode == "c" then
+            return true
+        else
+            return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+        end
+    end,
+
+    --[[ experimental = { ]]
+    --[[     -- I like the new menu better! Nice work hrsh7th ]]
+    --[[     native_menu = false, ]]
+    --[[]]
+    --[[     -- Let's play with this for a day or two ]]
+    --[[     ghost_text = false, ]]
+    --[[ }, ]]
 })

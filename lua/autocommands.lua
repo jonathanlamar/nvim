@@ -1,12 +1,13 @@
 local utils = require("nvim-tree.utils")
-vim.api.nvim_create_autocmd("BufEnter", {
-    nested = true,
-    callback = function()
-        if #vim.api.nvim_list_wins() == 1 and utils.is_nvim_tree_buf() then
-            vim.cmd("quit")
-        end
-    end,
-})
+-- TODO: This breaks when there are unsaved buffers not in windows.
+--[[ vim.api.nvim_create_autocmd("BufEnter", { ]]
+--[[     nested = true, ]]
+--[[     callback = function() ]]
+--[[         if #vim.api.nvim_list_wins() == 1 and utils.is_nvim_tree_buf() then ]]
+--[[             vim.cmd("quit") ]]
+--[[         end ]]
+--[[     end, ]]
+--[[ }) ]]
 
 -- Don't autocomment new lines
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "set fo-=c fo-=r fo-=o" })

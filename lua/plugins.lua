@@ -99,6 +99,7 @@ packer.startup(function()
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("tiagovla/tokyodark.nvim")
     use("rebelot/kanagawa.nvim")
+    use({ "rose-pine/neovim", as = "rose-pine" })
 
     -- GENERAL EASE OF USE
     -- General Functionality Repleat-plugin-with-.:
@@ -162,6 +163,9 @@ packer.startup(function()
             "L3MON4D3/LuaSnip",
             "hrsh7th/cmp-nvim-lsp",
             "saadparwaiz1/cmp_luasnip",
+            "onsails/lspkind.nvim", -- vscode pictograms
+            --[[ "ofirgall/cmp-lspkind-priority", -- Prioritize completion by LSP kind, configurable ]]
+            "lukas-reineke/cmp-under-comparator", -- Put python dunder methods later in suggestions list.
         },
     })
     -- Autopairs

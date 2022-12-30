@@ -8,7 +8,6 @@ null_ls.setup({
         -- eslint with opinionated defaults
         --[[ null_ls.builtins.code_actions.xo, ]]
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.completion.spell,
         --[[ null_ls.builtins.code_actions.refactoring, ]]
         null_ls.builtins.diagnostics.flake8.with({
             command = env.python_env_path .. "/bin/flake8"

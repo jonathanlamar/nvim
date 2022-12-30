@@ -2,10 +2,11 @@
 require("colorschemes.catpuccin")
 require("colorschemes.kanagawa")
 require("colorschemes.onedark")
+require("colorschemes.rose-pine")
 
 -- I hate this, but some colorschemes require procedural commands for configuration.
 -- This function handles those so I don't lose them when switching colorschemes.
-local set_colorscheme = function(colorscheme)
+_G.set_colorscheme = function(colorscheme)
     if colorscheme == "onedark" then
         require("onedark").load()
     elseif colorscheme == "melange" then
@@ -31,6 +32,10 @@ local set_colorscheme = function(colorscheme)
         vim.cmd("colorscheme tokyodark")
     elseif colorscheme == "kanagawa" then
         vim.cmd("colorscheme kanagawa")
+    elseif colorscheme == "rose-pine" then
+        vim.cmd("colorscheme rose-pine")
+    else
+        error("Unknown colorscheme" .. colorscheme)
     end
 end
 
