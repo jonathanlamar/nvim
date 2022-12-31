@@ -34,6 +34,7 @@ _G.set_colorscheme = function(colorscheme)
         vim.cmd("colorscheme kanagawa")
     elseif colorscheme == "rose-pine" then
         vim.cmd("colorscheme rose-pine")
+        vim.opt["laststatus"] = 3
     else
         error("Unknown colorscheme" .. colorscheme)
     end

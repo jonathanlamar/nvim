@@ -124,6 +124,7 @@ packer.startup(function()
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
     })
+    use("nvim-treesitter/playground")
 
     -- CODING
     -- LSP Configuration & Plugins
