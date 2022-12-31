@@ -117,8 +117,8 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function()
         vim.opt["colorcolumn"] = "100"
-        vim.opt["foldmethod"] = "indent"
-        vim.opt["foldexpr"] = ""
+        --[[ vim.opt["foldmethod"] = "indent" ]]
+        --[[ vim.opt["foldexpr"] = "" ]]
     end,
 })
 

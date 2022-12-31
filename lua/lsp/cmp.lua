@@ -19,11 +19,25 @@ lspkind.init({
 })
 
 cmp.setup({
+    completion = {
+        -- Remove open paren from completion triggers.
+        get_trigger_characters = function(trigger_characters)
+            local new_trigger_characters = {}
+            for _, char in ipairs(trigger_characters) do
+                if char ~= "(" then
+                    table.insert(new_trigger_characters, char)
+                end
+            end
+            return new_trigger_characters
+        end,
+    },
+
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
     },
+
     mapping = cmp.mapping.preset.insert({
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),

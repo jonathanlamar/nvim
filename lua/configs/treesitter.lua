@@ -35,7 +35,7 @@ require("nvim-treesitter.configs").setup({
         additional_vim_regex_highlighting = false,
     },
     -- indent is terrible
-    indent = { enable = true, disable = { "python" } },
+    indent = { enable = true },
     textobjects = {
         select = {
             enable = true,

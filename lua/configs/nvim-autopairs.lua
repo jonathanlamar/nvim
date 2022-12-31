@@ -24,11 +24,6 @@ npairs.setup({
     -- },
 })
 
--- Integration so cmp will provide parens
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local cmp = require("cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-
 local Rule = require("nvim-autopairs.rule")
 npairs.add_rules({
     Rule(" ", " "):with_pair(function(opts)
