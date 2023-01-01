@@ -72,7 +72,7 @@ cmp.setup({
     sources = {
         { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
-        { name = "nvim_lsp", keyword_length = 4 },
+        { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "copilot" },
     },
