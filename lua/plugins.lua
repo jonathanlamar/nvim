@@ -36,6 +36,9 @@ packer.startup(function()
     -- Packer can manage itself as an optional plugin
     use("wbthomason/packer.nvim")
 
+    -- startup time optimizer
+    use("lewis6991/impatient.nvim")
+
     -- UI ELEMENTS
     -- Nice status line
     use({
@@ -59,9 +62,7 @@ packer.startup(function()
     })
     -- Nicer looking folds
     use("anuvyklack/pretty-fold.nvim")
-    use({
-        use({ "anuvyklack/fold-preview.nvim", requires = "anuvyklack/keymap-amend.nvim" }),
-    })
+    use({ "anuvyklack/fold-preview.nvim", requires = "anuvyklack/keymap-amend.nvim" })
     -- File explorer
     use({
         "kyazdani42/nvim-tree.lua",

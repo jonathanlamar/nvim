@@ -1,6 +1,7 @@
 require("configs.alpha")
 require("configs.bufferline")
 require("configs.gitsigns")
+require("configs.impatient")
 require("configs.indent-blankline")
 require("configs.lualine")
 require("configs.nvim-autopairs")
