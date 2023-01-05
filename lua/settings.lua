@@ -48,6 +48,10 @@ local options = {
 
     -- Global statusline
     laststatus = 3,
+
+    -- Spelling suggestions only enabled in markdown and text filetypes
+    spell = false,
+    spelllang = { 'en_us' },
 }
 
 for k, v in pairs(options) do

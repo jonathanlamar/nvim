@@ -4,9 +4,6 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
--- Set up github issues source
-require("lsp.cmp_gh_source")
-
 -- Don't show the dumb matching stuff.
 vim.opt.shortmess:append("c")
 
@@ -67,34 +64,27 @@ cmp.setup({
     }),
 
     -- TODO:
-    -- Text suggestions only in comments
-    -- Dictionary/spelling in text and markdown
+    -- Text style suggestions in comments
     sources = {
         { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "copilot" },
-    },
-    {
         { name = "path" },
-        { name = "buffer", keyword_length = 5 },
-    },
-    {
-        { name = "gh_issues" },
     },
 
     formatting = {
-        -- Youtube: How to set up nice formatting for your sources.
         format = lspkind.cmp_format({
             with_text = true,
             menu = {
-                buffer = "[buf]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[api]",
+                nvim_lsp_signature_help = "[sig]",
                 path = "[path]",
                 luasnip = "[snip]",
-                --[[ gh_issues = "[issues]", ]]
+                spell = "[spell]",
+                dictionary = "[dict]",
+                buffer = "[buf]"
             },
         }),
     },
@@ -123,12 +113,21 @@ cmp.setup({
             return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
         end
     end,
+})
 
-    --[[ experimental = { ]]
-    --[[     -- I like the new menu better! Nice work hrsh7th ]]
-    --[[     native_menu = false, ]]
-    --[[]]
-    --[[     -- Let's play with this for a day or two ]]
-    --[[     ghost_text = false, ]]
-    --[[ }, ]]
+cmp.setup.filetype({ "markdown", "text" }, {
+    sources = {
+        { name = "spell", keyword_length = 4 },
+        { name = "dictionary", keyword_length = 4 },
+        { name = "buffer", keyword_length = 4 },
+    },
+})
+
+cmp.setup.cmdline("/", {
+    sources = cmp.config.sources({ { name = "nvim_lsp_document_symbol" } }, { { name = "buffer" } }),
+    mapping = cmp.mapping.preset.cmdline({
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Left>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+        ["<Right>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+    }),
 })

@@ -154,20 +154,18 @@ packer.startup(function()
     use({
         "hrsh7th/nvim-cmp",
         requires = {
+            "L3MON4D3/LuaSnip",
+            "f3fora/cmp-spell",
             "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-document-symbol",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-path",
-            "ray-x/cmp-treesitter",
-            "saadparwaiz1/cmp_luasnip",
-            "L3MON4D3/LuaSnip",
-            "hrsh7th/cmp-nvim-lsp",
-            "saadparwaiz1/cmp_luasnip",
-            "onsails/lspkind.nvim", -- vscode pictograms
-            --[[ "ofirgall/cmp-lspkind-priority", -- Prioritize completion by LSP kind, configurable ]]
             "lukas-reineke/cmp-under-comparator", -- Put python dunder methods later in suggestions list.
+            "onsails/lspkind.nvim", -- vscode pictograms
+            "saadparwaiz1/cmp_luasnip",
+            "uga-rosa/cmp-dictionary",
         },
     })
     -- Autopairs

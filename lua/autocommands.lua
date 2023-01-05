@@ -1,5 +1,5 @@
-local utils = require("nvim-tree.utils")
 -- TODO: This breaks when there are unsaved buffers not in windows.
+--[[ local utils = require("nvim-tree.utils") ]]
 --[[ vim.api.nvim_create_autocmd("BufEnter", { ]]
 --[[     nested = true, ]]
 --[[     callback = function() ]]
@@ -94,8 +94,16 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "markdown",
     pattern = "markdown",
     callback = function()
-        print("Setting colorcolumn")
         vim.opt["colorcolumn"] = "100"
+        vim.opt.spell = true
+    end,
+})
+vim.api.nvim_create_augroup("text", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    group = "text",
+    pattern = "text",
+    callback = function()
+        vim.opt.spell = true
     end,
 })
 

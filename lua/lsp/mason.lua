@@ -1,5 +1,9 @@
+-- Setup mason so it can manage external tooling
+require("mason").setup()
+
 local navic = require("nvim-navic")
 local mason_lspconfig = require("mason-lspconfig")
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -7,6 +11,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local servers = {
     -- clangd = {},
     -- gopls = {},
+    jdtls = {},
     pyright = {},
     -- rust_analyzer = {},
     tsserver = {},

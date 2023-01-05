@@ -7,9 +7,6 @@ require("neodev").setup()
 -- Turn on lsp status information
 require("fidget").setup()
 
--- Setup mason so it can manage external tooling
-require("mason").setup()
-
 require("lsp.mason")
 require("lsp.cmp")
 require("lsp.null-ls")
