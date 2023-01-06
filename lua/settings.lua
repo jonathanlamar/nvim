@@ -6,14 +6,11 @@ local options = {
     cmdheight = 2,
     encoding = "utf-8",
     fileencoding = "utf-8",
-    lazyredraw = true,
     scrolloff = 3,
     mouse = "a",
     backup = false,
     writebackup = false,
     swapfile = false,
-    showcmd = true,
-    showmode = false,
     updatetime = 100,
     timeoutlen = 100,
     wildmenu = true,
@@ -24,14 +21,16 @@ local options = {
     number = true,
     splitbelow = true,
     splitright = true,
-    viewoptions = "cursor,folds",
+    viewoptions = { "cursor", "folds" },
     termguicolors = true,
+    completeopt = { "menuone", "noselect" },
 
     -- Tabs
     shiftwidth = 4,
     softtabstop = 4,
     tabstop = 4,
     expandtab = true,
+    breakindent = true,
     -- smartindent = true, -- not sure about this and treesitter
 
     -- Searching
@@ -51,7 +50,7 @@ local options = {
 
     -- Spelling suggestions only enabled in markdown and text filetypes
     spell = false,
-    spelllang = { 'en_us' },
+    spelllang = { "en_us" },
 }
 
 for k, v in pairs(options) do
