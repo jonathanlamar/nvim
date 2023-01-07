@@ -1,61 +1,55 @@
 local env = require("this_computer")
 
-local options = {
-    -- General look and feel
-    clipboard = { "unnamed", "unnamedplus" },
-    cmdheight = 2,
-    encoding = "utf-8",
-    fileencoding = "utf-8",
-    scrolloff = 3,
-    mouse = "a",
-    backup = false,
-    writebackup = false,
-    swapfile = false,
-    updatetime = 100,
-    timeoutlen = 100,
-    wildmenu = true,
-    signcolumn = "yes",
-    fillchars = "vert:│",
-    hidden = true,
-    wrap = false,
-    number = true,
-    splitbelow = true,
-    splitright = true,
-    viewoptions = { "cursor", "folds" },
-    termguicolors = true,
-    completeopt = { "menuone", "noselect" },
+-- General look and feel
+vim.opt.clipboard = { "unnamed", "unnamedplus" }
+vim.opt.cmdheight = 2
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.scrolloff = 3
+vim.opt.mouse = "a"
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.updatetime = 100
+vim.opt.timeoutlen = 100
+vim.opt.wildmenu = true
+vim.opt.signcolumn = "yes"
+vim.opt.fillchars = "vert:│"
+vim.opt.hidden = true
+vim.opt.wrap = false
+vim.opt.number = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.viewoptions = { "cursor", "folds" }
+vim.opt.termguicolors = true
+vim.opt.completeopt = { "menuone", "noselect" }
 
-    -- Tabs
-    shiftwidth = 4,
-    softtabstop = 4,
-    tabstop = 4,
-    expandtab = true,
-    breakindent = true,
-    -- smartindent = true, -- not sure about this and treesitter
+-- Tabs
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+vim.opt.breakindent = true
+-- vim.opt.smartindent = true -- not sure about this and treesitter
 
-    -- Searching
-    ignorecase = true,
-    smartcase = true,
-    wildmode = "list:longest",
+-- Searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.wildmode = "list:longest"
 
-    -- Folds
-    foldenable = true,
-    foldlevelstart = 100,
-    foldnestmax = 5,
-    foldmethod = "expr",
-    foldexpr = "nvim_treesitter#foldexpr()",
+-- Folds
+vim.opt.foldenable = true
+vim.opt.foldlevelstart = 100
+vim.opt.foldnestmax = 5
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-    -- Global statusline
-    laststatus = 3,
+-- Global statusline
+vim.opt.laststatus = 3
 
-    -- Spelling suggestions only enabled in markdown and text filetypes
-    spell = false,
-    spelllang = { "en_us" },
-}
-
-for k, v in pairs(options) do
-    vim.opt[k] = v
-end
+-- Spelling suggestions only enabled in markdown and text filetypes
+vim.opt.spell = false
+vim.opt.spelllang = { "en_us" }
 
 -- Other global settings
 vim.g.python3_host_prog = env.python_env_path .. "/neovim/bin/python"
