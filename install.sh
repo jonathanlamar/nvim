@@ -26,7 +26,12 @@ conda run -n neovim bash -c "pip install -r requirements.txt"
 
 #==============
 # Install npm dependencies
-npm install -g prettier eslint
+sudo npm install -g prettier eslint
+#==============
+
+#==============
+# Install cargo dependencies
+# cargo install stylua
 #==============
 
 #==============

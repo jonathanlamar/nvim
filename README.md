@@ -42,7 +42,7 @@ This list may not be exhaustive
 
 * neovim >= 0.8.1
 * conda
-* exuberant ctags
-* lua
+* npm (for installing eslint and prettier)
 * stylua
+* exuberant ctags
 * ripgrep - I'm still not sure about this.  It might not be required for anything.
