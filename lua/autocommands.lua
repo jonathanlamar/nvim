@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "java",
     pattern = "java",
     callback = function()
-        vim.opt["colorcolumn"] = "100"
+        vim.opt["colorcolumn"] = "120"
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "javascript",
     pattern = "javascript,typescript",
     callback = function()
-        vim.opt["colorcolumn"] = "100"
+        vim.opt["colorcolumn"] = "120"
     end,
 })
 vim.api.nvim_create_augroup("lua", { clear = true })
@@ -94,7 +94,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "markdown",
     pattern = "markdown",
     callback = function()
-        vim.opt["colorcolumn"] = "100"
+        vim.opt["colorcolumn"] = "120"
         vim.opt.spell = true
     end,
 })
@@ -124,7 +124,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "python",
     pattern = "python",
     callback = function()
-        vim.opt["colorcolumn"] = "100"
+        vim.opt["colorcolumn"] = "120"
         --[[ vim.opt["foldmethod"] = "indent" ]]
         --[[ vim.opt["foldexpr"] = "" ]]
     end,
@@ -147,7 +147,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "scala",
     pattern = "scala",
     callback = function()
-        vim.opt["colorcolumn"] = "100"
+        vim.opt["colorcolumn"] = "120"
     end,
 })
 
