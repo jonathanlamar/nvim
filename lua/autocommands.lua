@@ -26,11 +26,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Move cursorline to active window
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
     pattern = "*",
-    command = "setlocal cursorline",
+    callback = function ()
+        vim.opt_local.cursorline = true
+    end,
 })
 vim.api.nvim_create_autocmd("WinLeave", {
     pattern = "*",
-    command = "setlocal nocursorline",
+    callback = function ()
+        vim.opt_local.cursorline = true
+    end,
 })
 
 local set_terminal_keymaps = function()
@@ -55,7 +59,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "java",
     pattern = "java",
     callback = function()
-        vim.opt["colorcolumn"] = "120"
+        vim.opt.colorcolumn = "120"
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -74,7 +78,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "javascript",
     pattern = "javascript,typescript",
     callback = function()
-        vim.opt["colorcolumn"] = "120"
+        vim.opt.colorcolumn = "120"
     end,
 })
 vim.api.nvim_create_augroup("lua", { clear = true })
@@ -94,8 +98,9 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "markdown",
     pattern = "markdown",
     callback = function()
-        vim.opt["colorcolumn"] = "120"
+        vim.opt.colorcolumn = "120"
         vim.opt.spell = true
+        vim.opt.textwidth = 120
     end,
 })
 vim.api.nvim_create_augroup("text", { clear = true })
@@ -103,7 +108,9 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "text",
     pattern = "text",
     callback = function()
+        vim.opt.colorcolumn = "120"
         vim.opt.spell = true
+        vim.opt.textwidth = 120
     end,
 })
 
@@ -112,7 +119,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = "python",
     pattern = "*.ipynb",
     callback = function()
-        vim.opt["filetype"] = "python"
+        vim.opt.filetype = "python"
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -124,9 +131,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "python",
     pattern = "python",
     callback = function()
-        vim.opt["colorcolumn"] = "120"
-        --[[ vim.opt["foldmethod"] = "indent" ]]
-        --[[ vim.opt["foldexpr"] = "" ]]
+        vim.opt.colorcolumn = "120"
     end,
 })
 
@@ -147,7 +152,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "scala",
     pattern = "scala",
     callback = function()
-        vim.opt["colorcolumn"] = "120"
+        vim.opt.colorcolumn = "120"
     end,
 })
 
