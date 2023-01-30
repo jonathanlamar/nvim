@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
         "python",
         "scala",
         "typescript",
+        "tsx",
         "vim",
         "yaml",
     },

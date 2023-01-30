@@ -26,13 +26,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Move cursorline to active window
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
     pattern = "*",
-    callback = function ()
+    callback = function()
         vim.opt_local.cursorline = true
     end,
 })
 vim.api.nvim_create_autocmd("WinLeave", {
     pattern = "*",
-    callback = function ()
+    callback = function()
         vim.opt_local.cursorline = true
     end,
 })
@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "java",
     pattern = "java",
     callback = function()
-        vim.opt.colorcolumn = "120"
+        vim.opt_local.colorcolumn = "120"
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -71,14 +71,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_augroup("javascript", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "javascript",
-    pattern = "*.js,*.tx",
+    pattern = "*.js,*.ts,*.jsx,*.tsx",
     command = "%s/\\s\\+$//e",
 })
 vim.api.nvim_create_autocmd("FileType", {
     group = "javascript",
-    pattern = "javascript,typescript",
+    pattern = "javascript,typescript,javascriptreact,typescriptreact",
     callback = function()
-        vim.opt.colorcolumn = "120"
+        vim.opt_local.colorcolumn = "120"
     end,
 })
 vim.api.nvim_create_augroup("lua", { clear = true })
@@ -98,9 +98,16 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "markdown",
     pattern = "markdown",
     callback = function()
-        vim.opt.colorcolumn = "120"
-        vim.opt.spell = true
-        vim.opt.textwidth = 120
+        vim.opt_local.colorcolumn = "120"
+        vim.opt_local.spell = true
+        vim.opt_local.textwidth = 120
+    end,
+})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = "markdown",
+    pattern = "*.mdx",
+    callback = function()
+        vim.opt_local.filetype = "markdown"
     end,
 })
 vim.api.nvim_create_augroup("text", { clear = true })
@@ -108,9 +115,9 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "text",
     pattern = "text",
     callback = function()
-        vim.opt.colorcolumn = "120"
-        vim.opt.spell = true
-        vim.opt.textwidth = 120
+        vim.opt_local.colorcolumn = "120"
+        vim.opt_local.spell = true
+        vim.opt_local.textwidth = 120
     end,
 })
 
@@ -131,7 +138,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "python",
     pattern = "python",
     callback = function()
-        vim.opt.colorcolumn = "120"
+        vim.opt_local.colorcolumn = "120"
     end,
 })
 
@@ -140,7 +147,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = "scala",
     pattern = "*.sbt",
     callback = function()
-        vim.opt["filetype"] = "scala"
+        vim.opt.filetype = "scala"
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -152,7 +159,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "scala",
     pattern = "scala",
     callback = function()
-        vim.opt.colorcolumn = "120"
+        vim.opt_local.colorcolumn = "120"
     end,
 })
 

@@ -2,7 +2,6 @@ local env = require("this_computer")
 
 -- General look and feel
 vim.opt.clipboard = { "unnamed", "unnamedplus" }
-vim.opt.cmdheight = 2
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.scrolloff = 3
@@ -25,9 +24,10 @@ vim.opt.termguicolors = true
 vim.opt.completeopt = { "menuone", "noselect" }
 
 -- Tabs
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
+-- These should be covered by tpope/vim-sleuth
+--[[ vim.opt.shiftwidth = 4 ]]
+--[[ vim.opt.softtabstop = 4 ]]
+--[[ vim.opt.tabstop = 4 ]]
 vim.opt.expandtab = true
 vim.opt.breakindent = true
 -- vim.opt.smartindent = true -- not sure about this and treesitter
