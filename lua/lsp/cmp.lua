@@ -77,9 +77,9 @@ cmp.setup({
         format = lspkind.cmp_format({
             with_text = true,
             menu = {
+                nvim_lsp_signature_help = "[sig]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[api]",
-                nvim_lsp_signature_help = "[sig]",
                 path = "[path]",
                 luasnip = "[snip]",
                 spell = "[spell]",
@@ -91,15 +91,15 @@ cmp.setup({
 
     sorting = {
         comparators = {
+            cmp.config.compare.exact,
             cmp.config.compare.locality,
+            cmp.config.compare.kind,
             cmp.config.compare.offset,
             cmp.config.compare.score,
             require("cmp-under-comparator").under,
-            cmp.config.compare.kind,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
             cmp.config.compare.order,
-            cmp.config.compare.exact,
         },
     },
 
