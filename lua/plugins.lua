@@ -168,7 +168,6 @@ packer.startup(function()
             "uga-rosa/cmp-dictionary",
         },
     })
-    use({ "ray-x/lsp_signature.nvim" })
     -- Autopairs
     use({
         "windwp/nvim-autopairs",

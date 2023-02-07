@@ -10,7 +10,6 @@ require("fidget").setup()
 require("lsp.mason")
 require("lsp.cmp")
 require("lsp.null-ls")
-require("lsp.lsp_signature")
 
 vim.diagnostic.config({
     virtual_text = false,
