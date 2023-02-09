@@ -60,9 +60,6 @@ packer.startup(function()
         "folke/zen-mode.nvim",
         requires = { "folke/twilight.nvim" },
     })
-    -- Nicer looking folds
-    use("anuvyklack/pretty-fold.nvim")
-    use({ "anuvyklack/fold-preview.nvim", requires = "anuvyklack/keymap-amend.nvim" })
     -- File explorer
     use({
         "kyazdani42/nvim-tree.lua",
