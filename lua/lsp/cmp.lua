@@ -9,12 +9,6 @@ vim.opt.shortmess:append("c")
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-lspkind.init({
-    symbol_map = {
-        Copilot = "",
-    },
-})
-
 cmp.setup({
     completion = {
         -- Remove open paren and comma from completion triggers.
@@ -84,7 +78,7 @@ cmp.setup({
                 luasnip = "[snip]",
                 spell = "[spell]",
                 dictionary = "[dict]",
-                buffer = "[buf]"
+                buffer = "[buf]",
             },
         }),
     },
