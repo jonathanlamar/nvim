@@ -1,9 +1,15 @@
 return {
     "williamboman/mason.nvim",
+    dependencies = {
+        { "SmiteshP/nvim-navic", lazy = true },
+        { "j-hui/fidget.nvim",   lazy = true },
+        { "folke/neodev.nvim",   lazy = true },
+    },
     lazy = true,
     config = function()
-        -- Setup mason so it can manage external tooling
-        require("mason").setup()
+        require("mason").setup() -- Setup mason so it can manage external tooling
+        require("neodev").setup() -- Setup neovim lua configuration
+        require("fidget").setup() -- Turn on lsp status information
 
         local navic = require("nvim-navic")
         local mason_lspconfig = require("mason-lspconfig")
