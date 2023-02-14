@@ -22,6 +22,7 @@ vim.opt.splitright = true
 vim.opt.viewoptions = { "cursor", "folds" }
 vim.opt.termguicolors = true
 vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.laststatus = 3 -- Global statusline
 
 -- Tabs
 -- These should be covered by tpope/vim-sleuth
@@ -43,9 +44,6 @@ vim.opt.foldlevelstart = 100
 vim.opt.foldnestmax = 5
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
--- Global statusline
-vim.opt.laststatus = 3
 
 -- Spelling suggestions only enabled in markdown and text filetypes
 vim.opt.spell = false

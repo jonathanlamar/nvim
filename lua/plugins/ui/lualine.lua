@@ -4,7 +4,6 @@ return {
     lazy = false,
     dependencies = {
         { "SmiteshP/nvim-navic",         lazy = true },
-        { "neovim/nvim-lspconfig",       lazy = true },
         { "nvim-tree/nvim-web-devicons", lazy = true }
     },
     config = function()
@@ -33,6 +32,7 @@ return {
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
                 always_divide_middle = true,
+                globalstatus = true,
             },
             sections = {
                 lualine_a = { "mode" },

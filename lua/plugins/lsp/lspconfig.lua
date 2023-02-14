@@ -1,11 +1,14 @@
 return {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     dependencies = {
-        { "SmiteshP/nvim-navic", lazy = true },
-        { "j-hui/fidget.nvim",   lazy = true },
-        { "folke/neodev.nvim",   lazy = true },
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "j-hui/fidget.nvim",
+        { "SmiteshP/nvim-navic",  lazy = true },
+        { "folke/neodev.nvim",    lazy = true },
+        { "hrsh7th/cmp-nvim-lsp", lazy = true }
     },
-    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("mason").setup() -- Setup mason so it can manage external tooling
         require("neodev").setup() -- Setup neovim lua configuration

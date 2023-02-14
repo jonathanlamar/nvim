@@ -4,7 +4,8 @@ return {
     config = function()
         local palette = require("onedark.palette")
         local style = "warmer"
-        local nc_background = palette[style].bg1
+        --[[ local active_background = palette[style].black ]]
+        --[[ local nc_background = palette[style].bg0 ]]
         local lsp_ref_bg = palette[style].bg2
 
         require("onedark").setup({
@@ -24,25 +25,25 @@ return {
                 comments = "italic",
                 keywords = "none",
                 functions = "none",
-                strings = "none",
+                strings = "italic",
                 variables = "none",
             },
             -- Custom Highlights --
             colors = {}, -- Override default colors
             highlights = {
                 VertSplit = { fg = "$fg" },
-                NormalNC = { fg = "$fg", bg = nc_background },
-                NonTextNC = { fg = "NONE", bg = nc_background },
+                --[[ Normal = { fg = "$fg", bg = active_background }, ]]
+                --[[ NonText = { fg = "NONE", bg = active_background }, ]]
+                --[[ NormalNC = { fg = "$fg", bg = nc_background }, ]]
+                --[[ NonTextNC = { fg = "NONE", bg = nc_background }, ]]
                 EndOfBuffer = { bg = "NONE" },
                 SignColumn = { bg = "NONE" },
                 LspReferenceRead = { fmt = "none", bg = lsp_ref_bg },
                 LspReferenceWrite = { fmt = "none", bg = lsp_ref_bg },
                 LspReferenceText = { fmt = "none", bg = lsp_ref_bg },
-                NvimTreeVertSplit = { fg = "$fg" },
-                NvimTreeNormal = { bg = "NONE" },
-                NvimTreeEndOfBuffer = { bg = "NONE" },
-                NvimTreeNormalNC = { fg = "NONE", bg = nc_background },
-                NvimTreeEndOfBufferNC = { fg = "NONE", bg = nc_background },
+                --[[ NeoTreeNormal = { bg = active_background }, ]]
+                --[[ NeoTreeNormalNC = { fg = "NONE", bg = nc_background }, ]]
+                --[[ NeoTreeEndOfBuffer = { bg = active_background }, ]]
             }, -- Override highlight groups
             -- Plugins Config --
             diagnostics = {
