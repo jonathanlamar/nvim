@@ -1,0 +1,83 @@
+-- Nice status line
+return {
+    "nvim-lualine/lualine.nvim",
+    lazy = false,
+    dependencies = {
+        "SmiteshP/nvim-navic",
+        "neovim/nvim-lspconfig",
+        "nvim-tree/nvim-web-devicons"
+    },
+    config = function()
+        -- Condition to hide a section for narrow windows.
+        local not_too_wide = function()
+            return vim.o.columns > 80
+        end
+
+        -- cool function for progress
+        local progress = function()
+            local current_line = vim.fn.line(".")
+            local total_lines = vim.fn.line("$")
+            local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+            local line_ratio = current_line / total_lines
+            local index = math.ceil(line_ratio * #chars)
+            return chars[index]
+        end
+
+        local navic = require("nvim-navic")
+
+        require("lualine").setup({
+            options = {
+                icons_enabled = true,
+                theme = "auto",
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
+                disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+                always_divide_middle = true,
+            },
+            sections = {
+                lualine_a = { "mode" },
+                lualine_b = {
+                    {
+                        "branch",
+                        icon = "",
+                        cond = not_too_wide,
+                    },
+                    {
+                        "diff",
+                        symbols = { added = " ", modified = "柳 ", removed = " " },
+                        cond = not_too_wide,
+                    },
+                    {
+                        "diagnostics",
+                        sources = { "nvim_diagnostic" },
+                        sections = { "error", "warn" },
+                        symbols = { error = " ", warn = " " },
+                        update_in_insert = false,
+                        cond = not_too_wide,
+                    },
+                },
+                lualine_c = {
+                    { "filename", cond = not_too_wide },
+                    -- Shows classpath near bufferline
+                    { navic.get_location, cond = navic.is_available },
+                },
+                lualine_x = {
+                    { "encoding", cond = not_too_wide },
+                    { "filetype", cond = not_too_wide },
+                },
+                lualine_y = { progress },
+                lualine_z = { { "location", padding = 0 } },
+            },
+            inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = { { "filename", cond = not_too_wide } },
+                lualine_x = { "location" },
+                lualine_y = {},
+                lualine_z = {},
+            },
+            tabline = {},
+            extensions = {},
+        })
+    end,
+}

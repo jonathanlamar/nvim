@@ -25,9 +25,9 @@ vim.opt.completeopt = { "menuone", "noselect" }
 
 -- Tabs
 -- These should be covered by tpope/vim-sleuth
---[[ vim.opt.shiftwidth = 4 ]]
---[[ vim.opt.softtabstop = 4 ]]
---[[ vim.opt.tabstop = 4 ]]
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.breakindent = true
 -- vim.opt.smartindent = true -- not sure about this and treesitter

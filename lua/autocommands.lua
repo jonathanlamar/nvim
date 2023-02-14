@@ -87,6 +87,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.lua",
     command = "%s/\\s\\+$//e",
 })
+vim.api.nvim_create_autocmd("FileType", {
+    group = "lua",
+    pattern = "lua",
+    callback = function ()
+        vim.opt_local.colorcolumn = "120"
+    end
+})
 
 vim.api.nvim_create_augroup("markdown", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -161,6 +168,9 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "scala",
     callback = function()
         vim.opt_local.colorcolumn = "120"
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
     end,
 })
 

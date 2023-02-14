@@ -1,5 +1,8 @@
-require("nvim-navic").setup({
-    icons = {
+return {
+    "SmiteshP/nvim-navic",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    config = {
         File = " ",
         Module = " ",
         Namespace = " ",
@@ -27,9 +30,4 @@ require("nvim-navic").setup({
         Operator = " ",
         TypeParameter = " ",
     },
-    highlight = false,
-    separator = " > ",
-    depth_limit = 0,
-    depth_limit_indicator = "..",
-    safe_output = true,
-})
+}
