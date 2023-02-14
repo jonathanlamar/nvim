@@ -1,6 +1,6 @@
 return {
     "SmiteshP/nvim-navic",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { { "nvim-tree/nvim-web-devicons", lazy = true } },
     event = "VeryLazy",
     config = {
         File = " ",

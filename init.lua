@@ -67,5 +67,4 @@ set_colorscheme("kanagawa")
 
 require("settings")
 require("keymappings")
-require("lsp")
 require("autocommands")

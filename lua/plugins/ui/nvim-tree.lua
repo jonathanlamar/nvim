@@ -1,7 +1,7 @@
 -- File explorer
 return {
     "kyazdani42/nvim-tree.lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { { "nvim-tree/nvim-web-devicons", lazy = true } },
     cmd = "NvimTreeToggle",
     config = function()
         -- following options are the default
@@ -81,12 +81,12 @@ return {
                     custom_only = false,
                     list = {
                         { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                        { key = "h", cb = tree_cb("split") },
-                        { key = "v", cb = tree_cb("vsplit") },
-                        { key = "<BS>", cb = tree_cb("dir_up") },
-                        { key = ".", cb = tree_cb("toggle_dotfiles") },
+                        { key = "h",                  cb = tree_cb("split") },
+                        { key = "v",                  cb = tree_cb("vsplit") },
+                        { key = "<BS>",               cb = tree_cb("dir_up") },
+                        { key = ".",                  cb = tree_cb("toggle_dotfiles") },
                         -- { key = "<C-t>", cb = vim.cmd("ToggleTerm") }, -- this does not work
-                        { key = "<C-t>", cb = "" }, -- this does not work
+                        { key = "<C-t>",              cb = "" }, -- this does not work
                     },
                 },
                 number = false,

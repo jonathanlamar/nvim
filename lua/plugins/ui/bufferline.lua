@@ -1,7 +1,7 @@
 return {
     "akinsho/bufferline.nvim",
     dependencies = {
-        "moll/vim-bbye",
+        { "moll/vim-bbye", lazy = true },
     },
     lazy = false,
     config = {

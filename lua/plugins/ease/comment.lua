@@ -2,8 +2,8 @@ return {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
     dependencies = {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        "nvim-treesitter/nvim-treesitter",
+        { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+        { "nvim-treesitter/nvim-treesitter",             lazy = true },
     },
     config = {
         pre_hook = function(ctx)

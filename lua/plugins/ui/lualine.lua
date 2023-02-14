@@ -3,9 +3,9 @@ return {
     "nvim-lualine/lualine.nvim",
     lazy = false,
     dependencies = {
-        "SmiteshP/nvim-navic",
-        "neovim/nvim-lspconfig",
-        "nvim-tree/nvim-web-devicons"
+        { "SmiteshP/nvim-navic",         lazy = true },
+        { "neovim/nvim-lspconfig",       lazy = true },
+        { "nvim-tree/nvim-web-devicons", lazy = true }
     },
     config = function()
         -- Condition to hide a section for narrow windows.
@@ -57,7 +57,7 @@ return {
                     },
                 },
                 lualine_c = {
-                    { "filename", cond = not_too_wide },
+                    { "filename",         cond = not_too_wide },
                     -- Shows classpath near bufferline
                     { navic.get_location, cond = navic.is_available },
                 },

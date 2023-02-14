@@ -2,7 +2,7 @@
 return {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    dependencies = { "folke/twilight.nvim" },
+    dependencies = { { "folke/twilight.nvim", lazy = true } },
     config = {
         window = {
             backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
@@ -45,8 +45,10 @@ return {
             },
         },
         -- callback where you can add custom code when the Zen window opens
-        on_open = function(win) end,
+        on_open = function(win)
+        end,
         -- callback where you can add custom code when the Zen window closes
-        on_close = function() end,
+        on_close = function()
+        end,
     },
 }
