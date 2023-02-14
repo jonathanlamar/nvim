@@ -134,18 +134,8 @@ return {
                     },
                     ["<2-LeftMouse>"] = "open_with_window_picker",
                     ["<cr>"] = "open_with_window_picker",
-                    ["<esc>"] = "revert_preview",
-                    ["P"] = { "toggle_preview", config = { use_float = true } },
-                    ["l"] = "focus_preview",
-                    ["h"] = "split_with_window_picker",
-                    ["v"] = "vsplit_with_window_picker",
-                    ["t"] = "open_tabnew",
                     -- ["<cr>"] = "open_drop",
-                    -- ["t"] = "open_tab_drop",
-                    --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
-                    ["C"] = "close_node",
-                    ["z"] = "close_all_nodes",
-                    --["Z"] = "expand_all_nodes",
+                    ["<esc>"] = "revert_preview",
                     ["a"] = {
                         "add",
                         -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -155,21 +145,30 @@ return {
                         }
                     },
                     ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
-                    ["d"] = "delete",
-                    ["r"] = "rename",
                     ["c"] = "copy_to_clipboard",
-                    ["x"] = "cut_to_clipboard",
-                    ["p"] = "paste_from_clipboard",
-                    ["y"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
                     -- ["c"] = {
                     --  "copy",
                     --  config = {
                     --    show_path = "none" -- "none", "relative", "absolute"
                     --  }
                     --}
+                    ["C"] = "close_node",
+                    ["d"] = "delete",
+                    ["h"] = "split_with_window_picker",
+                    --[[ ["l"] = "focus_preview", ]]
                     ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+                    ["p"] = "paste_from_clipboard",
+                    ["P"] = { "toggle_preview", config = { use_float = true } },
                     ["q"] = "close_window",
+                    ["r"] = "rename",
                     ["R"] = "refresh",
+                    ["t"] = "open_tabnew",
+                    --[[ ["t"] = "open_tab_drop", ]]
+                    ["v"] = "vsplit_with_window_picker",
+                    ["x"] = "cut_to_clipboard",
+                    ["y"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
+                    ["z"] = "close_all_nodes",
+                    ["Z"] = "expand_all_nodes",
                     ["?"] = "show_help",
                     ["<"] = "prev_source",
                     [">"] = "next_source",
