@@ -4,8 +4,8 @@ return {
     lazy = true,
     config = {
         --- @usage 'main' | 'moon'
-        dark_variant = "moon",
-        bold_vert_split = false,
+        dark_variant = "main",
+        bold_vert_split = true,
         dim_nc_background = true,
         disable_background = false,
         disable_float_background = false,

@@ -36,9 +36,8 @@ if is_bootstrap then
     return
 end
 
-require("utils")
 require("settings")
 require("keymappings")
 require("autocommands")
 
-set_colorscheme("melange")
+set_colorscheme("gruvbox")
