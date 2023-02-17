@@ -1,7 +1,10 @@
 -- I hate this, but some colorschemes require procedural commands for configuration.
 -- This function handles those so I don't lose them when switching colorschemes.
 _G.set_colorscheme = function(colorscheme)
-    if colorscheme == "material" then
+    if colorscheme == "kanagawa" then
+        vim.cmd("set background=")
+        vim.cmd("colorscheme kanagawa")
+    elseif colorscheme == "material" then
         vim.g.material_style = "darker"
         vim.cmd("colorscheme material")
     elseif colorscheme == "onedark" then
@@ -17,7 +20,7 @@ _G.set_colorscheme = function(colorscheme)
         vim.g.sonokai_diagnostic_virtual_text = "colored"
         vim.g.sonokai_disable_terminal_colors = 1
         vim.cmd("colorscheme sonokai")
-        --[[ vim.api.nvim_set_hl(0, "EndOfBuffer", {bg="#FFFFFF"}) ]]
+        vim.api.nvim_set_hl(0, "WinSeparator", {fg="#e2e2e3"})
     elseif colorscheme == "tokyodark" then
         vim.g.tokyodark_transparent_background = false
         vim.g.tokyodark_enable_italic_comment = true

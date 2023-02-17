@@ -40,4 +40,4 @@ require("settings")
 require("keymappings")
 require("autocommands")
 
-set_colorscheme("gruvbox")
+set_colorscheme("kanagawa")

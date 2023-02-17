@@ -21,17 +21,36 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.viewoptions = { "cursor", "folds" }
 vim.opt.termguicolors = true
-vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
+vim.opt.pumheight = 20
 vim.opt.laststatus = 3 -- Global statusline
+vim.opt.fillchars:append({
+    horiz = "━",
+    horizup = "┻",
+    horizdown = "┳",
+    vert = "┃",
+    vertleft = "┨",
+    vertright = "┣",
+    verthoriz = "╋",
+})
 
--- Tabs
+-- Tabs and Indenting
 -- These should be covered by tpope/vim-sleuth
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
-vim.opt.breakindent = true
--- vim.opt.smartindent = true -- not sure about this and treesitter
+--[[ vim.opt.breakindent = true ]]
+--[[ vim.opt.smartindent = true -- not sure about this and treesitter ]]
+-- Special rules for python
+vim.g.python_indent = {
+    disable_parentheses_indenting = false,
+    closed_paren_align_last_line = false,
+    searchpair_timeout = 150,
+    continue = "shiftwidth()",
+    open_paren = "shiftwidth()",
+    nested_paren = "shiftwidth()",
+}
 
 -- Searching
 vim.opt.ignorecase = true
