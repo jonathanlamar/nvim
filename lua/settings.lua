@@ -33,6 +33,7 @@ vim.opt.fillchars:append({
     vertright = "┣",
     verthoriz = "╋",
 })
+vim.opt.showmode = false
 
 -- Tabs and Indenting
 -- These should be covered by tpope/vim-sleuth
