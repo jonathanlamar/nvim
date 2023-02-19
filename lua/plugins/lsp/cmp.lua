@@ -153,6 +153,7 @@ return {
                         cmdline_history = "[HIST]",
                         git = "[GIT]",
                         conventionalcommits = "[CMT]",
+                        nvim_lsp_document_symbol = "[DOC]",
                     },
                 }),
             },
@@ -214,8 +215,23 @@ return {
             },
         })
 
+        cmp.setup.cmdline({ "/", "?" }, {
+            -- FIXME:
+            sources = cmp.config.sources({
+                { name = "nvim_lsp_document_symbol" },
+            }, {
+                { name = "buffer" },
+            }),
+            --[[ sources = cmp.config.sources({ { name = "buffer" } }), ]]
+            mapping = cmp.mapping.preset.cmdline({
+                ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                ["<Down>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+                ["<Up>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+            }),
+        })
         cmp.setup.cmdline("/", {
-            sources = cmp.config.sources({ { name = "buffer" } }),
+            sources = cmp.config.sources({ { name = "nvim_lsp_document_symbol" } }, { { name = "buffer" } }),
+            --[[ sources = cmp.config.sources({ { name = "buffer" } }), ]]
             mapping = cmp.mapping.preset.cmdline({
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 ["<Down>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),

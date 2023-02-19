@@ -103,7 +103,6 @@ local mappings = {
         u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "undo stage hunk" },
         v = { "<cmd>GV<CR>", "view commits" },
         V = { "<cmd>GV!<CR>", "view buffer commits" },
-        w = { "<cmd>GBrowse<CR>", "view in browser" },
     },
 
     l = {
@@ -132,24 +131,11 @@ local mappings = {
             -- type definition
         },
         h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover text" },
-        --i = { "<cmd>lua organize_imports()<cr>", "Organize imports" },
-        -- This may be the same as hover text
-        H = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         q = { "<cmd>lua require('telescope.builtin').quickfix()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         R = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "References" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-    },
-
-    p = {
-        name = "+Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
 
     s = {
@@ -159,7 +145,6 @@ local mappings = {
         c = { "<cmd>Telescope git_commits<cr>", "commits" },
         C = { "<cmd>Telescope git_bcommits<cr>", "buffer commits" },
         d = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "workspace diagnostics" },
-        g = { "<cmd>Telescope git_files", "git files" },
         h = { "<cmd>Telescope command_history", "command history" },
         m = { "<cmd>Telescope marks<cr>", "marks" },
         M = { "<cmd>Telescope man_pages<cr>", "man pages" },
