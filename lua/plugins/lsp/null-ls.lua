@@ -29,6 +29,7 @@ return {
                 null_ls.builtins.formatting.black.with({
                     command = env.python_env_path .. "/bin/black",
                 }),
+                null_ls.builtins.formatting.scalafmt,
             },
         })
     end,

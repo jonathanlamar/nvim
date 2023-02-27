@@ -5,7 +5,7 @@ return {
     dependencies = {
         { "nvim-lua/plenary.nvim", lazy = true },
         --[[ { "mfussenegger/nvim-dap", lazy = true }, ]]
-        { "hrsh7th/cmp-nvim-lsp",  lazy = true }
+        { "hrsh7th/cmp-nvim-lsp", lazy = true },
     },
     config = function()
         ----------------------------------
@@ -67,5 +67,5 @@ return {
             end,
             group = nvim_metals_group,
         })
-    end
+    end,
 }

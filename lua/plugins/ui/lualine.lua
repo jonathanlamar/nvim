@@ -1,10 +1,10 @@
 -- Nice status line
 return {
     "nvim-lualine/lualine.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
-        { "SmiteshP/nvim-navic",         lazy = true },
-        { "nvim-tree/nvim-web-devicons", lazy = true }
+        { "SmiteshP/nvim-navic", lazy = true },
+        { "nvim-tree/nvim-web-devicons", lazy = true },
     },
     config = function()
         -- Condition to hide a section for narrow windows.
@@ -57,7 +57,7 @@ return {
                     },
                 },
                 lualine_c = {
-                    { "filename",         cond = not_too_wide },
+                    { "filename", cond = not_too_wide },
                     -- Shows classpath near bufferline
                     { navic.get_location, cond = navic.is_available },
                 },

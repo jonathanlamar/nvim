@@ -4,9 +4,9 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "j-hui/fidget.nvim",
-        { "SmiteshP/nvim-navic",  lazy = true },
-        { "folke/neodev.nvim",    lazy = true },
-        { "hrsh7th/cmp-nvim-lsp", lazy = true }
+        { "SmiteshP/nvim-navic", lazy = true },
+        { "folke/neodev.nvim", lazy = true },
+        { "hrsh7th/cmp-nvim-lsp", lazy = true },
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
@@ -24,7 +24,6 @@ return {
         local servers = {
             -- clangd = {},
             -- gopls = {},
-            jdtls = {},
             pyright = {},
             -- rust_analyzer = {},
             tsserver = {},
@@ -60,6 +59,10 @@ return {
                     vim.diagnostic.open_float(nil, opts)
                 end,
             })
+
+            if client.name == "lua_ls" then
+                client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+            end
         end
 
         mason_lspconfig.setup_handlers({

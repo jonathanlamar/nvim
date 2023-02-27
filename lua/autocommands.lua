@@ -81,6 +81,16 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.colorcolumn = "120"
     end,
 })
+vim.api.nvim_create_augroup("json", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    group = "json",
+    pattern = "json",
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+    end,
+})
 vim.api.nvim_create_augroup("lua", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "lua",
@@ -90,9 +100,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("FileType", {
     group = "lua",
     pattern = "lua",
-    callback = function ()
+    callback = function()
         vim.opt_local.colorcolumn = "120"
-    end
+    end,
 })
 
 vim.api.nvim_create_augroup("markdown", { clear = true })

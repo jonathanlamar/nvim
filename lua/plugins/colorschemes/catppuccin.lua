@@ -48,6 +48,5 @@ return {
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
         }
-    end
-    ,
+    end,
 }

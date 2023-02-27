@@ -2,7 +2,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     lazy = true,
-    config = {
+    opts = {
         --- @usage 'main' | 'moon'
         dark_variant = "main",
         bold_vert_split = true,

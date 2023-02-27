@@ -3,7 +3,7 @@
 _G.set_colorscheme = function(colorscheme)
     if colorscheme == "kanagawa" then
         vim.cmd("set background=")
-        vim.cmd("colorscheme kanagawa")
+        require("kanagawa").load()
     elseif colorscheme == "material" then
         vim.g.material_style = "darker"
         vim.cmd("colorscheme material")
@@ -20,13 +20,9 @@ _G.set_colorscheme = function(colorscheme)
         vim.g.sonokai_diagnostic_virtual_text = "colored"
         vim.g.sonokai_disable_terminal_colors = 1
         vim.cmd("colorscheme sonokai")
-        vim.api.nvim_set_hl(0, "WinSeparator", {fg="#e2e2e3"})
-    elseif colorscheme == "tokyodark" then
-        vim.g.tokyodark_transparent_background = false
-        vim.g.tokyodark_enable_italic_comment = true
-        vim.g.tokyodark_enable_italic = true
-        vim.g.tokyodark_color_gamma = "1.2"
-        vim.cmd("colorscheme tokyodark")
+        vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#e2e2e3" })
+    elseif colorscheme == "super16" then
+        require("super16").load()
     else
         vim.cmd("colorscheme " .. colorscheme)
     end

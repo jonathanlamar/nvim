@@ -2,39 +2,37 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     dependencies = {
-        {"nvim-lua/plenary.nvim", lazy = true},
+        { "nvim-lua/plenary.nvim", lazy = true },
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
         {
             -- only needed if you want to use the commands with "_with_window_picker" suffix
-            's1n7ax/nvim-window-picker',
+            "s1n7ax/nvim-window-picker",
             config = function()
-                require('window-picker').setup(
-                    {
-                        autoselect_one = true,
-                        include_current = false,
-                        filter_rules = {
-                            -- filter using buffer options
-                            bo = {
-                                -- if the file type is one of following, the window will be ignored
-                                filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+                require("window-picker").setup({
+                    autoselect_one = true,
+                    include_current = false,
+                    filter_rules = {
+                        -- filter using buffer options
+                        bo = {
+                            -- if the file type is one of following, the window will be ignored
+                            filetype = { "neo-tree", "neo-tree-popup", "notify" },
 
-                                -- if the buffer type is one of following, the window will be ignored
-                                buftype = { 'terminal', "quickfix" },
-                            },
+                            -- if the buffer type is one of following, the window will be ignored
+                            buftype = { "terminal", "quickfix" },
                         },
-                        selection_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                        fg_color = '#ededed',
-                        -- if you have include_current_win == true, then current_win_hl_color will
-                        -- be highlighted using this background color
-                        current_win_hl_color = '#e35e4f',
-                        -- all the windows except the curren window will be highlighted using this
-                        -- color
-                        other_win_hl_color = '#44cc41',
-                    }
-                )
+                    },
+                    selection_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                    fg_color = "#ededed",
+                    -- if you have include_current_win == true, then current_win_hl_color will
+                    -- be highlighted using this background color
+                    current_win_hl_color = "#e35e4f",
+                    -- all the windows except the curren window will be highlighted using this
+                    -- color
+                    other_win_hl_color = "#44cc41",
+                })
             end,
-        }
+        },
     },
     event = "VeryLazy",
     config = function()
@@ -42,14 +40,10 @@ return {
         vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
         -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-        vim.fn.sign_define("DiagnosticSignError",
-            { text = " ", texthl = "DiagnosticSignError" })
-        vim.fn.sign_define("DiagnosticSignWarn",
-            { text = " ", texthl = "DiagnosticSignWarn" })
-        vim.fn.sign_define("DiagnosticSignInfo",
-            { text = " ", texthl = "DiagnosticSignInfo" })
-        vim.fn.sign_define("DiagnosticSignHint",
-            { text = "", texthl = "DiagnosticSignHint" })
+        vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
         -- NOTE: this is changed from v1.x, which used the old style of highlight groups
         -- in the form "LspDiagnosticsSignWarning"
 
@@ -69,7 +63,7 @@ return {
             --   end , -- this sorts files and directories descendantly
             default_component_configs = {
                 container = {
-                    enable_character_fade = true
+                    enable_character_fade = true,
                 },
                 indent = {
                     indent_size = 2,
@@ -92,7 +86,7 @@ return {
                     -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
                     -- then these will never be used.
                     default = "*",
-                    highlight = "NeoTreeFileIcon"
+                    highlight = "NeoTreeFileIcon",
                 },
                 modified = {
                     symbol = "[+]",
@@ -106,18 +100,18 @@ return {
                 git_status = {
                     symbols = {
                         -- Change type
-                        added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
-                        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-                        deleted   = "✖", -- this can only be used in the git_status source
-                        renamed   = "", -- this can only be used in the git_status source
+                        added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+                        modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+                        deleted = "✖", -- this can only be used in the git_status source
+                        renamed = "", -- this can only be used in the git_status source
                         -- Status type
                         untracked = "",
-                        ignored   = "",
-                        unstaged  = "",
-                        staged    = "",
-                        conflict  = "",
-                        unmerged  = "",
-                    }
+                        ignored = "",
+                        unstaged = "",
+                        staged = "",
+                        conflict = "",
+                        unmerged = "",
+                    },
                 },
             },
             window = {
@@ -141,8 +135,8 @@ return {
                         -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
                         -- some commands may take optional config options, see `:h neo-tree-mappings` for details
                         config = {
-                            show_path = "relative" -- "none", "relative", "absolute"
-                        }
+                            show_path = "relative", -- "none", "relative", "absolute"
+                        },
                     },
                     ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
                     ["c"] = "copy_to_clipboard",
@@ -172,7 +166,7 @@ return {
                     ["?"] = "show_help",
                     ["<"] = "prev_source",
                     [">"] = "next_source",
-                }
+                },
             },
             nesting_rules = {},
             filesystem = {
@@ -220,8 +214,8 @@ return {
                         ["<c-x>"] = "clear_filter",
                         ["[g"] = "prev_git_modified",
                         ["]g"] = "next_git_modified",
-                    }
-                }
+                    },
+                },
             },
             buffers = {
                 follow_current_file = true, -- This will find and focus the file in the active buffer every
@@ -233,25 +227,25 @@ return {
                         ["bd"] = "buffer_delete",
                         ["<bs>"] = "navigate_up",
                         ["."] = "set_root",
-                    }
+                    },
                 },
             },
             git_status = {
                 window = {
                     position = "float",
                     mappings = {
-                        ["A"]  = "git_add_all",
+                        ["A"] = "git_add_all",
                         ["gu"] = "git_unstage_file",
                         ["ga"] = "git_add_file",
                         ["gr"] = "git_revert_file",
                         ["gc"] = "git_commit",
                         ["gp"] = "git_push",
                         ["gg"] = "git_commit_and_push",
-                    }
-                }
-            }
+                    },
+                },
+            },
         })
 
         vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-    end
+    end,
 }

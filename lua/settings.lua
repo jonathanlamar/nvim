@@ -70,6 +70,6 @@ vim.opt.spell = false
 vim.opt.spelllang = { "en_us" }
 
 -- Other global settings
-vim.g.python3_host_prog = env.python_env_path .. "/neovim/bin/python"
+vim.g.python3_host_prog = env.python_env_path .. "/bin/python"
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")

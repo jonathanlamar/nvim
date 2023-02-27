@@ -40,4 +40,4 @@ require("settings")
 require("keymappings")
 require("autocommands")
 
-set_colorscheme("kanagawa")
+set_colorscheme("super16")

@@ -2,7 +2,7 @@
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-        { "nvim-lua/popup.nvim",   lazy = true },
+        { "nvim-lua/popup.nvim", lazy = true },
         { "nvim-lua/plenary.nvim", lazy = true },
     },
     event = "VeryLazy",

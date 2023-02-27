@@ -3,9 +3,9 @@ return {
     event = "VeryLazy",
     dependencies = {
         { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
-        { "nvim-treesitter/nvim-treesitter",             lazy = true },
+        { "nvim-treesitter/nvim-treesitter", lazy = true },
     },
-    config = {
+    opts = {
         pre_hook = function(ctx)
             local U = require("Comment.utils")
 

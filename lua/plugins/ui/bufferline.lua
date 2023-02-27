@@ -4,7 +4,7 @@ return {
         { "moll/vim-bbye", lazy = true },
     },
     event = "VeryLazy",
-    config = {
+    opts = {
         options = {
             mode = "buffers", -- set to "tabs" to only show tabpages instead
             numbers = "none",

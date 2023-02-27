@@ -10,6 +10,6 @@ return {
     },
 
     -- Git integration
-    { "junegunn/gv.vim",      cmd = "GV" }, -- See commit history in nice UI
-    { "tpope/vim-fugitive",   cmd = "Git" }, -- Integration for git in vim.
+    { "junegunn/gv.vim", cmd = "GV" }, -- See commit history in nice UI
+    { "tpope/vim-fugitive", cmd = "Git" }, -- Integration for git in vim.
 }
