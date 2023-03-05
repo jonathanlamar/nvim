@@ -55,7 +55,7 @@ return {
                 if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
                     return true
                 end
-                -- filter out by it's index number in list (don't show first buffer)
+                -- filter out by its index number in list (don't show first buffer)
                 if buf_numbers[1] ~= buf_number then
                     return true
                 end
@@ -72,7 +72,7 @@ return {
             -- [focused and unfocused]. eg: { '|', '|' }
             separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
             enforce_regular_tabs = true,
-            always_show_bufferline = false,
+            always_show_bufferline = true,
             -- sort_by = 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
             --   -- add custom logic
             --   return buffer_a.modified > buffer_b.modified

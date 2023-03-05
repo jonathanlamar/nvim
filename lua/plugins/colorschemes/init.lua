@@ -1,12 +1,25 @@
 -- I hate this, but some colorschemes require procedural commands for configuration.
 -- This function handles those so I don't lose them when switching colorschemes.
 _G.set_colorscheme = function(colorscheme)
-    if colorscheme == "kanagawa" then
+    if colorscheme == "gruvbox-material" then
+        local fg_palette = "material"
+        vim.g.gruvbox_material_background = "medium"
+        vim.g.gruvbox_material_foreground = fg_palette
+        vim.g.gruvbox_material_enable_bold = 1
+        vim.g.gruvbox_material_enable_italic = 1
+        vim.g.gruvbox_material_transparent_background = 0 -- or 1, 2
+        vim.g.gruvbox_material_dim_inactive_windows = 1
+        vim.g.gruvbox_material_diagnostic_text_highlight = 1
+        vim.g.gruvbox_material_diagnostic_line_highlight = 1
+        vim.g.gruvbox_material_statusline_style = fg_palette
+        vim.g.gruvbox_material_better_performance = 1
+        --[[ vim.g.gruvbox_material_colors_override = { } ]]
+        vim.cmd("colorscheme gruvbox-material")
+        vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#d4be98" })
+        vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#5a524c", bg = "NONE" })
+    elseif colorscheme == "kanagawa" then
         vim.cmd("set background=")
         require("kanagawa").load()
-    elseif colorscheme == "material" then
-        vim.g.material_style = "darker"
-        vim.cmd("colorscheme material")
     elseif colorscheme == "onedark" then
         require("onedark").load()
     elseif colorscheme == "sonokai" then
@@ -32,5 +45,5 @@ return {
     { import = "plugins.colorschemes" },
     { "savq/melange", lazy = true },
     { "sainnhe/sonokai", lazy = true },
-    { "marko-cerovac/material.nvim", lazy = true },
+    { "sainnhe/gruvbox-material", lazy = true },
 }

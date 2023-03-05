@@ -40,4 +40,4 @@ require("settings")
 require("keymappings")
 require("autocommands")
 
-set_colorscheme("super16")
+set_colorscheme("gruvbox-material")
