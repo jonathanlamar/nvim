@@ -9,6 +9,7 @@ return {
             -- only needed if you want to use the commands with "_with_window_picker" suffix
             "s1n7ax/nvim-window-picker",
             config = function()
+                local cfg = require("personal_config")
                 require("window-picker").setup({
                     autoselect_one = true,
                     include_current = false,
@@ -23,13 +24,13 @@ return {
                         },
                     },
                     selection_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                    fg_color = "#ededed",
+                    fg_color =cfg.windowPickerFgColor,
                     -- if you have include_current_win == true, then current_win_hl_color will
                     -- be highlighted using this background color
-                    current_win_hl_color = "#e35e4f",
+                    current_win_hl_color = cfg.windowPickerBgColor1,
                     -- all the windows except the curren window will be highlighted using this
                     -- color
-                    other_win_hl_color = "#44cc41",
+                    other_win_hl_color = cfg.windowPickerBgColor2,
                 })
             end,
         },

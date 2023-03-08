@@ -4,7 +4,7 @@ require("this_computer")
 -- Detection for if this is the first time booting
 local is_bootstrap = false
 
--- Automatically install packer
+-- Automatically install lazy
 local install_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(install_path) then
     is_bootstrap = true
@@ -40,4 +40,6 @@ require("settings")
 require("keymappings")
 require("autocommands")
 
-set_colorscheme("gruvbox-material")
+-- This should probably go somewhere else.
+local cfg = require("personal_config")
+set_colorscheme(cfg.colorscheme)

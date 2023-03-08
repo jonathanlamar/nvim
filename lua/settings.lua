@@ -1,5 +1,3 @@
-local env = require("this_computer")
-
 -- General look and feel
 vim.opt.clipboard = { "unnamed", "unnamedplus" }
 vim.opt.encoding = "utf-8"
@@ -70,6 +68,7 @@ vim.opt.spell = false
 vim.opt.spelllang = { "en_us" }
 
 -- Other global settings
+local env = require("this_computer")
 vim.g.python3_host_prog = env.python_env_path .. "/bin/python"
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")

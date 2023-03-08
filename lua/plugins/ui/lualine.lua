@@ -23,11 +23,12 @@ return {
         end
 
         local navic = require("nvim-navic")
+        local cfg = require("personal_config")
 
         require("lualine").setup({
             options = {
                 icons_enabled = true,
-                theme = "gruvbox-material",
+                theme = cfg.lualineTheme,
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = { "alpha", "dashboard", "neo-tree", "Outline", "TelescopePrompt" },
