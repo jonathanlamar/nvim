@@ -34,7 +34,7 @@ return {
                 "gitsigns",
                 -- "hop",
                 "indent-blankline",
-                -- "lspsaga",
+                "lspsaga",
                 -- "mini",
                 -- "neogit",
                 -- "neorg",

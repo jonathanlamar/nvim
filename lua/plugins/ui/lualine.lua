@@ -3,7 +3,6 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = {
-        { "SmiteshP/nvim-navic", lazy = true },
         { "nvim-tree/nvim-web-devicons", lazy = true },
     },
     config = function()
@@ -22,7 +21,6 @@ return {
             return chars[index]
         end
 
-        local navic = require("nvim-navic")
         local cfg = require("personal_config")
 
         require("lualine").setup({
@@ -45,22 +43,20 @@ return {
                     },
                     {
                         "diff",
-                        symbols = { added = " ", modified = "柳 ", removed = " " },
+                        symbols = { added = " ", modified = "柳", removed = " " },
                         cond = not_too_wide,
                     },
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
-                        sections = { "error", "warn" },
-                        symbols = { error = " ", warn = " " },
+                        sections = { "error", "warn", "info", "hint" },
+                        symbols = { error = " ", warn = " ", info = " ", hint = "" },
                         update_in_insert = false,
                         cond = not_too_wide,
                     },
                 },
                 lualine_c = {
                     { "filename", cond = not_too_wide },
-                    -- Shows classpath near bufferline
-                    { navic.get_location, cond = navic.is_available },
                 },
                 lualine_x = {
                     { "encoding", cond = not_too_wide },

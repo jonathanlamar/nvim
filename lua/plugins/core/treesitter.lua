@@ -16,6 +16,7 @@ return {
                 "latex",
                 "lua",
                 "markdown",
+                "markdown_inline",
                 "python",
                 "scala",
                 "typescript",

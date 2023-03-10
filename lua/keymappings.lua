@@ -11,9 +11,6 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 --   term_mode = "t",
 --   command_mode = "c",
 
-vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -58,6 +55,10 @@ keymap("n", "<M-j>", ":resize -1<CR>", opts)
 keymap("n", "<M-k>", ":resize +1<CR>", opts)
 keymap("n", "<M-h>", ":vertical resize -1<CR>", opts)
 keymap("n", "<M-l>", ":vertical resize +1<CR>", opts)
+
+-- I'd prefer keeping all of these settings within the which-key framework, but these are too useful:
+vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", opts)
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
 -- WHICH KEY
 function _G.close_all_other_buffers()
@@ -108,7 +109,8 @@ local mappings = {
 
     l = {
         name = "+LSP",
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+        A = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         c = {
             name = "+Config",
             i = { "<cmd>LspInfo<cr>", "Info" },
@@ -124,18 +126,15 @@ local mappings = {
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
         g = {
             name = "+Goto",
-            d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
-            D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
+            d = { "<cmd>Lspsaga peek_definition<CR>", "Definition(s)" },
+            D = { "<cmd>Lspsaga peek_type_definition<CR>", "Type Definition" },
             i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-            n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-            p = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-            -- type definition
         },
-        h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover text" },
-        l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        h = { "<cmd>Lspsaga hover_doc<CR>", "Hover text" },
+        o = { "<cmd>Lspsaga outline<cr>", "Outline" },
         q = { "<cmd>lua require('telescope.builtin').quickfix()<cr>", "Quickfix" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        R = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "References" },
+        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" }, -- Lspsaga has rename too, but IDK if it works.
+        R = { "<cmd>Lspsaga lsp_finder<cr>", "Finder" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     },
 

@@ -21,21 +21,12 @@ return {
         { "hrsh7th/cmp-path", lazy = true },
         { "lukas-reineke/cmp-under-comparator", lazy = true }, -- Put python dunder methods later in suggestions list.
         { "onsails/lspkind.nvim", lazy = true }, -- vscode pictograms
-        { "saadparwaiz1/cmp_luasnip", lazy = true },
         { "uga-rosa/cmp-dictionary", lazy = true },
         { "hrsh7th/cmp-cmdline", lazy = true },
         { "dmitmel/cmp-cmdline-history", lazy = true },
         {
             "zbirenbaum/copilot-cmp",
             event = { "BufRead", "BufNewFile" },
-            dependencies = {
-                {
-                    "zbirenbaum/copilot.lua",
-                    config = function()
-                        require("copilot").setup()
-                    end,
-                },
-            },
             config = function()
                 require("copilot_cmp").setup()
             end,
@@ -111,13 +102,12 @@ return {
                     end
                 end, { "i", "s" }),
             }),
-            -- TODO:
-            -- Text style suggestions in comments
+            -- TODO: Text style suggestions in comments
             sources = cmp.config.sources({
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim_lsp" },
-                { name = "luasnip" },
                 { name = "copilot" },
+            }, {
                 { name = "path" },
                 { name = "nvim_lua" },
             }, {
@@ -159,19 +149,19 @@ return {
             },
             sorting = {
                 comparators = {
-                    function(...)
-                        return require("cmp_buffer"):compare_locality(...)
-                    end,
-                    cmp.config.compare.offset,
-                    cmp.config.compare.exact,
-                    cmp.config.compare.score,
-                    cmp.config.compare.recently_used,
+                    cmp.config.compare.scopes,
                     cmp.config.compare.locality,
                     cmp.config.compare.kind,
-                    cmp.config.compare.sort_text,
-                    cmp.config.compare.length,
-                    cmp.config.compare.order,
                     require("cmp-under-comparator").under,
+                    cmp.config.compare.recently_used,
+
+                    cmp.config.compare.score,
+                    cmp.config.compare.offset,
+                    -- These don't seem useful
+                    --[[ cmp.config.compare.exact, ]]
+                    --[[ cmp.config.compare.sort_text, ]]
+                    --[[ cmp.config.compare.length, ]]
+                    --[[ cmp.config.compare.order, ]]
                 },
             },
             view = { entries = { name = "custom", selection_order = "near_cursor" } },
