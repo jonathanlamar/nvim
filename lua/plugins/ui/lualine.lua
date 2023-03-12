@@ -3,8 +3,9 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = {
-        "nvim-tree/nvim-web-devicons",
-        "glepnir/lspsaga.nvim",
+        { "nvim-tree/nvim-web-devicons", lazy = true },
+        { "glepnir/lspsaga.nvim", lazy = true },
+        { "arkav/lualine-lsp-progress", lazy = true },
     },
     config = function()
         -- Condition to hide a section for narrow windows.
@@ -34,7 +35,7 @@ return {
                 theme = cfg.lualineTheme,
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
-                disabled_filetypes = { "alpha", "dashboard", "neo-tree", "Outline", "TelescopePrompt" },
+                disabled_filetypes = { "alpha", "dashboard", "Outline", "TelescopePrompt" },
                 always_divide_middle = true,
                 globalstatus = true,
             },
@@ -61,8 +62,9 @@ return {
                     },
                 },
                 lualine_c = {
-                    { "filename", cond = not_too_wide },
+                    --[[ { "filename", cond = not_too_wide }, ]]
                     { lspSagaSymbols, cond = not_too_wide },
+                    { "lsp_progress", cond = not_too_wide },
                 },
                 lualine_x = {
                     { "encoding", cond = not_too_wide },

@@ -3,18 +3,14 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "j-hui/fidget.nvim",
-        { "SmiteshP/nvim-navic", lazy = true },
-        { "folke/neodev.nvim", lazy = true },
-        { "hrsh7th/cmp-nvim-lsp", lazy = true },
+        "folke/neodev.nvim",
+        "hrsh7th/cmp-nvim-lsp",
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("mason").setup() -- Setup mason so it can manage external tooling
         require("neodev").setup() -- Setup neovim lua configuration
-        require("fidget").setup() -- Turn on lsp status information
 
-        local navic = require("nvim-navic")
         local mason_lspconfig = require("mason-lspconfig")
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -22,10 +18,7 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
         local servers = {
-            -- clangd = {},
-            -- gopls = {},
             pyright = {},
-            -- rust_analyzer = {},
             tsserver = {},
             lua_ls = {
                 Lua = {
@@ -33,6 +26,7 @@ return {
                     telemetry = { enable = false },
                 },
             },
+            -- Do not set up scala here.  That is handled in scala.lua
         }
 
         mason_lspconfig.setup({
@@ -41,10 +35,6 @@ return {
 
         --  This function gets run when an LSP connects to a particular buffer.
         local on_attach = function(client, bufnr)
-            if client.server_capabilities.documentSymbolProvider then
-                navic.attach(client, bufnr)
-            end
-
             vim.api.nvim_create_autocmd("CursorHold", {
                 buffer = bufnr,
                 callback = function()
@@ -61,7 +51,7 @@ return {
             })
 
             if client.name == "lua_ls" then
-                client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+                client.server_capabilities.documentFormattingProvider = false
             end
         end
 
