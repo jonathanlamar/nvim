@@ -3,7 +3,8 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = {
-        { "nvim-tree/nvim-web-devicons", lazy = true },
+        "nvim-tree/nvim-web-devicons",
+        "glepnir/lspsaga.nvim",
     },
     config = function()
         -- Condition to hide a section for narrow windows.
@@ -22,6 +23,10 @@ return {
         end
 
         local cfg = require("personal_config")
+
+        local lspSagaSymbols = function()
+            return require("lspsaga.symbolwinbar"):get_winbar()
+        end
 
         require("lualine").setup({
             options = {
@@ -57,6 +62,7 @@ return {
                 },
                 lualine_c = {
                     { "filename", cond = not_too_wide },
+                    { lspSagaSymbols, cond = not_too_wide },
                 },
                 lualine_x = {
                     { "encoding", cond = not_too_wide },
@@ -64,14 +70,6 @@ return {
                 },
                 lualine_y = { progress },
                 lualine_z = { { "location", padding = 0 } },
-            },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = { { "filename", cond = not_too_wide } },
-                lualine_x = { "location" },
-                lualine_y = {},
-                lualine_z = {},
             },
             tabline = {},
             extensions = {},

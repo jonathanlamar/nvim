@@ -49,8 +49,42 @@ return {
 
         -- Don't show the dumb matching stuff.
         vim.opt.shortmess:append("c")
-
         cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+        local setSources = function()
+            local context = require("cmp.config.context")
+            local s = {}
+            if context.in_treesitter_capture("comment") or context.in_syntax_group("Comment") then
+                s = cmp.config.sources({
+                    { name = "buffer" },
+                    { name = "git" },
+                    { name = "conventionalcommits" },
+                })
+            else
+                s = cmp.config.sources({
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "nvim_lsp" },
+                    { name = "copilot" },
+                }, {
+                    { name = "path" },
+                    { name = "nvim_lua" },
+                }, {
+                    {
+                        name = "buffer",
+                        option = {
+                            get_bufnrs = function()
+                                local bufs = {}
+                                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                                    bufs[vim.api.nvim_win_get_buf(win)] = true
+                                end
+                                return vim.tbl_keys(bufs)
+                            end,
+                        },
+                    },
+                })
+            end
+            return s
+        end
 
         cmp.setup({
             window = {
@@ -70,6 +104,7 @@ return {
                 end,
                 autocomplete = false,
             },
+            -- TODO: Configure snippets to be useful, or ditch them.
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -102,28 +137,7 @@ return {
                     end
                 end, { "i", "s" }),
             }),
-            -- TODO: Text style suggestions in comments
-            sources = cmp.config.sources({
-                { name = "nvim_lsp_signature_help" },
-                { name = "nvim_lsp" },
-                { name = "copilot" },
-            }, {
-                { name = "path" },
-                { name = "nvim_lua" },
-            }, {
-                {
-                    name = "buffer",
-                    option = {
-                        get_bufnrs = function()
-                            local bufs = {}
-                            for _, win in ipairs(vim.api.nvim_list_wins()) do
-                                bufs[vim.api.nvim_win_get_buf(win)] = true
-                            end
-                            return vim.tbl_keys(bufs)
-                        end,
-                    },
-                },
-            }),
+            sources = setSources(),
             formatting = {
                 format = lspkind.cmp_format({
                     symbol_map = {
@@ -151,30 +165,21 @@ return {
                 comparators = {
                     cmp.config.compare.scopes,
                     cmp.config.compare.locality,
-                    cmp.config.compare.kind,
                     require("cmp-under-comparator").under,
                     cmp.config.compare.recently_used,
 
+                    -- Not sure about these.
                     cmp.config.compare.score,
                     cmp.config.compare.offset,
                     -- These don't seem useful
+                    --[[ cmp.config.compare.kind, ]]
                     --[[ cmp.config.compare.exact, ]]
                     --[[ cmp.config.compare.sort_text, ]]
                     --[[ cmp.config.compare.length, ]]
                     --[[ cmp.config.compare.order, ]]
                 },
             },
-            view = { entries = { name = "custom", selection_order = "near_cursor" } },
-            enabled = function()
-                -- disable completion in comments
-                local context = require("cmp.config.context")
-                -- keep command mode completion enabled when cursor is in a comment
-                if vim.api.nvim_get_mode().mode == "c" then
-                    return true
-                else
-                    return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
-                end
-            end,
+            view = { entries = { name = "custom", selection_order = "top_down" } },
         })
 
         cmp.setup.filetype("gitcommit", {
@@ -196,6 +201,7 @@ return {
                 ["<Down>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
                 ["<Up>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
             }),
+            view = { entries = { name = "custom", selection_order = "near_cursor" } },
         })
         cmp.setup.filetype({ "markdown", "text" }, {
             sources = {

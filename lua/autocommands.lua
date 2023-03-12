@@ -1,15 +1,27 @@
--- TODO: This breaks when there are unsaved buffers not in windows.
---[[ local utils = require("nvim-tree.utils") ]]
---[[ vim.api.nvim_create_autocmd("BufEnter", { ]]
---[[     nested = true, ]]
---[[     callback = function() ]]
---[[         if #vim.api.nvim_list_wins() == 1 and utils.is_nvim_tree_buf() then ]]
---[[             vim.cmd("quit") ]]
---[[         end ]]
---[[     end, ]]
---[[ }) ]]
+-- I don't understand why this has to be factored out to work, but it does.
+local setWinbar = function()
+    local exclude_fts = {
+        "neo-tree",
+        "alpha",
+        "help",
+        "toggleterm",
+    }
+    if vim.tbl_contains(exclude_fts, vim.bo.filetype) then
+        return
+    else
+        -- show filename and modified in winbar
+        vim.api.nvim_set_option_value("winbar", "%=%m %f", { scope = "local" })
+    end
+end
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        setWinbar()
+    end,
+})
 
 -- Don't autocomment new lines
+-- TODO: Why is this an autocommand?  Shouldn't this be a global setting?
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "set fo-=c fo-=r fo-=o" })
 
 -- [[ Highlight on yank ]]

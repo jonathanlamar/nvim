@@ -24,7 +24,7 @@ return {
                         },
                     },
                     selection_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                    fg_color =cfg.windowPickerFgColor,
+                    fg_color = cfg.windowPickerFgColor,
                     -- if you have include_current_win == true, then current_win_hl_color will
                     -- be highlighted using this background color
                     current_win_hl_color = cfg.windowPickerBgColor1,

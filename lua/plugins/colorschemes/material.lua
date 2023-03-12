@@ -56,7 +56,7 @@ return {
             lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
             custom_colors = nil, -- If you want to everride the default colors, set this to a function
             custom_highlights = {
-                WinSeparator = { fg = require("material.colors").editor.fg }
+                WinSeparator = { fg = require("material.colors").editor.fg },
             }, -- Overwrite highlights with your own
         })
     end,
