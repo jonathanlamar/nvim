@@ -4,6 +4,7 @@ return {
     dependencies = {
         {
             "L3MON4D3/LuaSnip",
+            version = "<CurrentMajor>.*",
             lazy = true,
             config = function()
                 require("luasnip.loaders.from_vscode").lazy_load()
@@ -63,6 +64,7 @@ return {
             else
                 s = cmp.config.sources({
                     { name = "nvim_lsp_signature_help" },
+                    --[[ { name = "luasnip" }, -- TODO: the majority of these are useless ]]
                     { name = "nvim_lsp" },
                     { name = "copilot" },
                 }, {
@@ -104,7 +106,6 @@ return {
                 end,
                 autocomplete = false,
             },
-            -- TODO: Configure snippets to be useful, or ditch them.
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
