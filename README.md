@@ -45,8 +45,8 @@ return {
 
 7. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
    language server configs. Close neovim once this is done.
-8. Start neovim again. The first time you use a language, the experience might be slow at first, but subsequently,
-   things get better. It is another TODO of mine to investigate whether this is something I should care about.
+8. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
+   be good to go at this point.
 
 ## Dependencies
 
