@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Don't autocomment new lines
--- TODO: Why is this an autocommand?  Shouldn't this be a global setting?
+-- This has to be an autocommand because formatoptions is overwritten or something for each new buffer.
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "set fo-=c fo-=r fo-=o" })
 
 -- [[ Highlight on yank ]]
