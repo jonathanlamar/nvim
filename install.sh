@@ -31,8 +31,8 @@ sudo npm install -g prettier eslint
 
 #==============
 # Install cargo dependencies
-# cargo install stylua
 #==============
+cargo install stylua
 
 #==============
 # And we are done
