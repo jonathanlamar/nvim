@@ -172,7 +172,7 @@ return {
             nesting_rules = {},
             filesystem = {
                 filtered_items = {
-                    visible = false, -- when true, they will just be displayed differently than normal items
+                    visible = true, -- when true, they will just be displayed differently than normal items
                     hide_dotfiles = true,
                     hide_gitignored = true,
                     hide_hidden = true, -- only works on Windows for hidden files/directories
@@ -194,7 +194,7 @@ return {
                         --".null-ls_*",
                     },
                 },
-                follow_current_file = false, -- This will find and focus the file in the active buffer every
+                follow_current_file = true, -- This will find and focus the file in the active buffer every
                 -- time the current file is changed while the tree is open.
                 group_empty_dirs = true, -- when true, empty folders will be grouped together
                 hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree

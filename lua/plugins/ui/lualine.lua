@@ -62,7 +62,7 @@ return {
                     },
                 },
                 lualine_c = {
-                    --[[ { "filename", cond = not_too_wide }, ]]
+                    { "filename", cond = not_too_wide },
                     { lspSagaSymbols, cond = not_too_wide },
                     { "lsp_progress", cond = not_too_wide },
                 },
