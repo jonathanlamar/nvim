@@ -126,8 +126,8 @@ local mappings = {
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
         g = {
             name = "+Goto",
-            d = { "<cmd>Lspsaga peek_definition<CR>", "Definition(s)" },
-            D = { "<cmd>Lspsaga peek_type_definition<CR>", "Type Definition" },
+            d = { "<cmd>Lspsaga goto_definition<CR>", "Definition(s)" },
+            D = { "<cmd>Lspsaga peek_definition<CR>", "Type Definition" },
             i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
         },
         h = { "<cmd>Lspsaga hover_doc<CR>", "Hover text" },

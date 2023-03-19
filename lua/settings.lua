@@ -47,8 +47,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
---[[ vim.opt.breakindent = true ]]
---[[ vim.opt.smartindent = true -- not sure about this and treesitter ]]
 -- Special rules for python
 vim.g.python_indent = {
     disable_parentheses_indenting = false,

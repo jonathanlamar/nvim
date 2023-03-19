@@ -4,7 +4,6 @@ return {
     event = "VeryLazy",
     dependencies = {
         { "nvim-tree/nvim-web-devicons", lazy = true },
-        { "glepnir/lspsaga.nvim", lazy = true },
         { "arkav/lualine-lsp-progress", lazy = true },
     },
     config = function()
@@ -24,10 +23,6 @@ return {
         end
 
         local cfg = require("personal_config")
-
-        local lspSagaSymbols = function()
-            return require("lspsaga.symbolwinbar"):get_winbar()
-        end
 
         require("lualine").setup({
             options = {
@@ -63,7 +58,6 @@ return {
                 },
                 lualine_c = {
                     { "filename", cond = not_too_wide },
-                    { lspSagaSymbols, cond = not_too_wide },
                     { "lsp_progress", cond = not_too_wide },
                 },
                 lualine_x = {
