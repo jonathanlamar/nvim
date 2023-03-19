@@ -25,12 +25,12 @@ yes | conda create -n neovim python=3.10
 conda run -n neovim bash -c "pip install -r requirements.txt"
 
 #==============
-# Install npm dependencies
-sudo npm install -g prettier eslint
+# Install js/ts formatting and linting packages
 #==============
+sudo npm install -g prettier eslint
 
 #==============
-# Install cargo dependencies
+# Install lua formatting package
 #==============
 cargo install stylua
 
