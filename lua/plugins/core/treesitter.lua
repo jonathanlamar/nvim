@@ -19,6 +19,7 @@ return {
                 "markdown_inline",
                 "python",
                 "scala",
+                "terraform",
                 "typescript",
                 "tsx",
                 "vim",
