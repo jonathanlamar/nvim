@@ -18,7 +18,6 @@ _G.set_colorscheme = function(colorscheme)
         vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#d4be98" })
         vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#5a524c", bg = "NONE" })
     elseif colorscheme == "kanagawa" then
-        vim.cmd("set background=")
         require("kanagawa").load()
     elseif colorscheme == "onedark" then
         require("onedark").load()

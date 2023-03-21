@@ -78,3 +78,7 @@ local env = require("this_computer")
 vim.g.python3_host_prog = env.python_env_path .. "/bin/python"
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")
+
+-- Required by nvim-tree to take over the netrw functionality
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
