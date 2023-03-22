@@ -56,5 +56,4 @@ This list may not be exhaustive
 - conda
 - npm (for installing eslint and prettier)
 - stylua
-- exuberant ctags
-- ripgrep - I'm still not sure about this. It might not be required for anything.
+- ripgrep (for telescope.nvim)
