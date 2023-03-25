@@ -2,25 +2,28 @@ return {
     "rebelot/kanagawa.nvim",
     lazy = true,
     config = function()
-        local theme = "wave"
-        local colors = require("kanagawa.colors").setup({ theme = theme })
-
         require("kanagawa").setup({
-            theme = theme,
+            theme = "wave",
             compile = true,
             undercurl = false,
             globalStatus = true,
             transparent = false,
             dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-            colors = {},
-            overrides = function()
+            colors = {
+                -- Remove gutter bg
+                theme = {
+                    all = {
+                        ui = {
+                            bg_gutter = "none",
+                        },
+                    },
+                },
+            },
+            overrides = function(colors)
+                --[[ local theme = colors.theme ]]
                 return {
+                    -- Bright separators
                     WinSeparator = { fg = colors.palette.oldWhite },
-                    NeoTreeDirectoryIcon = { link = "NvimTreeFolderIcon" },
-                    NeoTreeDirectoryName = { link = "NvimTreeFolderName" },
-                    NeoTreeSymbolicLinkTarget = { link = "NvimTreeSymlink" },
-                    NeoTreeRootName = { link = "NvimTreeRootFolder" },
-                    NeoTreeFileNameOpened = { link = "NvimTreeOpenedFile" },
                 }
             end,
         })
