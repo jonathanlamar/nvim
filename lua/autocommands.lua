@@ -37,12 +37,7 @@ local set_terminal_keymaps = function()
 end
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "term://*", callback = set_terminal_keymaps })
 
-vim.api.nvim_create_augroup("bash", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "bash",
-    pattern = "*.sh",
-    command = "%s/\\s\\+$//e",
-})
+--[[ command = "%s/\\s\\+$//e", ]] -- TODO: Make this a whichkey map
 
 vim.api.nvim_create_augroup("java", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
@@ -52,18 +47,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.colorcolumn = "120"
     end,
 })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "java",
-    pattern = "*.java",
-    command = "%s/\\s\\+$//e",
-})
 
 vim.api.nvim_create_augroup("javascript", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "javascript",
-    pattern = "*.js,*.ts,*.jsx,*.tsx",
-    command = "%s/\\s\\+$//e",
-})
 vim.api.nvim_create_autocmd("FileType", {
     group = "javascript",
     pattern = "javascript,typescript,javascriptreact,typescriptreact",
@@ -82,11 +67,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 vim.api.nvim_create_augroup("lua", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "lua",
-    pattern = "*.lua",
-    command = "%s/\\s\\+$//e",
-})
 vim.api.nvim_create_autocmd("FileType", {
     group = "lua",
     pattern = "lua",
@@ -96,11 +76,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_augroup("markdown", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "markdown",
-    pattern = "*.md",
-    command = "%s/\\s\\+$//e",
-})
 vim.api.nvim_create_autocmd("FileType", {
     group = "markdown",
     pattern = "markdown",
@@ -136,11 +111,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         vim.opt.filetype = "python"
     end,
 })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "python",
-    pattern = "*.py",
-    command = "%s/\\s\\+$//e",
-})
 vim.api.nvim_create_autocmd("FileType", {
     group = "python",
     pattern = "python",
@@ -157,11 +127,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         vim.opt.filetype = "scala"
     end,
 })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "scala",
-    pattern = "*.scala,*.sbt",
-    command = "%s/\\s\\+$//e",
-})
 vim.api.nvim_create_autocmd("FileType", {
     group = "scala",
     pattern = "scala",
@@ -171,18 +136,4 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.tabstop = 2
         vim.opt_local.softtabstop = 2
     end,
-})
-
-vim.api.nvim_create_augroup("sql", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "sql",
-    pattern = "*.sql",
-    command = "%s/\\s\\+$//e",
-})
-
-vim.api.nvim_create_augroup("vim", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "vim",
-    pattern = "*.vim",
-    command = "%s/\\s\\+$//e",
 })
