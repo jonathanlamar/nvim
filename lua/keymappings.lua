@@ -76,7 +76,7 @@ local mappings = {
     },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["C"] = { "<cmd>lua close_all_other_buffers()<cr>", "Close all other buffers" },
-    ["e"] = { "<cmd>Neotree toggle<CR>", "explorer" },
+    ["e"] = { "<cmd>NvimTreeToggle<CR>", "explorer" },
     ["f"] = { "<cmd>Telescope find_files<CR>", "Search file" },
     ["T"] = { "<cmd>Telescope live_grep<CR>", "Search text" },
     ["h"] = { "<cmd>split<CR>", "Split" },

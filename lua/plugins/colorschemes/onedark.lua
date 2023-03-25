@@ -41,9 +41,6 @@ return {
                 LspReferenceRead = { fmt = "none", bg = lsp_ref_bg },
                 LspReferenceWrite = { fmt = "none", bg = lsp_ref_bg },
                 LspReferenceText = { fmt = "none", bg = lsp_ref_bg },
-                --[[ NeoTreeNormal = { bg = active_background }, ]]
-                --[[ NeoTreeNormalNC = { fg = "NONE", bg = nc_background }, ]]
-                --[[ NeoTreeEndOfBuffer = { bg = active_background }, ]]
             }, -- Override highlight groups
             -- Plugins Config --
             diagnostics = {
