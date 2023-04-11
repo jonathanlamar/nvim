@@ -60,6 +60,9 @@ keymap("n", "<M-l>", ":vertical resize +1<CR>", opts)
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", opts)
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
+vim.keymap.set("v", "<C-p>", ":ToggleTermSendVisualSelection<cr>", opts)
+vim.keymap.set("n", "<C-p>", ":ToggleTermSendCurrentLine<cr>", opts)
+
 -- WHICH KEY
 function _G.close_all_other_buffers()
     vim.cmd(":BufferLineCloseLeft")
