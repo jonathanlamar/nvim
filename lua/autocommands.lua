@@ -39,23 +39,6 @@ vim.api.nvim_create_autocmd("TermOpen", { pattern = "term://*", callback = set_t
 
 --[[ command = "%s/\\s\\+$//e", ]] -- TODO: Make this a whichkey map
 
-vim.api.nvim_create_augroup("java", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    group = "java",
-    pattern = "java",
-    callback = function()
-        vim.opt_local.colorcolumn = "120"
-    end,
-})
-
-vim.api.nvim_create_augroup("javascript", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    group = "javascript",
-    pattern = "javascript,typescript,javascriptreact,typescriptreact",
-    callback = function()
-        vim.opt_local.colorcolumn = "120"
-    end,
-})
 vim.api.nvim_create_augroup("json", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "json",
@@ -66,40 +49,21 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.softtabstop = 2
     end,
 })
-vim.api.nvim_create_augroup("lua", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    group = "lua",
-    pattern = "lua",
-    callback = function()
-        vim.opt_local.colorcolumn = "120"
-    end,
-})
 
-vim.api.nvim_create_augroup("markdown", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    group = "markdown",
-    pattern = "markdown",
-    callback = function()
-        vim.opt_local.colorcolumn = "120"
-        vim.opt_local.spell = true
-        vim.opt_local.textwidth = 120
-    end,
-})
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    group = "markdown",
-    pattern = "*.mdx",
-    callback = function()
-        vim.opt_local.filetype = "markdown"
-    end,
-})
 vim.api.nvim_create_augroup("text", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "text",
     pattern = "text",
     callback = function()
-        vim.opt_local.colorcolumn = "120"
         vim.opt_local.spell = true
         vim.opt_local.textwidth = 120
+    end,
+})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = "text",
+    pattern = "*.mdx",
+    callback = function()
+        vim.opt_local.filetype = "markdown"
     end,
 })
 
@@ -109,13 +73,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.ipynb",
     callback = function()
         vim.opt.filetype = "python"
-    end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-    group = "python",
-    pattern = "python",
-    callback = function()
-        vim.opt_local.colorcolumn = "120"
     end,
 })
 
@@ -131,7 +88,6 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "scala",
     pattern = "scala",
     callback = function()
-        vim.opt_local.colorcolumn = "120"
         vim.opt_local.shiftwidth = 2
         vim.opt_local.tabstop = 2
         vim.opt_local.softtabstop = 2
