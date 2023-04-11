@@ -77,7 +77,7 @@ end
 
 return {
     "kyazdani42/nvim-tree.lua",
-    dependencies = { { "nvim-tree/nvim-web-devicons", lazy = true } },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "NvimTreeToggle",
     config = function()
         -- following options are the default
@@ -104,73 +104,52 @@ return {
         }
 
         local nvim_tree = require("nvim-tree")
-        local nvim_tree_config = require("nvim-tree.config")
-        local tree_cb = nvim_tree_config.nvim_tree_callback
-        local api = require("nvim-tree.api")
-
         nvim_tree.setup({
             disable_netrw = true,
-            hijack_netrw = true,
             filters = {
                 dotfiles = true,
             },
             open_on_tab = false,
-            hijack_cursor = false,
-            update_cwd = true,
-            hijack_directories = {
-                enable = true,
-                auto_open = true,
-            },
+            sync_root_with_cwd = true,
             diagnostics = {
                 enable = true,
-                icons = {
-                    hint = "",
-                    info = "",
-                    warning = "",
-                    error = "",
-                },
+                show_on_dirs = true,
+                --[[ icons = { ]] -- defaults
+                --[[     hint = "", ]]
+                --[[     info = "", ]]
+                --[[     warning = "", ]]
+                --[[     error = "", ]]
+                --[[ }, ]]
             },
             update_focused_file = {
-                enable = false,
-                update_cwd = false,
-                ignore_list = {},
+                enable = true,
+                update_root = true,
             },
             git = {
-                enable = true,
                 ignore = false,
-                timeout = 500,
             },
             actions = {
                 open_file = {
-                    resize_window = true,
-                    quit_on_open = false,
+                    resize_window = false,
                 },
             },
             view = {
-                width = 40,
-                hide_root_folder = false,
-                side = "left",
-                mappings = {
-                    custom_only = true,
-                    list = {}, -- These are defined in the on_attach function
+                width = {
+                    min = 40,
+                    padding = 2,
                 },
                 number = false,
                 relativenumber = false,
             },
             on_attach = on_attach,
             renderer = {
-                highlight_git = true,
-                root_folder_label = ":t",
-                icons = {
-                    show = {
-                        git = true,
-                        folder = true,
-                        file = true,
-                        folder_arrow = true,
-                    },
-                },
                 group_empty = true,
+                highlight_git = true,
+                --[[ root_folder_label = ":t", ]]
             },
         })
+
+        vim.api.nvim_set_hl(0, "NvimTreeNormal", { link = "Normal" })
+        vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { link = "NormalNC" })
     end,
 }
