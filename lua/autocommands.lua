@@ -53,10 +53,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_augroup("text", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "text",
-    pattern = "text",
+    pattern = "text,markdown",
     callback = function()
         vim.opt_local.spell = true
         vim.opt_local.textwidth = 120
+        vim.cmd("set fo+=a fo+=t fo+=n")
     end,
 })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
