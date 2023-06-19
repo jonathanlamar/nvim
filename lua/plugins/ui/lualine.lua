@@ -44,14 +44,14 @@ return {
                     },
                     {
                         "diff",
-                        symbols = { added = " ", modified = "柳", removed = " " },
+                        symbols = { added = " ", modified = "", removed = " " },
                         cond = not_too_wide,
                     },
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
                         sections = { "error", "warn", "info", "hint" },
-                        symbols = { error = " ", warn = " ", info = " ", hint = "" },
+                        symbols = { error = " ", warn = " ", info = " ", hint = "" },
                         update_in_insert = false,
                         cond = not_too_wide,
                     },

@@ -24,7 +24,6 @@ local function on_attach(bufnr)
     vim.keymap.set("n", ".", api.node.run.cmd, opts("Run Command"))
     vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts("Up"))
     vim.keymap.set("n", "a", api.fs.create, opts("Create"))
-    vim.keymap.set("n", "bmv", api.marks.bulk.move, opts("Move Bookmarked"))
     vim.keymap.set("n", "B", api.tree.toggle_no_buffer_filter, opts("Toggle No Buffer"))
     vim.keymap.set("n", "c", api.fs.copy.node, opts("Copy"))
     vim.keymap.set("n", "C", api.tree.toggle_git_clean_filter, opts("Toggle Git Clean"))
@@ -83,16 +82,16 @@ return {
         -- following options are the default
         -- each of these are documented in `:help nvim-tree.OPTION_NAME`
         vim.g.nvim_tree_icons = {
-            default = "",
+            default = "",
             symlink = "",
             git = {
-                unstaged = "",
-                staged = "S",
-                unmerged = "",
-                renamed = "➜",
-                deleted = "",
-                untracked = "U",
-                ignored = "◌",
+                unstaged = "",
+                staged = "",
+                unmerged = "",
+                renamed = "",
+                deleted = "",
+                untracked = "",
+                ignored = "󰘓",
             },
             folder = {
                 default = "",
@@ -114,12 +113,6 @@ return {
             diagnostics = {
                 enable = true,
                 show_on_dirs = true,
-                --[[ icons = { ]] -- defaults
-                --[[     hint = "", ]]
-                --[[     info = "", ]]
-                --[[     warning = "", ]]
-                --[[     error = "", ]]
-                --[[ }, ]]
             },
             update_focused_file = {
                 enable = true,
@@ -145,7 +138,6 @@ return {
             renderer = {
                 group_empty = true,
                 highlight_git = true,
-                --[[ root_folder_label = ":t", ]]
             },
         })
 
