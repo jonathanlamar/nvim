@@ -44,7 +44,7 @@ return {
                     },
                     {
                         "diff",
-                        symbols = { added = " ", modified = "", removed = " " },
+                        symbols = { added = " ", modified = " ", removed = " " },
                         cond = not_too_wide,
                     },
                     {
