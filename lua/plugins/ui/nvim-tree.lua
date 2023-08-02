@@ -79,29 +79,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "NvimTreeToggle",
     config = function()
-        -- following options are the default
-        -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-        vim.g.nvim_tree_icons = {
-            default = "",
-            symlink = "",
-            git = {
-                unstaged = "",
-                staged = "",
-                unmerged = "",
-                renamed = "",
-                deleted = "",
-                untracked = "",
-                ignored = "󰘓",
-            },
-            folder = {
-                default = "",
-                open = "",
-                empty = "",
-                empty_open = "",
-                symlink = "",
-            },
-        }
-
         local nvim_tree = require("nvim-tree")
         nvim_tree.setup({
             disable_netrw = true,
@@ -110,9 +87,46 @@ return {
             },
             open_on_tab = false,
             sync_root_with_cwd = true,
+            view = {
+                width = {
+                    min = 40,
+                    padding = 2,
+                },
+            },
+            renderer = {
+                group_empty = true,
+                icons = {
+                    glyphs = {
+                        git = {
+                            unstaged = "",
+                            staged = "",
+                            unmerged = "",
+                            renamed = "",
+                            deleted = "",
+                            untracked = "",
+                            ignored = "󰘓",
+                        },
+                    },
+                },
+                special_files = {
+                    "Makefile",
+                    "README.md",
+                    "build.sbt",
+                    "requirements.txt",
+                    "environment.yaml",
+                    "environment.yml",
+                },
+            },
             diagnostics = {
                 enable = true,
                 show_on_dirs = true,
+                show_on_open_dirs = false,
+                icons = {
+                    hint = "",
+                    info = "",
+                    warning = "",
+                    error = "",
+                },
             },
             update_focused_file = {
                 enable = true,
@@ -120,25 +134,20 @@ return {
             },
             git = {
                 ignore = false,
+                show_on_dirs = true,
+                show_on_open_dirs = false,
+            },
+            modified = {
+                enable = true,
+                show_on_dirs = true,
+                show_on_open_dirs = false,
             },
             actions = {
                 open_file = {
                     resize_window = false,
                 },
             },
-            view = {
-                width = {
-                    min = 40,
-                    padding = 2,
-                },
-                number = false,
-                relativenumber = false,
-            },
             on_attach = on_attach,
-            renderer = {
-                group_empty = true,
-                highlight_git = true,
-            },
         })
 
         vim.api.nvim_set_hl(0, "NvimTreeNormal", { link = "Normal" })
