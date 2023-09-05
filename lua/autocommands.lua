@@ -1,7 +1,3 @@
--- Don't autocomment new lines
--- This has to be an autocommand because formatoptions is overwritten or something for each new buffer.
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "set fo-=c fo-=r fo-=o" })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -51,15 +47,16 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_augroup("text", { clear = true })
---[[ vim.api.nvim_create_autocmd("FileType", { ]]
---[[     group = "text", ]]
---[[     pattern = "text,markdown", ]]
---[[     callback = function() ]]
---[[         vim.opt_local.spell = true ]]
---[[         vim.opt_local.textwidth = 120 ]]
---[[         vim.cmd("set fo+=a fo+=t fo+=n") ]]
---[[     end, ]]
---[[ }) ]]
+vim.api.nvim_create_autocmd("FileType", {
+    group = "text",
+    pattern = "text,markdown",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.textwidth = 120
+        vim.cmd("set fo+=a fo+=t fo+=n")
+        vim.cmd("set conceallevel=2")
+    end,
+})
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = "text",
     pattern = "*.mdx",
