@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.opt_local.spell = true
         vim.opt_local.textwidth = 120
-        vim.cmd("set fo+=a fo+=t fo+=n")
+        --[[ vim.cmd("set fo+=a fo+=t fo+=n") ]]
         vim.cmd("set conceallevel=2")
     end,
 })
