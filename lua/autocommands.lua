@@ -33,7 +33,8 @@ local set_terminal_keymaps = function()
 end
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "term://*", callback = set_terminal_keymaps })
 
---[[ command = "%s/\\s\\+$//e", ]] -- TODO: Make this a whichkey map
+--[[ command = "%s/\\s\\+$//e", ]]
+-- TODO: Make this a whichkey map
 
 vim.api.nvim_create_augroup("json", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
