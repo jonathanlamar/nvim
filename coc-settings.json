@@ -1,0 +1,13 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [],
+  // python config
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "pyright.organizeimports.provider": "isort",
+  "python.sortImports.args": ["--stdout", "--profile", "black", "-"],
+  "Lua.telemetry.enable": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "inlayHint.enable": false,
+}

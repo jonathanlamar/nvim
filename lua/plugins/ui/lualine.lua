@@ -4,7 +4,6 @@ return {
     event = "VeryLazy",
     dependencies = {
         { "nvim-tree/nvim-web-devicons", lazy = true },
-        { "arkav/lualine-lsp-progress", lazy = true },
     },
     config = function()
         -- Condition to hide a section for narrow windows.
@@ -49,7 +48,7 @@ return {
                     },
                     {
                         "diagnostics",
-                        sources = { "nvim_diagnostic" },
+                        sources = { "coc" },
                         sections = { "error", "warn", "info", "hint" },
                         symbols = { error = " ", warn = " ", info = " ", hint = " " },
                         update_in_insert = false,
@@ -58,7 +57,6 @@ return {
                 },
                 lualine_c = {
                     { "filename", cond = not_too_wide },
-                    { "lsp_progress", cond = not_too_wide },
                 },
                 lualine_x = {
                     { "encoding", cond = not_too_wide },
