@@ -10,4 +10,14 @@
   "Lua.telemetry.enable": true,
   "sumneko-lua.enableNvimLuaDev": true,
   "inlayHint.enable": false,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "Lua.workspace.checkThirdParty": false
 }

@@ -8,10 +8,10 @@ return {
         vim.g.coc_global_extensions = {
             "coc-java",
             "coc-json",
+            "coc-metals",
             "coc-pairs",
             "coc-prettier",
             "coc-pyright",
-            "coc-scala",
             "coc-sumneko-lua",
             "coc-tsserver",
         }
