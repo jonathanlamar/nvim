@@ -1,9 +1,8 @@
 return {
     "preservim/vim-markdown",
     dependencies = {
-        "godlygeek/tabular"
+        "godlygeek/tabular",
     },
     ft = "markdown",
-    config = function()
-    end,
+    config = function() end,
 }
