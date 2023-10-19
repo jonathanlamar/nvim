@@ -9,7 +9,6 @@ return {
     opts = {
         symbol_in_winbar = {
             enable = true, -- Putting this in statusline instead
-            color_mode = false, -- only symbols have color
             separator = " > ",
             hide_keyword = true,
             -- Play around with these
