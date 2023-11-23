@@ -106,10 +106,6 @@ return {
                 -- colors = {}, -- table of hex strings
                 -- termcolors = {} -- table of colour name strings
             },
-            context_commentstring = {
-                enable = true,
-                enable_autocmd = false,
-            },
             playground = {
                 enable = true,
                 disable = {},
@@ -129,5 +125,10 @@ return {
                 },
             },
         })
+        require("ts_context_commentstring").setup({
+            enable = true,
+            enable_autocmd = false,
+        })
+        vim.g.skip_ts_context_commentstring_module = true
     end,
 }
