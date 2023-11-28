@@ -10,6 +10,7 @@ return {
             -- One of "all", "maintained" (parsers with maintainers), or a list of languages
             ensure_installed = {
                 "bash",
+                "go",
                 "java",
                 "javascript",
                 "json",

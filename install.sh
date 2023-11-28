@@ -25,6 +25,11 @@ yes | conda create -n neovim python=3.10
 conda run -n neovim bash -c "pip install -r requirements.txt"
 
 #==============
+# Install gopls LSP
+#==============
+go install golang.org/x/tools/gopls@latest
+
+#==============
 # Install js/ts formatting and linting packages
 #==============
 sudo npm install -g prettier eslint

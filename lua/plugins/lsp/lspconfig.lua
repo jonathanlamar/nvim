@@ -26,7 +26,8 @@ return {
                     telemetry = { enable = false },
                 },
             },
-            terraformls = {}
+            terraformls = {},
+            gopls = {}
             -- Do not set up scala here.  That is handled in scala.lua
         }
 

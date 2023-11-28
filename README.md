@@ -57,3 +57,4 @@ This list may not be exhaustive
 - npm (for installing eslint and prettier)
 - stylua
 - ripgrep (for telescope.nvim)
+- go (for installing gopls)
