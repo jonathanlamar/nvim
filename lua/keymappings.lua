@@ -126,7 +126,7 @@ local mappings = {
             d = { "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>", "Document Diagnostics" },
             D = { "<cmd>lua require('telescope.builtin').diagnostics()<cr>", "Workspace Diagnostics" },
         },
-        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+        f = { "<cmd>Format<cr>", "Format" },
         g = {
             name = "+Goto",
             d = { "<cmd>Lspsaga goto_definition<CR>", "Definition(s)" },
