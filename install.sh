@@ -1,4 +1,45 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+function usageFunction() {
+    echo -e "EXPLANATION: Installs the neovim config"
+    echo -e "USAGE:"
+    echo -e "install [--skip-cargo-pkgs] [--skip-golang-pkgs] [--skip-npm-pkgs] [--skip-python-pkgs]"
+    echo -e "    OPTIONS"
+    echo -e "        -c|--skip-cargo-pkgs  : Whether to skip installing cargo packages.  Optional, defaults to false."
+    echo -e "        -g|--skip-golang-pkgs : Whether to skip installing golang packages.  Optional, defaults to false."
+    echo -e "        -n|--skip-npm-pkgs    : Whether to skip installing npm packages.  Optional, defaults to false."
+    echo -e "        -p|--skip-python-pkgs : Whether to skip installing python packages.  Optional, defaults to false."
+    echo -e "        -h|--help             : prints this message."
+}
+
+SKIP_CARGO_PKGS="false"
+SKIP_GOLANG_PKGS="false"
+SKIP_NPM_PKGS="false"
+SKIP_PYTHON_PKGS="false"
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            usageFunction
+            exit 0;;
+        -c|--skip-cargo-pkgs)
+            SKIP_CARGO_PKGS="true"
+            shift;;
+        -g|--skip-golang-pkgs)
+            SKIP_GOLANG_PKGS="true"
+            shift;;
+        -n|--skip-npm-pkgs)
+            SKIP_NPM_PKGS="true"
+            shift;;
+        -p|--skip-python-pkgs)
+            SKIP_PYTHON_PKGS="true"
+            shift;;
+        -*|--*)
+            echo "Unknown option $1"
+            exit 1;;
+        *)
+    esac
+done
+
 
 # Where is this script located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -21,23 +62,31 @@ echo "$NVIMDIR -> $SCRIPT_DIR"
 #==============
 # Install virtual environment
 #==============
-yes | conda create -n neovim python=3.10
-conda run -n neovim bash -c "pip install -r requirements.txt"
+if [ "$SKIP_PYTHON_PKGS" == "false" ]; then
+    yes | conda create -n neovim python=3.10
+    conda run -n neovim bash -c "pip install -r requirements.txt"
+fi
 
 #==============
 # Install gopls LSP
 #==============
-go install golang.org/x/tools/gopls@latest
+if [ "$SKIP_GOLANG_PKGS" == "false" ]; then
+    go install golang.org/x/tools/gopls@latest
+fi
 
 #==============
 # Install js/ts formatting and linting packages
 #==============
-sudo npm install -g prettier eslint
+if [ "$SKIP_NPM_PKGS" == "false" ]; then
+    sudo npm install -g prettier eslint
+fi
 
 #==============
 # Install lua formatting package
 #==============
-cargo install stylua
+if [ "$SKIP_CARGO_PKGS" == "false" ]; then
+    cargo install stylua
+fi
 
 #==============
 # And we are done
