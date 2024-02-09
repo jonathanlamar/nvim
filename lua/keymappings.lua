@@ -157,6 +157,7 @@ local mappings = {
 
     t = {
         name = "Toggle",
+        m = { "<cmd>MarkdownPreviewToggle<CR>", "markdown preview" },
         n = { "<cmd>set nonumber!<CR>", "line-numbers" },
         r = { "<cmd>set norelativenumber!<CR>", "relative line nums" },
         s = { '<cmd>let @/ = ""<CR>', "remove search highlight" },
