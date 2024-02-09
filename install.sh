@@ -88,6 +88,9 @@ if [ "$SKIP_CARGO_PKGS" == "false" ]; then
     cargo install stylua
 fi
 
+# For some reason this needs to be done
+sudo chown -R 502:20 "$HOME/.npm"
+
 #==============
 # And we are done
 #==============
