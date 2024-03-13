@@ -4,6 +4,7 @@ return {
         -- Utilities for creating configurations
         local util = require("formatter.util")
 
+        local env = require("this_computer")
         -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
         require("formatter").setup({
             -- Enable or disable logging
@@ -17,7 +18,7 @@ return {
                 },
                 python = {
                     {
-                        exe = "black",
+                        exe = env.python_env_path .. "/bin/black",
                         args = {
                             "-q",
                             "--stdin-filename",
