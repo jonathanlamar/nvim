@@ -52,7 +52,7 @@ return {
 
 This list may not be exhaustive
 
-- neovim >= 0.8.3
+- neovim >= 0.9
 - conda
 - npm (for installing eslint and prettier)
 - stylua
