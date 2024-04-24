@@ -5,15 +5,17 @@ function usageFunction() {
     echo -e "USAGE:"
     echo -e "install [--skip-cargo-pkgs] [--skip-golang-pkgs] [--skip-npm-pkgs] [--skip-python-pkgs]"
     echo -e "    OPTIONS"
-    echo -e "        -c|--skip-cargo-pkgs  : Whether to skip installing cargo packages.  Optional, defaults to false."
-    echo -e "        -g|--skip-golang-pkgs : Whether to skip installing golang packages.  Optional, defaults to false."
-    echo -e "        -n|--skip-npm-pkgs    : Whether to skip installing npm packages.  Optional, defaults to false."
-    echo -e "        -p|--skip-python-pkgs : Whether to skip installing python packages.  Optional, defaults to false."
-    echo -e "        -h|--help             : prints this message."
+    echo -e "        -c|--skip-cargo-pkgs    : Whether to skip installing cargo packages.  Optional, defaults to false."
+    echo -e "        -g|--skip-golang-pkgs   : Whether to skip installing golang packages.  Optional, defaults to false."
+    echo -e "        -l|--skip-luarocks-pkgs : Whether to skip installing luarocks packages.  Optional, defaults to false."
+    echo -e "        -n|--skip-npm-pkgs      : Whether to skip installing npm packages.  Optional, defaults to false."
+    echo -e "        -p|--skip-python-pkgs   : Whether to skip installing python packages.  Optional, defaults to false."
+    echo -e "        -h|--help               : prints this message."
 }
 
 SKIP_CARGO_PKGS="false"
 SKIP_GOLANG_PKGS="false"
+SKIP_LUAROCKS_PKGS="false"
 SKIP_NPM_PKGS="false"
 SKIP_PYTHON_PKGS="false"
 while [[ $# -gt 0 ]]; do
@@ -26,6 +28,9 @@ while [[ $# -gt 0 ]]; do
             shift;;
         -g|--skip-golang-pkgs)
             SKIP_GOLANG_PKGS="true"
+            shift;;
+        -l|--skip-loarocks-pkgs)
+            SKIP_LUAROCKS_PKGS="true"
             shift;;
         -n|--skip-npm-pkgs)
             SKIP_NPM_PKGS="true"
@@ -88,8 +93,13 @@ if [ "$SKIP_CARGO_PKGS" == "false" ]; then
     cargo install stylua
 fi
 
+# Luarocks packages needed for github copilot
+if [ "$SKIP_LUAROCKS_PKGS" == "false" ]; then
+    sudo luarocks install --lua-version 5.1 tiktoken_core
+fi
+
 # For some reason this needs to be done
-sudo chown -R 502:20 "$HOME/.npm"
+sudo rm -rf $HOME/.npm
 
 #==============
 # And we are done
