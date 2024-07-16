@@ -25,6 +25,13 @@ return {
         { "hrsh7th/cmp-cmdline", lazy = true },
         { "dmitmel/cmp-cmdline-history", lazy = true },
         {
+            "zbirenbaum/copilot-cmp",
+            event = { "BufRead", "BufNewFile" },
+            config = function()
+                require("copilot_cmp").setup()
+            end,
+        },
+        {
             "petertriho/cmp-git",
             ft = { "gitcommit", "gitrebase", "octo" },
             dependencies = { "nvim-lua/plenary.nvim" },
@@ -58,6 +65,7 @@ return {
                     { name = "nvim_lsp_signature_help" },
                     --[[ { name = "luasnip" }, -- TODO: the majority of these are useless ]]
                     { name = "nvim_lsp" },
+                    { name = "copilot" },
                 }, {
                     { name = "path" },
                     { name = "nvim_lua" },

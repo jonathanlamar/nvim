@@ -27,7 +27,8 @@ return {
                 },
             },
             terraformls = {},
-            -- gopls = {}
+            gopls = {}
+            -- Do not set up scala here.  That is handled in scala.lua
         }
 
         mason_lspconfig.setup({

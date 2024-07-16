@@ -35,11 +35,11 @@ return {
 
 ```lua
 return {
-    colorscheme = "kanagawa",
-    lualineTheme = "auto",
-    windowPickerFgColor = "#c8c093",
-    windowPickerBgColor1 = "#7e9cd8",
-    windowPickerBgColor2 = "#727169",
+    colorscheme = "gruvbox-material",
+    lualineTheme = "gruvbox-material",
+    windowPickerFgColor = "#1c1c1c",
+    windowPickerBgColor1 = "#5fafd7",
+    windowPickerBgColor2 = "#444444",
 }
 ```
 
@@ -52,9 +52,9 @@ return {
 
 This list may not be exhaustive
 
-- neovim >= 0.10
+- neovim >= 0.9
 - conda
 - npm (for installing eslint and prettier)
 - stylua
-- luarocks
 - ripgrep (for telescope.nvim)
+- go (for installing gopls)
