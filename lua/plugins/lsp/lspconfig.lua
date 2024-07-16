@@ -27,7 +27,6 @@ return {
                 },
             },
             terraformls = {},
-            gopls = {}
             -- Do not set up scala here.  That is handled in scala.lua
         }
 
