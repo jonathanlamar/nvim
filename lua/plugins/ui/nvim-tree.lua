@@ -86,7 +86,7 @@ return {
                 dotfiles = true,
             },
             open_on_tab = false,
-            sync_root_with_cwd = true,
+            sync_root_with_cwd = false,
             view = {
                 width = {
                     min = 40,
@@ -130,7 +130,7 @@ return {
             },
             update_focused_file = {
                 enable = true,
-                update_root = true,
+                update_root = false,
             },
             git = {
                 ignore = false,
