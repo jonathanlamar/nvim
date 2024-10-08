@@ -53,7 +53,6 @@ return {
 This list may not be exhaustive
 
 - neovim >= 0.10
-- conda
-- npm (for installing eslint and prettier)
+- pyenv
 - stylua
 - ripgrep (for telescope.nvim)

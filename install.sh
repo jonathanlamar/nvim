@@ -7,8 +7,6 @@ NVIMDIR=$HOME/.config/nvim
 #==============
 # Remove old neovim config
 #==============
-sudo rm -rf $HOME/.vimrc > /dev/null 2>&1
-sudo rm -rf $HOME/.vim > /dev/null 2>&1
 sudo rm -rf $NVIMDIR > /dev/null 2>&1
 
 #==============
