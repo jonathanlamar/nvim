@@ -27,7 +27,7 @@ mainly for python, scala, and javascript, since those are the languages I use th
 
 ```lua
 return {
-    python_env_path = "/path/to/conda/envs/neovim",
+    python_env_path = "/path/to/pyenv/envs/neovim",
 }
 ```
 
@@ -35,6 +35,8 @@ return {
 
 ```lua
 return {
+    code_textwidth = 88,
+    prose_textwidth = 120,
     colorscheme = "kanagawa",
     lualineTheme = "auto",
     windowPickerFgColor = "#c8c093",

@@ -1,3 +1,5 @@
+local cfg = require("personal_config")
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -53,7 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "text,markdown",
     callback = function()
         vim.opt_local.spell = true
-        vim.opt_local.textwidth = 120
+        vim.opt_local.textwidth = cfg.prose_textwidth
         --[[ vim.cmd("set fo+=a fo+=t fo+=n") ]]
         vim.cmd("set conceallevel=2")
     end,
@@ -106,6 +108,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_augroup("__formatter__", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-	group = "__formatter__",
-	command = ":FormatWrite",
+    group = "__formatter__",
+    command = ":FormatWrite",
 })

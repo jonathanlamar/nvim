@@ -174,7 +174,7 @@ local mappings = {
         remap = false,
     },
     { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = false, remap = false },
-    { "<leader>lR", "<cmd>Lspsaga lsp_finder<cr>", desc = "Finder", nowait = false, remap = false },
+    { "<leader>lR", "<cmd>Lspsaga finder<cr>", desc = "Finder", nowait = false, remap = false },
     {
         "<leader>ls",
         "<cmd>Telescope lsp_document_symbols<cr>",
