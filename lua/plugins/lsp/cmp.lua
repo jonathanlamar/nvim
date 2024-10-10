@@ -149,6 +149,7 @@ return {
                 ["<Down>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
                 ["<Up>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
             }),
+            view = { entries = { name = "custom", selection_order = "near_cursor" } },
         })
 
         cmp.setup.cmdline({ "/", "?" }, {
@@ -158,6 +159,7 @@ return {
                 ["<Down>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
                 ["<Up>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
             }),
+            view = { entries = { name = "custom", selection_order = "near_cursor" } },
         })
 
         cmp.setup.filetype({ "markdown", "text" }, {
