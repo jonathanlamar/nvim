@@ -58,3 +58,4 @@ This list may not be exhaustive
 - pyenv
 - stylua
 - ripgrep (for telescope.nvim)
+- devpod (for devcontainer support with remote-nvim)

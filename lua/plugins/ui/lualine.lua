@@ -61,6 +61,14 @@ return {
                     { "lsp_progress", cond = not_too_wide },
                 },
                 lualine_x = {
+                    {
+                        function()
+                            return vim.g.remote_neovim_host and ("Remote: %s"):format(vim.uv.os_gethostname()) or ""
+                        end,
+                        padding = { right = 1, left = 1 },
+                        separator = { left = "", right = "" },
+                        cond = not_too_wide,
+                    },
                     { "encoding", cond = not_too_wide },
                     { "filetype", cond = not_too_wide },
                 },
