@@ -18,14 +18,23 @@ return {
                 },
                 python = {
                     {
-                        exe = env.python_env_path .. "/bin/black",
+                        exe = env.python_env_path .. "/bin/ruff",
                         args = {
-                            "-q",
-                            "--stdin-filename",
-                            util.escape_path(util.get_current_buffer_file_name()),
-                            "-",
+                            "check",
+                            util.get_current_buffer_file_name(),
+                            "--select I",
+                            "--fix",
                         },
-                        stdin = true,
+                        stdin = false,
+                        cwd = util.get_current_buffer_file_dir(),
+                    },
+                    {
+                        exe = env.python_env_path .. "/bin/ruff",
+                        args = {
+                            "format",
+                            util.get_current_buffer_file_name(),
+                        },
+                        stdin = false,
                         cwd = util.get_current_buffer_file_dir(),
                     },
                 },
