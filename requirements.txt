@@ -1,11 +1,12 @@
+black
+doq
+flake8
 greenlet
+isort
 msgpack
+pydocstyle
 pynvim
+ruff
 sexpdata
 six
 websocket-client
-black
-doq
-isort
-pydocstyle
-flake8

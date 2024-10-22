@@ -29,7 +29,10 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-lazy.setup("plugins")
+lazy.setup({
+    spec = { { import = "plugins" } },
+    rocks = { hererocks = true },
+})
 
 if is_bootstrap then
     print("Plugin installation complete.  Quit and restart neovim to get all settings.")

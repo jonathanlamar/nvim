@@ -21,7 +21,7 @@ mainly for python, scala, and javascript, since those are the languages I use th
 2. Back up your neovim config.
 3. Make sure the dependencies are installed (see below).
 4. Run `./install.sh`. The files in this repo will be symlinked to your `~/.config/nvim` folder.
-5. Paste the following in `lua/this_computer.lua`. Change to match the actual path to the neovim conda environment that
+5. Paste the following in `lua/this_computer.lua`. Change to match the actual path to the neovim virtual environment that
    was created during the install script.
    - Yeah, I know. It's a minor TODO to infer this automatically.
 
@@ -57,5 +57,5 @@ This list may not be exhaustive
 - neovim >= 0.10
 - pyenv
 - stylua
-- ripgrep (for telescope.nvim)
+- ripgrep, fd (for telescope.nvim)
 - devpod (for devcontainer support with remote-nvim)
