@@ -16,12 +16,12 @@ return {
             folder_level = 2,
             respect_root = false,
         },
-        definition = {
-            edit = "<C-e>",
-            vsplit = "<C-v>",
-            split = "<C-h>",
-            tabe = "<C-t>",
-            quit = "q",
+        finder = {
+            keys = {
+                toggle_or_open = "<CR>",
+                vsplit = "v",
+                split = "h",
+            },
         },
     },
 }
