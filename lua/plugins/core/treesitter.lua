@@ -10,20 +10,14 @@ return {
             -- One of "all", "maintained" (parsers with maintainers), or a list of languages
             ensure_installed = {
                 "bash",
-                "go",
-                "java",
                 "javascript",
                 "json",
-                "latex",
                 "lua",
                 "markdown",
                 "markdown_inline",
                 "python",
-                "scala",
                 "terraform",
                 "typescript",
-                "tsx",
-                "vim",
                 "yaml",
             },
             -- Install languages synchronously (only applied to `ensure_installed`)

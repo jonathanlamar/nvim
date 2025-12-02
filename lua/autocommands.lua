@@ -35,20 +35,6 @@ local set_terminal_keymaps = function()
 end
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "term://*", callback = set_terminal_keymaps })
 
---[[ command = "%s/\\s\\+$//e", ]]
--- TODO: Make this a whichkey map
-
-vim.api.nvim_create_augroup("json", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    group = "json",
-    pattern = "json",
-    callback = function()
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-    end,
-})
-
 vim.api.nvim_create_augroup("text", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "text",
@@ -60,13 +46,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.cmd("set conceallevel=2")
     end,
 })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    group = "text",
-    pattern = "*.mdx",
-    callback = function()
-        vim.opt_local.filetype = "markdown"
-    end,
-})
 
 vim.api.nvim_create_augroup("python", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -74,35 +53,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.ipynb",
     callback = function()
         vim.opt.filetype = "python"
-    end,
-})
-
-vim.api.nvim_create_augroup("scala", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    group = "scala",
-    pattern = "*.sbt",
-    callback = function()
-        vim.opt.filetype = "scala"
-    end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-    group = "scala",
-    pattern = "scala",
-    callback = function()
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-    end,
-})
-
-vim.api.nvim_create_augroup("terraform", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    group = "terraform",
-    pattern = "terraform",
-    callback = function()
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
     end,
 })
 

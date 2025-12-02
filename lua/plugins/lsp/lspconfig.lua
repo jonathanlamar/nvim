@@ -19,15 +19,12 @@ return {
 
         local servers = {
             pyright = {},
-            ts_ls = {},
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
                     telemetry = { enable = false },
                 },
             },
-            terraformls = {},
-            -- Do not set up scala here.  That is handled in scala.lua
         }
 
         mason_lspconfig.setup({

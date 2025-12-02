@@ -60,9 +60,6 @@ keymap("n", "<M-l>", ":vertical resize +1<CR>", opts)
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", opts)
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-vim.keymap.set("v", "<C-p>", ":ToggleTermSendVisualSelection<cr>", opts)
-vim.keymap.set("n", "<C-p>", ":ToggleTermSendCurrentLine<cr>", opts)
-
 -- WHICH KEY
 function _G.close_all_other_buffers()
     vim.cmd(":BufferLineCloseLeft")
@@ -87,13 +84,6 @@ local mappings = {
         remap = false,
     },
     { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "explorer", nowait = false, remap = false },
-    {
-        "<leader>E",
-        "<cmd>lua require('oil').toggle_float()<cr>",
-        desc = "Edit directory files",
-        nowait = false,
-        remap = false,
-    },
     { "<leader>f", "<cmd>Telescope find_files<CR>", desc = "Search file", nowait = false, remap = false },
 
     { "<leader>g", group = "Git", nowait = false, remap = false },
@@ -116,14 +106,14 @@ local mappings = {
     { "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "stage hunk", nowait = false, remap = false },
     { "<leader>gS", "<cmd>Telescope git_status<cr>", desc = "status", nowait = false, remap = false },
     { "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", desc = "undo stage hunk", nowait = false, remap = false },
-    { "<leader>gv", "<cmd>GV!<CR>", desc = "view buffer commits", nowait = false, remap = false },
-    { "<leader>gV", "<cmd>GV<CR>", desc = "view commits", nowait = false, remap = false },
+
+    { "<leader>gs", group = "Search", nowait = false, remap = false },
+    { "<leader>gsc", "<cmd>Telescope git_commits<cr>", desc = "commits", nowait = false, remap = false },
+    { "<leader>gsC", "<cmd>Telescope git_bcommits<cr>", desc = "buffer commits", nowait = false, remap = false },
 
     { "<leader>h", "<cmd>split<CR>", desc = "Split", nowait = false, remap = false },
 
     { "<leader>l", group = "LSP", nowait = false, remap = false },
-    { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code Action", nowait = false, remap = false },
-    { "<leader>lA", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action", nowait = false, remap = false },
 
     { "<leader>lc", group = "Config", nowait = false, remap = false },
     { "<leader>lci", "<cmd>LspInfo<cr>", desc = "Info", nowait = false, remap = false },
@@ -166,13 +156,6 @@ local mappings = {
     },
     { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", desc = "Hover text", nowait = false, remap = false },
     { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline", nowait = false, remap = false },
-    {
-        "<leader>lq",
-        "<cmd>lua require('telescope.builtin').quickfix()<cr>",
-        desc = "Quickfix",
-        nowait = false,
-        remap = false,
-    },
     { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = false, remap = false },
     { "<leader>lR", "<cmd>Lspsaga finder<cr>", desc = "Finder", nowait = false, remap = false },
     {
@@ -192,15 +175,6 @@ local mappings = {
         remap = false,
     },
     { "<leader>sB", "<cmd>Telescope buffers<cr>", desc = "buffers", nowait = false, remap = false },
-    { "<leader>sc", "<cmd>Telescope git_commits<cr>", desc = "commits", nowait = false, remap = false },
-    { "<leader>sC", "<cmd>Telescope git_bcommits<cr>", desc = "buffer commits", nowait = false, remap = false },
-    {
-        "<leader>sd",
-        "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-        desc = "workspace diagnostics",
-        nowait = false,
-        remap = false,
-    },
     { "<leader>sh", "<cmd>Telescope command_history", desc = "command history", nowait = false, remap = false },
     { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "marks", nowait = false, remap = false },
     { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "man pages", nowait = false, remap = false },
@@ -208,12 +182,9 @@ local mappings = {
     { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "registers", nowait = false, remap = false },
 
     { "<leader>t", group = "Toggle", nowait = false, remap = false },
-    { "<leader>tm", "<cmd>MarkdownPreviewToggle<CR>", desc = "markdown preview", nowait = false, remap = false },
     { "<leader>tn", "<cmd>set nonumber!<CR>", desc = "line-numbers", nowait = false, remap = false },
     { "<leader>tr", "<cmd>set norelativenumber!<CR>", desc = "relative line nums", nowait = false, remap = false },
     { "<leader>ts", '<cmd>let @/ = ""<CR>', desc = "remove search highlight", nowait = false, remap = false },
-    { "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", desc = "terminal", nowait = false, remap = false },
-    { "<leader>tT", "<cmd>ToggleTerm direction=vertical<CR>", desc = "terminal", nowait = false, remap = false },
     { "<leader>tw", "<cmd>set nowrap!<CR>", desc = "wrap text", nowait = false, remap = false },
     { "<leader>tz", "<cmd>ZenMode<CR>", desc = "zen mode", nowait = false, remap = false },
 
