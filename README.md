@@ -54,8 +54,7 @@ return {
 
 This list may not be exhaustive
 
-- neovim >= 0.10
+- neovim >= 0.11
 - pyenv
 - stylua
-- ripgrep, fd (for telescope.nvim)
-- devpod (for devcontainer support with remote-nvim)
+- ripgrep (for telescope.nvim)

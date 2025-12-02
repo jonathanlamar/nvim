@@ -42,7 +42,3 @@ end
 require("settings")
 require("keymappings")
 require("autocommands")
-
--- This should probably go somewhere else.
-local cfg = require("personal_config")
-set_colorscheme(cfg.colorscheme)
