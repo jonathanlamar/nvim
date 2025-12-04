@@ -6,19 +6,49 @@ vim.lsp.config("*", {
     capabilities = capabilities,
 })
 
-vim.lsp.config["pyright"] = { cmd = { "pyright-langserver" }, filetypes = { "py" } }
-vim.lsp.config["lua-language-server"] = { cmd = { "lua-language-server" }, filetypes = { "lua" } }
+vim.lsp.config["pyright"] = {
+    cmd = { "pyright-langserver", "--stdio" },
+    filetypes = { "python" },
+    root_markers = {
+        "pyrightconfig.json",
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "Pipfile",
+        ".git",
+    },
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+            },
+        },
+    },
+}
 
-vim.lsp.enable({ "pyright", "lua-language-server" })
+vim.lsp.config["luals"] = {
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    root_markers = {
+        ".emmyrc.json",
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        "stylua.toml",
+        "selene.toml",
+        "selene.yml",
+        ".git",
+    },
+    settings = {
+        Lua = {
+            codeLens = { enable = true },
+            hint = { enable = true, semicolon = "Disable" },
+        },
+    },
+}
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client:supports_method("textDocument/completion") then
-            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-        end
-    end,
-})
-
-vim.cmd("set completeopt+=noselect")
-vim.o.winborder = "rounded"
+vim.lsp.enable({ "pyright", "luals" })
