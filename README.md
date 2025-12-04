@@ -56,5 +56,8 @@ This list may not be exhaustive
 
 - neovim >= 0.11
 - pyenv
-- stylua, pyright, tree-sitter-cli (through homebrew)
 - ripgrep (for telescope.nvim)
+- tree-sitter-cli (through homebrew)
+- stylua
+- pyright
+- lua-language-server

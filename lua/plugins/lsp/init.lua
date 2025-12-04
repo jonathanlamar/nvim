@@ -8,5 +8,7 @@ vim.diagnostic.config({
 })
 
 return {
+    { "folke/neodev.nvim" },
+    { "hrsh7th/cmp-nvim-lsp" },
     { import = "plugins.lsp" },
 }

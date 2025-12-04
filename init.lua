@@ -42,3 +42,4 @@ end
 require("settings")
 require("keymappings")
 require("autocommands")
+require("lsp")

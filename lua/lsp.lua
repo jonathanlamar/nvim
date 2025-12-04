@@ -1,0 +1,24 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
+vim.lsp.config("*", {
+    root_markers = { ".git" },
+    capabilities = capabilities,
+})
+
+vim.lsp.config["pyright"] = { cmd = { "pyright-langserver" }, filetypes = { "py" } }
+vim.lsp.config["lua-language-server"] = { cmd = { "lua-language-server" }, filetypes = { "lua" } }
+
+vim.lsp.enable({ "pyright", "lua-language-server" })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
+})
+
+vim.cmd("set completeopt+=noselect")
+vim.o.winborder = "rounded"
