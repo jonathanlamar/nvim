@@ -2,93 +2,31 @@
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-        { "nvim-lua/popup.nvim", lazy = true },
+        -- { "nvim-lua/popup.nvim", lazy = true },
         { "nvim-lua/plenary.nvim", lazy = true },
     },
     event = "VeryLazy",
     config = function()
-        local actions = require("telescope.actions")
-
+        small_dropdown = { theme = "dropdown", layout_config = { height = 20, width = 0.5 } }
         require("telescope").setup({
             defaults = {
-
                 prompt_prefix = " ",
                 selection_caret = " ",
                 path_display = { "smart" },
-
-                mappings = {
-                    i = {
-                        ["<C-n>"] = actions.cycle_history_next,
-                        ["<C-p>"] = actions.cycle_history_prev,
-
-                        ["<C-j>"] = actions.move_selection_next,
-                        ["<C-k>"] = actions.move_selection_previous,
-
-                        ["<C-c>"] = actions.close,
-
-                        ["<Down>"] = actions.move_selection_next,
-                        ["<Up>"] = actions.move_selection_previous,
-
-                        ["<CR>"] = actions.select_default,
-                        ["<C-x>"] = actions.select_horizontal,
-                        ["<C-v>"] = actions.select_vertical,
-                        ["<C-t>"] = actions.select_tab,
-
-                        ["<C-u>"] = actions.preview_scrolling_up,
-                        ["<C-d>"] = actions.preview_scrolling_down,
-
-                        ["<PageUp>"] = actions.results_scrolling_up,
-                        ["<PageDown>"] = actions.results_scrolling_down,
-
-                        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-                        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                        ["<C-l>"] = actions.complete_tag,
-                        ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-                    },
-
-                    n = {
-                        ["<esc>"] = actions.close,
-                        ["<CR>"] = actions.select_default,
-                        ["<C-x>"] = actions.select_horizontal,
-                        ["<C-v>"] = actions.select_vertical,
-                        ["<C-t>"] = actions.select_tab,
-
-                        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-                        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-
-                        ["j"] = actions.move_selection_next,
-                        ["k"] = actions.move_selection_previous,
-                        ["H"] = actions.move_to_top,
-                        ["M"] = actions.move_to_middle,
-                        ["L"] = actions.move_to_bottom,
-
-                        ["<Down>"] = actions.move_selection_next,
-                        ["<Up>"] = actions.move_selection_previous,
-                        ["gg"] = actions.move_to_top,
-                        ["G"] = actions.move_to_bottom,
-
-                        ["<C-u>"] = actions.preview_scrolling_up,
-                        ["<C-d>"] = actions.preview_scrolling_down,
-
-                        ["<PageUp>"] = actions.results_scrolling_up,
-                        ["<PageDown>"] = actions.results_scrolling_down,
-
-                        ["?"] = actions.which_key,
-                    },
-                },
+                layout_strategy = "flex",
             },
             pickers = {
-                -- Default configuration for builtin pickers goes here:
-                -- picker_name = {
-                --   picker_config_key = value,
-                --   ...
-                -- }
-                -- Now the picker_config_key will be applied every time you call this
-                -- builtin picker
+                buffers = small_dropdown,
+                -- find_files = small_dropdown,
+                git_branches = small_dropdown,
+                -- git_commits = { theme = "dropdown" },
+                -- git_bcommits = { theme = "dropdown" },
+                -- git_status = { theme = "dropdown" },
+                -- diagnostics = { theme = "dropdown" },
+                -- lsp_document_symbols = { theme = "dropdown" },
+                -- current_buffer_fuzzy_find = { theme = "dropdown" },
+                -- oldfiles = { theme = "dropdown" },
+                -- live_grep = { theme = "dropdown" },
             },
             extensions = {
                 -- media_files = {
@@ -111,9 +49,5 @@ return {
                 --}
             },
         })
-
-        -- Load the native fzf binary
-        -- FIXME: This does not load
-        --require('telescope').load_extension('fzf')
     end,
 }
