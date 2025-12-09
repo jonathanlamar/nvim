@@ -38,15 +38,6 @@ return {
                         cwd = util.get_current_buffer_file_dir(),
                     },
                 },
-                terraform = {
-                    require("formatter.filetypes.terraform").terraformfmt,
-                },
-
-                -- Use the special "*" filetype for defining formatter configurations on
-                -- any filetype
-                -- ["*"] = {
-                --     require("formatter.filetypes.any").remove_trailing_whitespace,
-                -- },
             },
         })
     end,
