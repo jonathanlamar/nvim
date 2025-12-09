@@ -100,9 +100,8 @@ local mappings = {
 
     { "<leader>l", group = "LSP", nowait = false, remap = false },
 
-    { "<leader>ld", group = "Diagnostics", nowait = false, remap = false },
     {
-        "<leader>ldl",
+        "<leader>ld",
         "<cmd>lua vim.diagnostic.open_float()<CR>",
         desc = "Line Diagnostics",
         nowait = false,
@@ -119,7 +118,7 @@ local mappings = {
     { "<leader>lR", "<cmd>Lspsaga finder<cr>", desc = "Finder", nowait = false, remap = false },
 
     { "<leader>s", group = "Search", nowait = false, remap = false },
-    { "<leader>sb", "<cmd>Telescope buffers previewer=false<cr>", desc = "Buffers", nowait = false, remap = false },
+    { "<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Buffers", nowait = false, remap = false },
     { "<leader>sf", "<cmd>Telescope find_files<CR>", desc = "Search file", nowait = false, remap = false },
     { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "open recent file", nowait = false, remap = false },
     {
@@ -129,6 +128,7 @@ local mappings = {
         nowait = false,
         remap = false,
     },
+    { "<leader>sT", "<cmd>Telescope live_grep <CR>", desc = "search text", nowait = false, remap = false },
 
     { "<leader>sl", group = "LSP search", nowait = false, remap = false },
     {
@@ -148,7 +148,13 @@ local mappings = {
     },
 
     { "<leader>sg", group = "git search", nowait = false, remap = false },
-    { "<leader>sgb", "<cmd>Telescope git_branches<cr>", desc = "checkout branch", nowait = false, remap = false },
+    {
+        "<leader>sgb",
+        "<cmd>Telescope git_branches previewer=false<cr>",
+        desc = "checkout branch",
+        nowait = false,
+        remap = false,
+    },
     { "<leader>sgc", "<cmd>Telescope git_commits<cr>", desc = "commits", nowait = false, remap = false },
     { "<leader>sgC", "<cmd>Telescope git_bcommits<cr>", desc = "buffer commits", nowait = false, remap = false },
     { "<leader>sgs", "<cmd>Telescope git_status<cr>", desc = "status", nowait = false, remap = false },
