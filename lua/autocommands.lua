@@ -51,3 +51,13 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     group = "__formatter__",
     command = ":FormatWrite",
 })
+
+vim.api.nvim_create_augroup("nvim-tree", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = "nvim-tree",
+    callback = function()
+        if vim.bo.filetype == "NvimTree" and vim.fn.winnr("$") == 1 then
+            vim.cmd(":q!")
+        end
+    end,
+})
