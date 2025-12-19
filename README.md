@@ -27,7 +27,7 @@ mainly for python, scala, and javascript, since those are the languages I use th
 
 ```lua
 return {
-    python_env_path = "/path/to/pyenv/envs/neovim",
+    python_env_path = "/path/to/nvim/.venv",
 }
 ```
 
@@ -55,8 +55,9 @@ return {
 This list may not be exhaustive
 
 - neovim >= 0.11
-- pyenv
+- uv
 - ripgrep (for telescope.nvim)
+- fd (not sure what for)
 - tree-sitter-cli (through homebrew)
 - stylua
 - pyright

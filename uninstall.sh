@@ -4,10 +4,12 @@
 # Remove neovim cache and config links and files.
 #==============
 
+# Where is this script located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 PATHS_TO_REMOVE=(
     "$HOME/.cache/nvim"
     "$HOME/.config/nvim"
-    "$HOME/.config/nvim/lazy-lock.json"
     "$HOME/.local/share/nvim"
     "$HOME/.local/state/nvim"
 )
@@ -39,7 +41,8 @@ done
 #==============
 
 echo "Removing neovim virtual environment."
-yes | pyenv uninstall neovim
+rm -rf "$SCRIPT_DIR/.venv"
+
 if [ $? -eq 0 ]; then
     echo "Virtual environment successfully removed."
 else
