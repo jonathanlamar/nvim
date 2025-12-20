@@ -1,6 +1,3 @@
--- Filepaths specific to this computer.
-require("this_computer")
-
 -- Detection for if this is the first time booting
 local is_bootstrap = false
 
@@ -13,7 +10,6 @@ if not vim.loop.fs_stat(install_path) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
         install_path,
     })
 end
@@ -29,6 +25,12 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.PersonalConfig = {
+    code_textwidth = 88,
+    prose_textwidth = 120,
+    python_path = vim.fn.stdpath("config") .. "/.venv",
+}
+
 lazy.setup({
     spec = { { import = "plugins" } },
     rocks = { hererocks = true },
@@ -42,7 +44,4 @@ end
 require("settings")
 require("keymappings")
 require("autocommands")
-
--- This should probably go somewhere else.
-local cfg = require("personal_config")
-set_colorscheme(cfg.colorscheme)
+require("lsp")

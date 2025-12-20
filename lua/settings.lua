@@ -1,5 +1,3 @@
-local cfg = require("personal_config")
-
 -- General look and feel
 vim.opt.clipboard = { "unnamed", "unnamedplus" }
 vim.opt.encoding = "utf-8"
@@ -42,7 +40,7 @@ vim.opt.guicursor = { -- blinking cursor
     "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
     "sm:block-blinkwait175-blinkoff150-blinkon175",
 }
-vim.opt.colorcolumn = tostring(cfg.code_textwidth)
+vim.opt.colorcolumn = tostring(vim.g.PersonalConfig.code_textwidth)
 
 -- Tabs and Indenting
 -- These should be covered by tpope/vim-sleuth
@@ -77,8 +75,7 @@ vim.opt.spell = false
 vim.opt.spelllang = { "en_us" }
 
 -- Other global settings
-local env = require("this_computer")
-vim.g.python3_host_prog = env.python_env_path .. "/bin/python"
+vim.g.python3_host_prog = vim.g.PersonalConfig.python_path .. "/bin/python"
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")
 

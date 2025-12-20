@@ -21,41 +21,20 @@ mainly for python, scala, and javascript, since those are the languages I use th
 2. Back up your neovim config.
 3. Make sure the dependencies are installed (see below).
 4. Run `./install.sh`. The files in this repo will be symlinked to your `~/.config/nvim` folder.
-5. Paste the following in `lua/this_computer.lua`. Change to match the actual path to the neovim virtual environment that
-   was created during the install script.
-   - Yeah, I know. It's a minor TODO to infer this automatically.
-
-```lua
-return {
-    python_env_path = "/path/to/pyenv/envs/neovim",
-}
-```
-
-6. Paste the following in `lua/personal_config.lua`. Change to match the actual values that you want to set.
-
-```lua
-return {
-    code_textwidth = 88,
-    prose_textwidth = 120,
-    colorscheme = "kanagawa",
-    lualineTheme = "auto",
-    windowPickerFgColor = "#c8c093",
-    windowPickerBgColor1 = "#7e9cd8",
-    windowPickerBgColor2 = "#727169",
-}
-```
-
-7. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
+5. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
    language server configs. Close neovim once this is done.
-8. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
+6. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
    be good to go at this point.
 
 ## Dependencies
 
 This list may not be exhaustive
 
-- neovim >= 0.10
-- pyenv
+- neovim >= 0.11
+- uv
+- ripgrep (for telescope.nvim)
+- fd (not sure what for)
+- tree-sitter-cli (through homebrew)
 - stylua
-- ripgrep, fd (for telescope.nvim)
-- devpod (for devcontainer support with remote-nvim)
+- pyright
+- lua-language-server

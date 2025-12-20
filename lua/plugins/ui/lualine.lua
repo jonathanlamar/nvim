@@ -22,12 +22,10 @@ return {
             return chars[index]
         end
 
-        local cfg = require("personal_config")
-
         require("lualine").setup({
             options = {
                 icons_enabled = true,
-                theme = cfg.lualineTheme,
+                theme = "auto",
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = { "alpha", "dashboard", "Outline", "TelescopePrompt" },

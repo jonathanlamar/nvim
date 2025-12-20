@@ -60,9 +60,6 @@ keymap("n", "<M-l>", ":vertical resize +1<CR>", opts)
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", opts)
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-vim.keymap.set("v", "<C-p>", ":ToggleTermSendVisualSelection<cr>", opts)
-vim.keymap.set("n", "<C-p>", ":ToggleTermSendCurrentLine<cr>", opts)
-
 -- WHICH KEY
 function _G.close_all_other_buffers()
     vim.cmd(":BufferLineCloseLeft")
@@ -71,13 +68,6 @@ end
 
 local mappings = {
     { "<leader>a", "<cmd>Alpha<CR>", desc = "Start screen", nowait = false, remap = false },
-    {
-        "<leader>b",
-        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        desc = "Buffers",
-        nowait = false,
-        remap = false,
-    },
     { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer", nowait = false, remap = false },
     {
         "<leader>C",
@@ -87,14 +77,6 @@ local mappings = {
         remap = false,
     },
     { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "explorer", nowait = false, remap = false },
-    {
-        "<leader>E",
-        "<cmd>lua require('oil').toggle_float()<cr>",
-        desc = "Edit directory files",
-        nowait = false,
-        remap = false,
-    },
-    { "<leader>f", "<cmd>Telescope find_files<CR>", desc = "Search file", nowait = false, remap = false },
 
     { "<leader>g", group = "Git", nowait = false, remap = false },
     { "<leader>ga", "<cmd>Git add %<CR>", desc = "add current", nowait = false, remap = false },
@@ -102,122 +84,86 @@ local mappings = {
     { "<leader>gb", "<cmd>Gitsigns blame_line<CR>", desc = "blame line", nowait = false, remap = false },
     { "<leader>gB", "<cmd>Git blame<CR>", desc = "blame buffer", nowait = false, remap = false },
     { "<leader>gc", "<cmd>Git commit<CR>", desc = "commit", nowait = false, remap = false },
-    { "<leader>gC", "<cmd>Telescope git_branches<cr>", desc = "checkout branch", nowait = false, remap = false },
     { "<leader>gd", "<cmd>Gdiffsplit<CR>", desc = "diff split", nowait = false, remap = false },
     { "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", desc = "preview hunk", nowait = false, remap = false },
     { "<leader>gj", "<cmd>Gitsigns next_hunk<CR>", desc = "next hunk", nowait = false, remap = false },
     { "<leader>gk", "<cmd>Gitsigns prev_hunk<CR>", desc = "prev hunk", nowait = false, remap = false },
     { "<leader>gl", "<cmd>Git log<CR>", desc = "log", nowait = false, remap = false },
-    { "<leader>gm", "<cmd>Git mergetool", desc = "merge tool", nowait = false, remap = false },
     { "<leader>gp", "<cmd>Git push<CR>", desc = "push", nowait = false, remap = false },
     { "<leader>gP", "<cmd>Git pull<CR>", desc = "pull", nowait = false, remap = false },
     { "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "reset hunk", nowait = false, remap = false },
     { "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", desc = "reset buffer", nowait = false, remap = false },
     { "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "stage hunk", nowait = false, remap = false },
-    { "<leader>gS", "<cmd>Telescope git_status<cr>", desc = "status", nowait = false, remap = false },
     { "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", desc = "undo stage hunk", nowait = false, remap = false },
-    { "<leader>gv", "<cmd>GV!<CR>", desc = "view buffer commits", nowait = false, remap = false },
-    { "<leader>gV", "<cmd>GV<CR>", desc = "view commits", nowait = false, remap = false },
 
     { "<leader>h", "<cmd>split<CR>", desc = "Split", nowait = false, remap = false },
 
     { "<leader>l", group = "LSP", nowait = false, remap = false },
-    { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code Action", nowait = false, remap = false },
-    { "<leader>lA", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action", nowait = false, remap = false },
 
-    { "<leader>lc", group = "Config", nowait = false, remap = false },
-    { "<leader>lci", "<cmd>LspInfo<cr>", desc = "Info", nowait = false, remap = false },
-    { "<leader>lcI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = false, remap = false },
-
-    { "<leader>ld", group = "Diagnostics", nowait = false, remap = false },
     {
-        "<leader>ldD",
-        "<cmd>lua require('telescope.builtin').diagnostics()<cr>",
-        desc = "Workspace Diagnostics",
-        nowait = false,
-        remap = false,
-    },
-    {
-        "<leader>ldd",
-        "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>",
-        desc = "Document Diagnostics",
-        nowait = false,
-        remap = false,
-    },
-    {
-        "<leader>ldl",
+        "<leader>ld",
         "<cmd>lua vim.diagnostic.open_float()<CR>",
         desc = "Line Diagnostics",
         nowait = false,
         remap = false,
     },
-
     { "<leader>lf", "<cmd>Format<cr>", desc = "Format", nowait = false, remap = false },
 
     { "<leader>lg", group = "Goto", nowait = false, remap = false },
     { "<leader>lgd", "<cmd>Lspsaga goto_definition<CR>", desc = "Definition(s)", nowait = false, remap = false },
     { "<leader>lgD", "<cmd>Lspsaga peek_definition<CR>", desc = "Type Definition", nowait = false, remap = false },
-    {
-        "<leader>lgi",
-        "<cmd>lua vim.lsp.buf.implementation()<CR>",
-        desc = "Implementation",
-        nowait = false,
-        remap = false,
-    },
     { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", desc = "Hover text", nowait = false, remap = false },
     { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline", nowait = false, remap = false },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = false, remap = false },
+    { "<leader>lR", "<cmd>Lspsaga finder<cr>", desc = "Finder", nowait = false, remap = false },
+
+    { "<leader>s", group = "Search", nowait = false, remap = false },
+    { "<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Buffers", nowait = false, remap = false },
+    { "<leader>sf", "<cmd>Telescope find_files<CR>", desc = "Search file", nowait = false, remap = false },
+    { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "open recent file", nowait = false, remap = false },
     {
-        "<leader>lq",
-        "<cmd>lua require('telescope.builtin').quickfix()<cr>",
-        desc = "Quickfix",
+        "<leader>st",
+        "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+        desc = "current buffer",
         nowait = false,
         remap = false,
     },
-    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = false, remap = false },
-    { "<leader>lR", "<cmd>Lspsaga finder<cr>", desc = "Finder", nowait = false, remap = false },
+    { "<leader>sT", "<cmd>Telescope live_grep <CR>", desc = "search text", nowait = false, remap = false },
+
+    { "<leader>sl", group = "LSP search", nowait = false, remap = false },
     {
-        "<leader>ls",
+        "<leader>sld",
+        "<cmd>Telescope diagnostics bufnr=0<cr>",
+        desc = "Document Diagnostics",
+        nowait = false,
+        remap = false,
+    },
+    { "<leader>slD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = false, remap = false },
+    {
+        "<leader>sls",
         "<cmd>Telescope lsp_document_symbols<cr>",
         desc = "Document Symbols",
         nowait = false,
         remap = false,
     },
 
-    { "<leader>s", group = "Search", nowait = false, remap = false },
+    { "<leader>sg", group = "git search", nowait = false, remap = false },
     {
-        "<leader>sb",
-        "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-        desc = "current buffer",
+        "<leader>sgb",
+        "<cmd>Telescope git_branches previewer=false<cr>",
+        desc = "checkout branch",
         nowait = false,
         remap = false,
     },
-    { "<leader>sB", "<cmd>Telescope buffers<cr>", desc = "buffers", nowait = false, remap = false },
-    { "<leader>sc", "<cmd>Telescope git_commits<cr>", desc = "commits", nowait = false, remap = false },
-    { "<leader>sC", "<cmd>Telescope git_bcommits<cr>", desc = "buffer commits", nowait = false, remap = false },
-    {
-        "<leader>sd",
-        "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-        desc = "workspace diagnostics",
-        nowait = false,
-        remap = false,
-    },
-    { "<leader>sh", "<cmd>Telescope command_history", desc = "command history", nowait = false, remap = false },
-    { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "marks", nowait = false, remap = false },
-    { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "man pages", nowait = false, remap = false },
-    { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "open recent file", nowait = false, remap = false },
-    { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "registers", nowait = false, remap = false },
+    { "<leader>sgc", "<cmd>Telescope git_commits<cr>", desc = "commits", nowait = false, remap = false },
+    { "<leader>sgC", "<cmd>Telescope git_bcommits<cr>", desc = "buffer commits", nowait = false, remap = false },
+    { "<leader>sgs", "<cmd>Telescope git_status<cr>", desc = "status", nowait = false, remap = false },
 
     { "<leader>t", group = "Toggle", nowait = false, remap = false },
-    { "<leader>tm", "<cmd>MarkdownPreviewToggle<CR>", desc = "markdown preview", nowait = false, remap = false },
-    { "<leader>tn", "<cmd>set nonumber!<CR>", desc = "line-numbers", nowait = false, remap = false },
-    { "<leader>tr", "<cmd>set norelativenumber!<CR>", desc = "relative line nums", nowait = false, remap = false },
     { "<leader>ts", '<cmd>let @/ = ""<CR>', desc = "remove search highlight", nowait = false, remap = false },
-    { "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", desc = "terminal", nowait = false, remap = false },
-    { "<leader>tT", "<cmd>ToggleTerm direction=vertical<CR>", desc = "terminal", nowait = false, remap = false },
     { "<leader>tw", "<cmd>set nowrap!<CR>", desc = "wrap text", nowait = false, remap = false },
     { "<leader>tz", "<cmd>ZenMode<CR>", desc = "zen mode", nowait = false, remap = false },
 
-    { "<leader>T", "<cmd>Telescope live_grep<CR>", desc = "Search text", nowait = false, remap = false },
     { "<leader>v", "<cmd>vsplit<CR>", desc = "Veritcal split", nowait = false, remap = false },
 }
 
