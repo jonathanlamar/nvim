@@ -10,7 +10,6 @@ if not vim.loop.fs_stat(install_path) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
         install_path,
     })
 end
