@@ -1,5 +1,3 @@
-local cfg = require("personal_config")
-
 -- General look and feel
 vim.opt.clipboard = { "unnamed", "unnamedplus" }
 vim.opt.encoding = "utf-8"
@@ -42,7 +40,7 @@ vim.opt.guicursor = { -- blinking cursor
     "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
     "sm:block-blinkwait175-blinkoff150-blinkon175",
 }
-vim.opt.colorcolumn = tostring(cfg.code_textwidth)
+vim.opt.colorcolumn = tostring(vim.g.PersonalConfig.code_textwidth)
 
 -- Tabs and Indenting
 -- These should be covered by tpope/vim-sleuth

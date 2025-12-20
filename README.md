@@ -29,25 +29,11 @@ mainly for python, scala, and javascript, since those are the languages I use th
 return {
     python_env_path = "/path/to/nvim/.venv",
 }
-```
 
-6. Paste the following in `lua/personal_config.lua`. Change to match the actual values that you want to set.
 
-```lua
-return {
-    code_textwidth = 88,
-    prose_textwidth = 120,
-    colorscheme = "kanagawa",
-    lualineTheme = "auto",
-    windowPickerFgColor = "#c8c093",
-    windowPickerBgColor1 = "#7e9cd8",
-    windowPickerBgColor2 = "#727169",
-}
-```
-
-7. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
+6. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
    language server configs. Close neovim once this is done.
-8. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
+7. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
    be good to go at this point.
 
 ## Dependencies

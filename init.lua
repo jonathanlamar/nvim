@@ -29,6 +29,11 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.PersonalConfig = {
+    code_textwidth = 88,
+    prose_textwidth = 120,
+}
+
 lazy.setup({
     spec = { { import = "plugins" } },
     rocks = { hererocks = true },
