@@ -3,8 +3,6 @@ return {
     config = function()
         -- Utilities for creating configurations
         local util = require("formatter.util")
-
-        local env = require("this_computer")
         -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
         require("formatter").setup({
             -- Enable or disable logging
@@ -18,7 +16,7 @@ return {
                 },
                 python = {
                     {
-                        exe = env.python_env_path .. "/bin/ruff",
+                        exe = vim.g.PersonalConfig.python_path .. "/bin/ruff",
                         args = {
                             "check",
                             util.get_current_buffer_file_name(),
@@ -29,7 +27,7 @@ return {
                         cwd = util.get_current_buffer_file_dir(),
                     },
                     {
-                        exe = env.python_env_path .. "/bin/ruff",
+                        exe = vim.g.PersonalConfig.python_path .. "/bin/ruff",
                         args = {
                             "format",
                             util.get_current_buffer_file_name(),

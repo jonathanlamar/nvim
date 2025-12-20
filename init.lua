@@ -1,6 +1,3 @@
--- Filepaths specific to this computer.
-require("this_computer")
-
 -- Detection for if this is the first time booting
 local is_bootstrap = false
 
@@ -32,6 +29,7 @@ vim.g.maplocalleader = " "
 vim.g.PersonalConfig = {
     code_textwidth = 88,
     prose_textwidth = 120,
+    python_path = vim.fn.stdpath("config") .. "/.venv",
 }
 
 lazy.setup({

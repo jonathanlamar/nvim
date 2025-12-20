@@ -21,19 +21,9 @@ mainly for python, scala, and javascript, since those are the languages I use th
 2. Back up your neovim config.
 3. Make sure the dependencies are installed (see below).
 4. Run `./install.sh`. The files in this repo will be symlinked to your `~/.config/nvim` folder.
-5. Paste the following in `lua/this_computer.lua`. Change to match the actual path to the neovim virtual environment that
-   was created during the install script.
-   - Yeah, I know. It's a minor TODO to infer this automatically.
-
-```lua
-return {
-    python_env_path = "/path/to/nvim/.venv",
-}
-
-
-6. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
+5. Start neovim. Lazy will install all plugins, treesitter will install parsers, and mason/lspconfig will install
    language server configs. Close neovim once this is done.
-7. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
+6. Start neovim again. Some lazy-loaded plugins may install dependencies the first time they are invoked, but it should
    be good to go at this point.
 
 ## Dependencies
