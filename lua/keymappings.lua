@@ -67,7 +67,6 @@ function _G.close_all_other_buffers()
 end
 
 local mappings = {
-    { "<leader>a", "<cmd>Alpha<CR>", desc = "Start screen", nowait = false, remap = false },
     { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer", nowait = false, remap = false },
     {
         "<leader>C",

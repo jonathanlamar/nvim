@@ -32,30 +32,6 @@ return {
             -- UI
             require("mini.icons").setup()
             require("mini.cursorword").setup()
-            local starter = require("mini.starter")
-            starter.setup({
-                items = {
-                    starter.sections.builtin_actions(),
-                    starter.sections.telescope(),
-                    starter.sections.recent_files(5, false, false),
-                },
-                header = ""
-                    .. "                                               ▓█               \n"
-                    .. "                                               ▓█               \n"
-                    .. "                                                                \n"
-                    .. "                                                                \n"
-                    .. "░█░▒██▓      ▒███▓      ▒███▒    █▓     █▓   ▓███      █▒██▒▒██ \n"
-                    .. "░██▒░░█▓    ▓█▓░▒██    ██▓▒▓█▓   ▓█    ░█▒    ░▓█      ██ ▓█▓ █▓\n"
-                    .. "░█▓   ▒█   ░█▒    █▒  ░█▒   ▓█░  ░█▒   ▒█      ▒█      █▒ ░█░ ▒█\n"
-                    .. "░█▒   ▒█   ▓█     █▓  ▓█    ░█▒   █▓   █▓      ▒█      █▒ ░█░ ▒█\n"
-                    .. "░█░   ░█░  ████████▓  ▓█     █▓   ▒█  ░█░      ▒█      █▒ ░█░ ▒█\n"
-                    .. "░█░   ░█░  ██░░░░░░   ▓█     █▓   ░█▒ ▒█       ▒█      █▒ ░█░ ▒█\n"
-                    .. "░█░   ░█░  ▓█         ▓█    ░█▒    █▓ █▓       ▒█      █▒ ░█░ ▒█\n"
-                    .. "░█░   ░█░  ▒█▒        ░█▒   ▓█░    ▒█░█░       ░█░     █▒ ░█░ ▒█\n"
-                    .. "░█░   ░█░   ▓█▓▒▒▒█▒   ██▓▒▓█▓      ███         ██▒░░  █▒ ░█░ ▒█\n"
-                    .. "░█░   ░█░    ▒████▒     ▓███▒       ██▓         ░▓██▒  █▒ ░█░ ▒█\n"
-                    .. "                                                                \n",
-            })
             require("mini.tabline").setup()
 
             -- Git
