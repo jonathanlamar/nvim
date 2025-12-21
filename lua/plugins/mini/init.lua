@@ -1,6 +1,9 @@
 return {
     {
         "nvim-mini/mini.nvim",
+        dependencies = {
+            { "moll/vim-bbye", lazy = true },
+        },
         config = function()
             -- Text editing
             require("mini.pairs").setup()
@@ -52,7 +55,7 @@ return {
 
             require("mini.sessions").setup() -- works with starter
             require("mini.statusline").setup()
-            -- require("mini.tabline").setup()
+            require("mini.tabline").setup()
 
             -- TODO autocompletion:
             -- require("mini.completion").setup()
