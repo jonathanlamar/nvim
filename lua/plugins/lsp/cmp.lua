@@ -18,11 +18,9 @@ return {
     config = function()
         local cmp = require("cmp")
         local lspkind = require("lspkind")
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
         -- Don't show the dumb matching stuff.
         vim.opt.shortmess:append("c")
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
         local setSources = function()
             local context = require("cmp.config.context")
