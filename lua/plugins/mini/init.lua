@@ -3,6 +3,9 @@ return {
         "nvim-mini/mini.nvim",
         dependencies = {
             { "moll/vim-bbye", lazy = true },
+            "nvim-telescope/telescope-file-browser.nvim",
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
         },
         config = function()
             -- Text editing
@@ -36,10 +39,6 @@ return {
                     starter.sections.telescope(),
                     starter.sections.recent_files(5, false, false),
                 },
-                -- content_hooks = {
-                --     starter.gen_hook.adding_bullet(),
-                --     starter.gen_hook.indexing("all", { "Builtin actions" }),
-                -- },
                 header = ""
                     .. "                                               ▓█               \n"
                     .. "                                               ▓█               \n"
@@ -68,15 +67,6 @@ return {
                         change = "┃",
                         delete = "_",
                     },
-                },
-                mappings = {
-                    apply = "",
-                    reset = "",
-                    textobject = "",
-                    goto_first = "",
-                    goto_prev = "",
-                    goto_next = "",
-                    goto_last = "",
                 },
             })
             require("mini.git").setup()
