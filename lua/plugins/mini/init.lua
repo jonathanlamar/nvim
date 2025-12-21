@@ -51,9 +51,8 @@ return {
             })
 
             require("mini.sessions").setup() -- works with starter
-            require("mini.extra").setup()
+            require("mini.statusline").setup()
             -- require("mini.tabline").setup()
-            -- require("mini.statusline").setup()
 
             -- TODO autocompletion:
             -- require("mini.completion").setup()
