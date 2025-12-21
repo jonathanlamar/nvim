@@ -29,12 +29,17 @@ return {
             -- UI
             require("mini.icons").setup()
             require("mini.cursorword").setup()
-            require("mini.starter").setup({
+            local starter = require("mini.starter")
+            starter.setup({
                 items = {
-                    require("mini.starter").sections.recent_files(5, false, false),
-                    require("mini.starter").sections.recent_files(5, true, false),
-                    require("mini.starter").sections.sessions(5, true),
+                    starter.sections.builtin_actions(),
+                    starter.sections.telescope(),
+                    starter.sections.recent_files(5, false, false),
                 },
+                -- content_hooks = {
+                --     starter.gen_hook.adding_bullet(),
+                --     starter.gen_hook.indexing("all", { "Builtin actions" }),
+                -- },
                 header = ""
                     .. "                                               ▓█               \n"
                     .. "                                               ▓█               \n"
@@ -52,18 +57,33 @@ return {
                     .. "░█░   ░█░    ▒████▒     ▓███▒       ██▓         ░▓██▒  █▒ ░█░ ▒█\n"
                     .. "                                                                \n",
             })
-
-            require("mini.sessions").setup() -- works with starter
             require("mini.statusline").setup()
             require("mini.tabline").setup()
+
+            -- Git
+            require("mini.diff").setup({
+                view = {
+                    signs = {
+                        add = "┃",
+                        change = "┃",
+                        delete = "_",
+                    },
+                },
+                mappings = {
+                    apply = "",
+                    reset = "",
+                    textobject = "",
+                    goto_first = "",
+                    goto_prev = "",
+                    goto_next = "",
+                    goto_last = "",
+                },
+            })
+            require("mini.git").setup()
 
             -- TODO autocompletion:
             -- require("mini.completion").setup()
             -- require("mini.cmdline").setup()
-            --
-            -- TODO git integration:
-            -- require("mini.diff").setup()
-            require("mini.git").setup()
         end,
     },
     { import = "plugins.mini" },
