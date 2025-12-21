@@ -84,7 +84,7 @@ local mappings = {
     { "<leader>gb", "<cmd>Gitsigns blame_line<CR>", desc = "blame line", nowait = false, remap = false },
     { "<leader>gB", "<cmd>Git blame<CR>", desc = "blame buffer", nowait = false, remap = false },
     { "<leader>gc", "<cmd>Git commit<CR>", desc = "commit", nowait = false, remap = false },
-    { "<leader>gd", "<cmd>Gdiffsplit<CR>", desc = "diff split", nowait = false, remap = false },
+    -- { "<leader>gd", "<cmd>Gdiffsplit<CR>", desc = "diff split", nowait = false, remap = false },
     { "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", desc = "preview hunk", nowait = false, remap = false },
     { "<leader>gj", "<cmd>Gitsigns next_hunk<CR>", desc = "next hunk", nowait = false, remap = false },
     { "<leader>gk", "<cmd>Gitsigns prev_hunk<CR>", desc = "prev hunk", nowait = false, remap = false },

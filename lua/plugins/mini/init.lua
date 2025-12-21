@@ -63,7 +63,7 @@ return {
             --
             -- TODO git integration:
             -- require("mini.diff").setup()
-            -- require("mini.git").setup()
+            require("mini.git").setup()
         end,
     },
     { import = "plugins.mini" },
