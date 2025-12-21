@@ -28,6 +28,7 @@ return {
             })
             require("mini.splitjoin").setup()
             require("mini.surround").setup()
+            require("mini.bracketed").setup()
 
             -- UI
             require("mini.icons").setup()
