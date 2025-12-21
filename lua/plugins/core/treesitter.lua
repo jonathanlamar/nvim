@@ -3,10 +3,6 @@ return {
     lazy = false,
     build = ":TSUpdate",
     branch = "main",
-    dependencies = {
-        -- { "nvim-treesitter/nvim-treesitter-textobjects" },
-        { "nvim-treesitter/nvim-treesitter-context" },
-    },
     config = function()
         local treesitter = require("nvim-treesitter")
         treesitter.install({
@@ -21,10 +17,5 @@ return {
             "typescript",
             "yaml",
         })
-        -- require("ts_context_commentstring").setup({
-        --     enable = true,
-        --     enable_autocmd = false,
-        -- })
-        -- vim.g.skip_ts_context_commentstring_module = true
     end,
 }
