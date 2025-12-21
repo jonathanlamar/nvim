@@ -60,15 +60,6 @@ return {
             require("mini.tabline").setup()
 
             -- Git
-            require("mini.diff").setup({
-                view = {
-                    signs = {
-                        add = "┃",
-                        change = "┃",
-                        delete = "_",
-                    },
-                },
-            })
             require("mini.git").setup()
 
             -- TODO autocompletion:
